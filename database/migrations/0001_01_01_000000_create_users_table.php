@@ -12,15 +12,32 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
-            $table->timestamps();
+            //standaardvelden
+                $table->id();
+                $table->string('name');
+                $table->string('email')->unique();
+                $table->timestamp('email_verified_at')->nullable();
+                $table->string('password');
+                $table->rememberToken();
+                $table->timestamps();
+            //einde standaardvelden
+            $table->string('member_number')->nullable();
+            $table->date('date_of_birth');
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->foreign('sex_id')->constrained();
+            $table->string('email');
+            $table->string('cellphone_number');
+            $table->string('phone_number')->nullable();
+            $table->string('street');
+            $table->string('house_number');
+            $table->string('housenumber_addition')->nullable();
+            $table->foreign('postal_code_id')->constrained();
+            $table->foreign('role_id')->constrained();
+            $table->text('remarks')->nullable();
         });
 
+        //De volgende tabellen zijn volledig standaard.
         Schema::create('password_reset_tokens', function (Blueprint $table) {
             $table->string('email')->primary();
             $table->string('token');

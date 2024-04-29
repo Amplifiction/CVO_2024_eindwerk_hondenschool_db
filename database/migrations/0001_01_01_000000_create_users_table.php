@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             //standaardvelden
                 $table->id();
-                $table->string('name');
                 $table->string('email')->unique();
                 $table->timestamp('email_verified_at')->nullable();
                 $table->string('password');
@@ -25,15 +24,14 @@ return new class extends Migration
             $table->date('date_of_birth');
             $table->string('first_name');
             $table->string('last_name');
-            $table->foreign('sex_id')->constrained();
-            $table->string('email');
+            $table->foreignId('sex_id')->constrained();
             $table->string('cellphone_number');
             $table->string('phone_number')->nullable();
             $table->string('street');
             $table->string('house_number');
             $table->string('housenumber_addition')->nullable();
-            $table->foreign('postal_code_id')->constrained();
-            $table->foreign('role_id')->constrained();
+            $table->foreignId('postal_code_id')->constrained();
+            $table->foreignId('role_id')->constrained();
             $table->text('remarks')->nullable();
         });
 

@@ -44,4 +44,25 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function postal_code() {
+        return $this->belongsTo(Postal_Code::class);
+    }
+
+    public function role() {
+        return $this->belongsTo(Role::class);
+    }
+
+    public function sex() {
+        return $this->belongsTo(Sex::class);
+    }
+
+    public function ownerships() {
+        return $this->belongsToMany(Dog::class, 'ownerships', 'user_id', 'dog_id');
+    }
+
+    public function memberships() {
+        return $this->belongsToMany(User::class, 'memberships', 'user_id', 'dog_id')
+        ->withPivot('discipline_id', 'start_date', 'end_date', 'fee');
+    }
 }

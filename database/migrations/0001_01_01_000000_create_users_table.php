@@ -21,12 +21,12 @@ return new class extends Migration
                 $table->timestamps();
             //einde standaardvelden
             $table->string('member_number')->nullable();
-            $table->date('date_of_birth');
             $table->string('first_name');
             $table->string('last_name');
             $table->foreignId('sex_id')->constrained();
-            $table->string('cellphone_number');
-            $table->string('phone_number')->nullable();
+            $table->date('date_of_birth');
+            $table->string('cellphone');
+            $table->string('phone')->nullable();
             $table->string('street');
             $table->string('house_number');
             $table->string('housenumber_addition')->nullable();

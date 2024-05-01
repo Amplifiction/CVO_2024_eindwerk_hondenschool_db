@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             RolesSeeder::class,
             SexesSeeder::class,
             RacesSeeder::class,
+            DisciplinesSeeder::class,
         ]);
     }
 }

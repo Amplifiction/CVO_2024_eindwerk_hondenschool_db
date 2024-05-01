@@ -11,15 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('dogs', function (Blueprint $table) {
+        Schema::create('ownerships', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->foreignId('race_id')->constrained();
-            $table->date('date_of_birth');
-            $table->string('name');
-            $table->boolean('sex'); //0=reu, 1=teef
-            $table->text('remarks')->nullable();
-            $table->text('uuid')->unique();
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('dog_id')->constrained();
         });
     }
 
@@ -28,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('dogs');
+        Schema::dropIfExists('ownerships');
     }
 };

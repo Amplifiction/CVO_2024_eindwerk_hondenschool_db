@@ -15,10 +15,12 @@ class AuthController extends Controller
         $postal_codes = Postal_code::all(); //->only(['id', 'postal_code', 'municipality'])
         $sexes = Sex::all();
 
-        return Inertia::render('Auth/Register',[
-            'postal_codes' => $postal_codes,
-            'sexes' => $sexes,
-        ]);
+        // return Inertia::render('Auth/Register',[
+        //     'postal_codes' => $postal_codes,
+        //     'sexes' => $sexes,
+        // ]);
+
+        return dd($postal_codes);
     }
 
     public function handleRegister (Request $request) {

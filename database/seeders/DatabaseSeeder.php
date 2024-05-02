@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
             SexesSeeder::class,
             RacesSeeder::class,
             DisciplinesSeeder::class,
+            PostalCodesSeeder::class
         ]);
     }
 }

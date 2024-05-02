@@ -2,16 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Sex;
 use App\Models\User;
 use Inertia\Inertia;
+use App\Models\Postal_Code;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
     public function register() {
-        $postal_codes = 0; //TO DO: queries schrijven (voor selects in register form)
-        $sexes = 0;
+        $postal_codes = Postal_code::all(); //->only(['id', 'postal_code', 'municipality'])
+        $sexes = Sex::all();
+
         return Inertia::render('Auth/Register',[
             'postal_codes' => $postal_codes,
             'sexes' => $sexes,
@@ -19,7 +22,7 @@ class AuthController extends Controller
     }
 
     public function handleRegister (Request $request) {
-        $request->validate([
+        $validated=$request->validate([
             'first_name' => 'required',
             'last_name' => 'required',
             'sex_id' => 'required',
@@ -45,5 +48,6 @@ class AuthController extends Controller
         $user->save();
 
         //return redirect()->route('/');
+        return dd($validated);
     }
 }

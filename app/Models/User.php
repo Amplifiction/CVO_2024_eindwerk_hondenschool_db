@@ -46,7 +46,7 @@ class User extends Authenticatable
     }
 
     public function postal_code() {
-        return $this->belongsTo(Postal_Code::class);
+        return $this->belongsTo(Postal_code::class);
     }
 
     public function role() {

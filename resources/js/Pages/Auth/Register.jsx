@@ -1,6 +1,6 @@
 import { useForm } from "@inertiajs/react"
 
-export default function Register () {
+export default function Register ({postal_codes, sexes}) {
     const { data, setData, post, processing, errors, setError } = useForm({
         first_name: '',
         last_name: '',
@@ -19,7 +19,7 @@ export default function Register () {
 
     function handleSubmit(e) {
         e.preventDefault()
-        post('/register')
+        post('/register') // TO DO: form submit niet
     }
 
     return (
@@ -55,7 +55,7 @@ export default function Register () {
                     {errors.last_name && <div>{errors.last_name}</div>}
                 </div>
                 <div>
-                    <label htmlFor="sex_id">Geslacht</label> {/* TO DO: CONVERT TO SELECT*/}
+                    <label htmlFor="sex_id">Geslacht</label>
                     <input
                         value={data.sex_id}
                         onChange={e => {
@@ -63,9 +63,18 @@ export default function Register () {
                             setData('sex_id', e.target.value)
                         }}
                         type="text"
-                        name="sex_id"
                         id="sex_id"
+                        list="sexlist"
                     />
+                    <datalist id="sexlist">
+                        {sexes.map(sex => (
+                            <option
+                                key={sex.id}
+                                data-value={sex.id}
+                                value={sex.name}
+                            ></option>
+                        ))}
+                    </datalist>
                     {errors.sex_id && <div>{errors.sex_id}</div>}
                 </div>
                 <div>
@@ -77,9 +86,9 @@ export default function Register () {
                             setData('date_of_birth', e.target.value)
                         }}
                         type="date"
-                        name="date_of_birth"
+                        name="geboortedatum"
                         id="date_of_birth"
-                    />
+                    /> {/*TO DO: field name in error messages */}
                     {errors.date_of_birth && <div>{errors.date_of_birth}</div>}
                 </div>
                 <div>
@@ -167,7 +176,7 @@ export default function Register () {
                     {errors.housenumber_addition && <div>{errors.housenumber_addition}</div>}
                 </div>
                 <div>
-                    <label htmlFor="postal_code_id">Postcode</label> {/* TO DO: CONVERT TO SELECT*/}
+                <label htmlFor="postal_code_id">Postcode</label>
                     <input
                         value={data.postal_code_id}
                         onChange={e => {
@@ -175,11 +184,19 @@ export default function Register () {
                             setData('postal_code_id', e.target.value)
                         }}
                         type="text"
-                        name="postal_code_id"
                         id="postal_code_id"
+                        list="pclist"
                     />
-                    {errors.postal_code_id && <div>{errors.postal_code_id}</div>}
-                </div>
+                    <datalist id="pclist">
+                        {postal_codes.map(pc => (
+                            <option
+                                key={pc.id}
+                                data-value={pc.id}
+                                value={`${pc.postal_code} ${pc.municipality}`}
+                            ></option>
+                        ))}
+                    </datalist>
+                    {errors.postal_code_id && <div>{errors.postal_code_id}</div>}                </div>
                 <div>
                     <label htmlFor="password">Wachtwoord</label>
                     <input

@@ -16,6 +16,7 @@ class SexesSeeder extends Seeder
         DB::table('sexes')->insert([
             ['name'=>'man'],
             ['name'=>'vrouw'],
+            ['name'=>'x'],
         ]);
     }
 }

@@ -6,14 +6,14 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-class RacesSeeder extends Seeder
+class BreedsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        DB::table('races')->insert([
+        DB::table('breeds')->insert([
             ['name'=>'Canis Vulgaris'],
             ['name'=>'Pointer'],
             ['name'=>'Engelse setter'],

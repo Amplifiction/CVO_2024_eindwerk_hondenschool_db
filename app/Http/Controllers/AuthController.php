@@ -7,33 +7,56 @@ use App\Models\User;
 use Inertia\Inertia;
 use App\Models\Postal_Code;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
+    public function login() {
+        return Inertia::render('Auth/Login');
+    }
+
+    public function handleLogin(Request $request) {
+        $request->validate([
+            'email' =>'required|email',
+            'password' => 'required'
+        ]);
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+            //$request->session()->flash('message', 'Login succesvol');
+            return redirect()->route('dashboard');
+        }
+        return back()->withErrors([
+            'email' => 'Wij kunnen u niet aanmelden met de door u verstrekte gegevens.'
+        ]);
+    }
+
+    public function handleLogout() {
+        Auth::logout();
+        return redirect()->route('dashboard');
+    }
+
     public function register() {
-        $postal_codes = Postal_code::all(); //->only(['id', 'postal_code', 'municipality'])
+        $postal_codes = Postal_code::all('id', 'postal_code', 'municipality');
         $sexes = Sex::all();
 
-        // return Inertia::render('Auth/Register',[
-        //     'postal_codes' => $postal_codes,
-        //     'sexes' => $sexes,
-        // ]);
-
-        return dd($postal_codes);
+        return Inertia::render('Auth/Register',[
+            'postal_codes' => $postal_codes,
+            'sexes' => $sexes,
+        ]);
     }
 
     public function handleRegister (Request $request) {
-        $validated=$request->validate([
+        $request->validate([
             'first_name' => 'required',
             'last_name' => 'required',
-            'sex_id' => 'required',
+            'sex_id' => ['required', Rule::notIn(['-1'])],
             'date_of_birth' => 'required',
             'email' => 'required|email:rfc,dns|unique:users',
             'cellphone' => 'required',
             'street'=>'required',
             'house_number' =>'required',
-            'postal_code_id' =>'required',
+            'postal_code_id' => ['required', Rule::notIn(['-1'])],
             'password' => 'required|confirmed|min:8'
         ]);
         $user = new User;
@@ -45,11 +68,17 @@ class AuthController extends Controller
         $user->cellphone = $request->cellphone;
         $user->phone = $request->phone;
         $user->street = $request->street;
+        $user->house_number = $request->house_number;
+        $user->housenumber_addition = $request->housenumber_addition;
+        $user->postal_code_id = $request->postal_code_id;
         $user->password = Hash::make($request->password);
         $user->role_id = 1;
         $user->save();
 
-        //return redirect()->route('/');
-        return dd($validated);
+        $request->session()->flash('message', 'Registratie succesvol! U werd automatisch ingelogd.');
+        //PHP Intelephense plugin: method 'flash' is zogezegd unidentified, maar werkt.
+        Auth::login($user);
+
+        return redirect()->route('dashboard');
     }
 }

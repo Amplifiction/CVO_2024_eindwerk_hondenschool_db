@@ -9,8 +9,8 @@ class Dog extends Model
 {
     use HasFactory;
 
-    public function race() {
-        return $this->belongsTo(Race::class);
+    public function breed() {
+        return $this->belongsTo(Breed::class);
     }
 
     public function ownerships() {

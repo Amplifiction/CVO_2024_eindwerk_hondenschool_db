@@ -4,23 +4,26 @@ export default function Register ({postal_codes, sexes}) {
     const { data, setData, post, processing, errors, setError } = useForm({
         first_name: '',
         last_name: '',
-        sex_id: '',
+        sex_id: -1,
         date_of_birth: '',
         email: '',
         cellphone: '',
         phone: '',
         street: '',
-        housenumber: '',
+        house_number: '',
         housenumber_addition: '',
-        postal_code_id: '',
+        postal_code_id: -1,
         password: '',
         password_confirmation: '',
     })
 
     function handleSubmit(e) {
         e.preventDefault()
-        post('/register') // TO DO: form submit niet
+        post('/register')
     }
+
+    //TO DO: SimpleInput component maken
+    //TO DO: Autocomplete combobox component maken (voor sex en postal_code)
 
     return (
         <div>
@@ -56,25 +59,23 @@ export default function Register ({postal_codes, sexes}) {
                 </div>
                 <div>
                     <label htmlFor="sex_id">Geslacht</label>
-                    <input
+                    <select
+                        id="sex_id"
                         value={data.sex_id}
                         onChange={e => {
                             setError('sex_id', '')
                             setData('sex_id', e.target.value)
                         }}
-                        type="text"
-                        id="sex_id"
-                        list="sexlist"
-                    />
-                    <datalist id="sexlist">
+                    >
+                        <option value="-1" disabled>-- kies een geslacht --</option>
                         {sexes.map(sex => (
                             <option
                                 key={sex.id}
-                                data-value={sex.id}
-                                value={sex.name}
-                            ></option>
+                                value={sex.id}
+                            >{sex.name}</option>
                         ))}
-                    </datalist>
+                    </select>
+
                     {errors.sex_id && <div>{errors.sex_id}</div>}
                 </div>
                 <div>
@@ -148,18 +149,18 @@ export default function Register ({postal_codes, sexes}) {
                     {errors.street && <div>{errors.street}</div>}
                 </div>
                 <div>
-                    <label htmlFor="housenumber">Huisnummer</label>
+                    <label htmlFor="house_number">Huisnummer</label>
                     <input
-                        value={data.housenumber}
+                        value={data.house_number}
                         onChange={e => {
-                            setError('housenumber', '')
-                            setData('housenumber', e.target.value)
+                            setError('house_number', '')
+                            setData('house_number', e.target.value)
                         }}
                         type="text"
-                        name="housenumber"
-                        id="housenumber"
+                        name="house_number"
+                        id="house_number"
                     />
-                    {errors.housenumber && <div>{errors.housenumber}</div>}
+                    {errors.house_number && <div>{errors.house_number}</div>}
                 </div>
                 <div>
                     <label htmlFor="housenumber_addition">Huisnummer toevoeging</label>
@@ -176,27 +177,25 @@ export default function Register ({postal_codes, sexes}) {
                     {errors.housenumber_addition && <div>{errors.housenumber_addition}</div>}
                 </div>
                 <div>
-                <label htmlFor="postal_code_id">Postcode</label>
-                    <input
+                    <label htmlFor="postal_code_id">Postcode & gemeente</label>
+                    <select
+                        id="postal_code_id"
                         value={data.postal_code_id}
                         onChange={e => {
                             setError('postal_code_id', '')
                             setData('postal_code_id', e.target.value)
                         }}
-                        type="text"
-                        id="postal_code_id"
-                        list="pclist"
-                    />
-                    <datalist id="pclist">
+                    >
+                        <option value="-1" disabled>-- kies een postcode/gemeente --</option>
                         {postal_codes.map(pc => (
                             <option
                                 key={pc.id}
-                                data-value={pc.id}
-                                value={`${pc.postal_code} ${pc.municipality}`}
-                            ></option>
+                                value={pc.id}
+                            >{`${pc.postal_code} ${pc.municipality}`}</option>
                         ))}
-                    </datalist>
-                    {errors.postal_code_id && <div>{errors.postal_code_id}</div>}                </div>
+                    </select>
+                    {errors.postal_code_id && <div>{errors.postal_code_id}</div>}
+                </div>
                 <div>
                     <label htmlFor="password">Wachtwoord</label>
                     <input
@@ -205,7 +204,7 @@ export default function Register ({postal_codes, sexes}) {
                             setError('password', '')
                             setData('password', e.target.value)
                         }}
-                        type="text"
+                        type="password"
                         name="password"
                         id="password"
                     />
@@ -219,7 +218,7 @@ export default function Register ({postal_codes, sexes}) {
                             setError('password_confirmation', '')
                             setData('password_confirmation', e.target.value)
                         }}
-                        type="text"
+                        type="password"
                         name="password_confirmation"
                         id="password_confirmation"
                     />
@@ -228,7 +227,6 @@ export default function Register ({postal_codes, sexes}) {
                 <div>
                     <input disabled={processing} type="submit" value="Verzenden" />
                 </div>
-
             </form>
         </div>
     )

@@ -28,7 +28,7 @@ return new class extends Migration
             $table->string('cellphone');
             $table->string('phone')->nullable();
             $table->string('street');
-            $table->string('house_number');
+            $table->string('housenumber');
             $table->string('housenumber_addition')->nullable();
             $table->foreignId('postal_code_id')->constrained();
             $table->foreignId('role_id')->constrained();

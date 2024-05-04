@@ -55,7 +55,7 @@ class AuthController extends Controller
             'email' => 'required|email:rfc,dns|unique:users',
             'cellphone' => 'required',
             'street'=>'required',
-            'house_number' =>'required',
+            'housenumber' =>'required',
             'postal_code_id' => ['required', Rule::notIn(['-1'])],
             'password' => 'required|confirmed|min:8'
         ]);
@@ -68,7 +68,7 @@ class AuthController extends Controller
         $user->cellphone = $request->cellphone;
         $user->phone = $request->phone;
         $user->street = $request->street;
-        $user->house_number = $request->house_number;
+        $user->housenumber = $request->housenumber;
         $user->housenumber_addition = $request->housenumber_addition;
         $user->postal_code_id = $request->postal_code_id;
         $user->password = Hash::make($request->password);

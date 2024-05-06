@@ -3,7 +3,8 @@ import { useState } from "react"
 // TO DO: dit werkt voor geslachten, omdat hier enkel name moet worden weergegeven. Voor postcodes is dit echter postcode+' '+gemeente.
 // Oplossing: aangepaste array doorgeven. Of prop voorzien.
 
-// TO DO: zie regels met "does not happen".
+// TO DO: user geef focus aan input > ul opent. User klikt buiten input > ul blijft open.
+// onBlur={() => {setShowUl(false)}} op input of parent div verhindert click event op ul!
 
 // TO DO: wat als gebruiker niet in ul klikt, maar de gewenste waarde integraal typt?
 // Bij onBlur van input en input!='' : find in array, setReturnValue, foutmelding indien niet gevonden
@@ -29,10 +30,10 @@ export default function EigenCombobox ({}) {
     )
 
     const handleSelect = (name, id) => {
-        setInput(name) // does not happen.
-        setReturnValue(id) // does not happen.
+        setInput(name)
+        setReturnValue(id)
         setShowUl(false)
-        console.log(`input is now ${input}`) // does not happen.
+        console.log(`input is now ${input}`)
     }
 
     // const handleBlur = () => {
@@ -48,7 +49,7 @@ export default function EigenCombobox ({}) {
     // }
 
     return (
-        <>
+        <div>
             <input
                 id={`${title}_input`}
                 type="text"
@@ -56,11 +57,10 @@ export default function EigenCombobox ({}) {
                 value={input}
                 onChange={e => {setInput(e.target.value)}}
                 onFocus={() => {setShowUl(true)}}
-                onBlur={() => {setShowUl(false)}} //insert handleBlur here
             />
             <input
                 id={`${title}_id`} //$request->{title}_id will be used in a Laravel controller.
-                type="hidden"
+                type="text" //make hidden
                 value={returnValue}
             />
             {showUl &&
@@ -73,6 +73,6 @@ export default function EigenCombobox ({}) {
                     ))}
                 </ul>
             }
-        </>
+        </div>
     )
 }

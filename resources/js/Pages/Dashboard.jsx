@@ -9,7 +9,7 @@ export default function Home () {
         <div>
             <h1>Mijn dashboard</h1>
             <p>{flash.message}</p>
-            {/* <EigenCombobox/> */}
+            <EigenCombobox/>
         </div>
     )
 }

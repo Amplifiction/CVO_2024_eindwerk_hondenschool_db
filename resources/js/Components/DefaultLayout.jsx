@@ -1,6 +1,8 @@
 import { Head, usePage } from "@inertiajs/react";
+import '../../css/main.css'
 import GuestMenu from "../Components/GuestMenu"
 import AuthMenu from "../Components/AuthMenu"
+
 
 export function DefaultLayout({children}) {
     const { auth } = usePage().props
@@ -13,18 +15,18 @@ export function DefaultLayout({children}) {
             </Head>
             <main>
                 <header>
-                    {auth.user? <AuthMenu/> : <GuestMenu/>}
+                    <div className="m-xy-1">{auth.user? <AuthMenu/> : <GuestMenu/>}</div>
                     <hr />
                 </header>
-                <section>
+                <section className="container">
                     {children}
                 </section>
                 <footer>
                     <hr />
-                    <div>
+                    <div className="m-xy-1">
                         <a href="https://www.hondenschoolderoedel.be/" target="_blank">De Roedel vzw</a> | <a href="https://www.facebook.com/hondenschoolderoedelhelchteren/" target="_blank">Facebook</a>
+                        <p>Copyright &copy; 2024 Bart Stevens</p>
                     </div>
-                    <p>Copyright &copy; 2024 Bart Stevens</p>
                 </footer>
             </main>
         </>

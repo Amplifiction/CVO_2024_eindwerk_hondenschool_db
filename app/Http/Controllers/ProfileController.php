@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Sex;
-use App\Models\User;
 use Inertia\Inertia;
 use App\Models\Postal_Code;
 use Illuminate\Http\Request;
@@ -11,55 +10,36 @@ use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
-class AuthController extends Controller
+class ProfileController extends Controller
 {
-    public function login() {
-        return Inertia::render('Auth/Login');
-    }
-
-    public function handleLogin(Request $request) {
-        $request->validate([
-            'email' =>'required|email',
-            'password' => 'required'
-        ]);
-        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-            //$request->session()->flash('message', 'Login succesvol');
-            return redirect()->route('dashboard');
-        }
-        return back()->withErrors([
-            'email' => 'Wij kunnen u niet aanmelden met de door u verstrekte gegevens.'
-        ]);
-    }
-
-    public function handleLogout() {
-        Auth::logout();
-        return redirect()->route('dashboard');
-    }
-
-    public function register() {
+    public function editProfile () {
         $postal_codes = Postal_code::all('id', 'postal_code', 'municipality');
         $sexes = Sex::all();
 
-        return Inertia::render('Auth/Register',[
+        return Inertia::render('Profile/EditProfile',[
             'postal_codes' => $postal_codes,
             'sexes' => $sexes,
         ]);
     }
 
-    public function handleRegister (Request $request) {
+    public function handleEditProfile (Request $request) {
+        $user = Auth::user();
         $request->validate([
             'first_name' => 'required',
             'last_name' => 'required',
             'sex_id' => ['required', Rule::notIn(['-1'])],
             'date_of_birth' => 'required',
-            'email' => 'required|email:rfc,dns|unique:users',
+            'email' => [
+                'required',
+                'email:rfc,dns',
+                Rule::unique('users')->ignore($user->id) //nodig zodat user eigen (dezelfde) email opnieuw kan opslaan.
+            ],
             'cellphone' => 'required',
             'street'=>'required',
             'housenumber' =>'required',
             'postal_code_id' => ['required', Rule::notIn(['-1'])],
-            'password' => 'required|confirmed|min:8'
+            'password' => 'confirmed|min:8'
         ]);
-        $user = new User;
         $user->first_name = $request->first_name;
         $user->last_name = $request->last_name;
         $user->sex_id = $request->sex_id;
@@ -72,12 +52,10 @@ class AuthController extends Controller
         $user->housenumber_addition = $request->housenumber_addition;
         $user->postal_code_id = $request->postal_code_id;
         $user->password = Hash::make($request->password);
-        $user->role_id = 1;
         $user->save();
 
-        $request->session()->flash('message', 'Registratie succesvol! U werd automatisch ingelogd.');
+        $request->session()->flash('message', 'Uw gegevens werden bijgewerkt.');
         //PHP Intelephense plugin: method 'flash' is zogezegd unidentified, maar werkt.
-        Auth::login($user);
 
         return redirect()->route('dashboard');
     }

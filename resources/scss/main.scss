@@ -1,0 +1,71 @@
+@use 'variables' as vars;
+@use 'reset';
+@use 'grid'; //responsiveness
+@use 'containers';
+@use 'buttons';
+
+body {
+    font-family: vars.$font-stack;
+}
+
+* {
+    border-radius: 5px;
+}
+
+.dark {
+    background-color: vars.$bg-dark;
+    color: vars.$fc-dark;
+}
+.light {
+    background-color: vars.$bg-light;
+    color: vars.$fc-light;
+}
+
+//FLEX
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+.flex-row {
+    display: flex;
+}
+.align-center {
+    align-items: center;
+}
+.just-center {
+    justify-content: center;
+}
+
+//TYPOGRAPHY
+@for $i from 1 through 6 {
+    h#{$i} {
+        font-size: 220-$i*20%;
+    }
+}
+.fw-bold {
+    font-weight: bold;
+}
+.fs-ita {
+    font-style: italic;
+}
+.error {
+    color: vars.$fc-error;
+    font-style: italic;
+}
+
+//FORMS
+input, textarea, datalist {
+    margin: 1px -1px 3px -1px;
+}
+select {
+    margin: 1px 0px;
+}
+
+//MARGIN & PADDING
+.m-y-1 {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+.m-xy-1 {
+    margin: 0.5rem;
+}

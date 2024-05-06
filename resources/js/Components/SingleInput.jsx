@@ -9,10 +9,13 @@ export default function SingleInput ({
     placeholder=''
 }) {
     return (
-        <div>
-            <label htmlFor={field}>{title}</label>
+        <div className="flex-col m-y-1">
+            <label
+                htmlFor={field}
+                className="fw-bold"
+            >{title}</label>
             <input
-                value={data.field}
+                value={data[field]}
                 onChange={e => {
                     setError(field, '')
                     setData(field, e.target.value)
@@ -22,7 +25,9 @@ export default function SingleInput ({
                 id={field}
                 placeholder={placeholder}
             />
-            {errors.field && <div>{errors.field}</div>}
+            {errors[field] &&
+                <div className="error">{errors[field]}</div>
+            }
         </div>
     )
 }

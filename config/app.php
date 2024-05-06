@@ -78,7 +78,7 @@ return [
     |
     */
 
-    'locale' => env('APP_LOCALE', 'en'),
+    'locale' => env('APP_LOCALE', 'nl'), // Vereist aanpassing in .env > APP_LOCALE=nl. Tweede argument van deze functie ('nl') is overbodig.
 
     'fallback_locale' => env('APP_FALLBACK_LOCALE', 'en'),
 

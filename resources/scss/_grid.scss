@@ -1,0 +1,71 @@
+// grid-breakpoints:
+// xs: 0,
+// s: 576px,
+// m: 768px,
+// l: 992px,
+// xl: 1200px,
+// xxl: 1400px
+
+@mixin padding {
+    padding: 8px;
+}
+
+.grid-row {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    outline: 1px solid blue;
+    gap: 8px;
+    @include padding;
+}
+
+@for $i from 1 through 12 {
+    .xs-col-#{$i} {
+        grid-column: span #{$i};
+        @include padding;
+    }
+}
+
+@media (min-width:576px) {
+    @for $i from 1 through 12 {
+        .s-col-#{$i} {
+            grid-column: span #{$i};
+            @include padding;
+        }
+    }
+}
+
+@media (min-width:768px) {
+    @for $i from 1 through 12 {
+        .m-col-#{$i} {
+            grid-column: span #{$i};
+            @include padding;
+        }
+    }
+}
+
+@media (min-width:992px) {
+    @for $i from 1 through 12 {
+        .l-col-#{$i} {
+            grid-column: span #{$i};
+            @include padding;
+        }
+    }
+}
+
+@media (min-width:1200px) {
+    @for $i from 1 through 12 {
+        .xl-col-#{$i} {
+            grid-column: span #{$i};
+            @include padding;
+        }
+    }
+}
+
+@media (min-width:1400px) {
+    @for $i from 1 through 12 {
+        .xxl-col-#{$i} {
+            grid-column: span #{$i};
+            @include padding;
+        }
+    }
+}

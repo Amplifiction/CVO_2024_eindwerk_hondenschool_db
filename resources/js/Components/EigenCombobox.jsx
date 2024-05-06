@@ -1,9 +1,9 @@
 import { useState } from "react"
 
 // TO DO: dit werkt voor geslachten, omdat hier enkel name moet worden weergegeven. Voor postcodes is dit echter postcode+' '+gemeente.
-// Oplossing: aangepaste array doorgeven.
+// Oplossing: aangepaste array doorgeven. Of prop voorzien.
 
-// TO DO: handleSelect > setInput(name) gebeurt niet.
+// TO DO: zie regels met "lijkt niet te gebeuren".
 
 // TO DO: wat als gebruiker niet in ul klikt, maar de gewenste waarde integraal typt?
 // Bij onBlur van input en input!='' : find in array, setReturnValue, foutmelding indien niet gevonden
@@ -29,9 +29,9 @@ export default function EigenCombobox ({}) {
 
     const handleSelect = (name, id) => {
         setInput(name) // lijkt niet te gebeuren.
-        setReturnValue(id)
+        setReturnValue(id) // lijkt niet te gebeuren.
         setShowUl(false)
-        console.log(`input is nu ${input}`)
+        console.log(`input is nu ${input}`) // lijkt niet te gebeuren.
     }
 
     return (
@@ -47,7 +47,7 @@ export default function EigenCombobox ({}) {
             />
             <input
                 id={`${title}_id`} //Deze ID moet worden opgevraagd door de controller, terwijl de zichtbare input wordt genegeerd door de controller.
-                type="hidden"
+                type="text" //hidden maken
                 value={returnValue}
             />
             {showUl &&

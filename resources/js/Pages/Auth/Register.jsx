@@ -1,5 +1,6 @@
-import { useForm } from "@inertiajs/react"
+import { useForm, router } from "@inertiajs/react"
 import SingleInput from "../../Components/SingleInput"
+import InputsPassword from "../../Components/InputsPassword"
 
 export default function Register ({postal_codes, sexes}) {
     const { data, setData, post, processing, errors, setError } = useForm({
@@ -25,6 +26,8 @@ export default function Register ({postal_codes, sexes}) {
 
     //TO DO: Autocomplete combobox component maken (voor sex en postal_code)
     //TO DO: letterlijke field name uit error messages halen
+
+    //form repopulation gebeurt automatisch in Inertia.
 
     return (
         <div>
@@ -151,19 +154,7 @@ export default function Register ({postal_codes, sexes}) {
                 </select>
                 {errors.postal_code_id && <div>{errors.postal_code_id}</div>}
             </div>
-            <SingleInput
-                field='password'
-                title='Wachtwoord'
-                type='password'
-                data={data}
-                errors={errors}
-                setData={setData}
-                setError={setError}
-            />
-            <SingleInput
-                field='password_confirmation'
-                title='Wachtwoord confirmatie'
-                type='password'
+            <InputsPassword
                 data={data}
                 errors={errors}
                 setData={setData}

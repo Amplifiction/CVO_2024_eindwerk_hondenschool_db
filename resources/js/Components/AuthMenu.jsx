@@ -6,6 +6,7 @@ export default function AuthMenu ({}) {
     return (
         <p>
             {`Welkom, ${auth.user.first_name}.`}
+            <Link href="/editProfile">Profiel bewerken</Link>
             <Link href="/logout" method="post" as="button">Uitloggen</Link>
              {/* TO DO: button CSS om er te doen uitzien als link */}
         </p>

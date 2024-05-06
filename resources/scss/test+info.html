@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SASS test</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="dark">
+    <div class="container">
+        <div class="grid-row">
+            <p class="xs-col-12 flex-row just-center">Automatisch compilen: sass --watch scss:css in map die de css- en scss-mappen bevat.</p>
+        </div>
+        <div class="grid-row">
+            <p class="xs-col-12 l-col-6 light">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus aspernatur assumenda, quisquam minima illo labore eos sequi excepturi dignissimos expedita voluptas quod eaque aperiam asperiores ex facilis, rem tempore? Pariatur tempore excepturi cupiditate vel officiis distinctio exercitationem doloremque a. Vero labore molestiae cupiditate quia dicta consequatur architecto voluptatem hic obcaecati?</p>
+            <p class="xs-col-12 l-col-6 light">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus aspernatur assumenda, quisquam minima illo labore eos sequi excepturi dignissimos expedita voluptas quod eaque aperiam asperiores ex facilis, rem tempore? Pariatur tempore excepturi cupiditate vel officiis distinctio exercitationem doloremque a. Vero labore molestiae cupiditate quia dicta consequatur architecto voluptatem hic obcaecati?</p>
+        </div>
+        <div class="grid-row">
+            <div class="xs-col-4 flex-col">
+                <h1>Header 1</h1>
+                <h2>Header 2</h2>
+                <h3>Header 3</h3>
+                <h4>Header 4</h4>
+                <h5>Header 5</h5>
+                <h6>Header 6</h6>
+            </div>
+            <div class="xs-col-4 flex-col">
+                <div>normal font</div>
+                <div class="fw-bold">fw-bold</div>
+                <div class="fs-ita">fs-ita</div>
+            </div>
+            <div class="xs-col-4">
+                <button class="btn-red">Button</button>
+                <button class="btn-green">Button</button>
+                <button class="btn-blue">Button</button>
+                <button class="btn-gray">Button</button>
+                <button class="btn-red" disabled>Button</button>
+                <button class="btn-green" disabled>Button</button>
+                <button class="btn-blue" disabled>Button</button>
+                <button class="btn-gray" disabled>Button</button>
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="xs-col-4">
+                <form class="flex-col">
+                    <label>
+                        Textinput
+                        <input type="text" placeholder="textinput">
+                    </label>
+                    <label>
+                        Numberinput
+                        <input type="number" placeholder="5">
+                    </label>
+                    <select name="" id="">
+                        <option value="">Een</option>
+                        <option value="">Twee</option>
+                        <option value="">Drie</option>
+                    </select>
+                    <input type="text" name="city" list="cityname">
+                    <datalist id="cityname">
+                        <option value="Boston">
+                        <option value="Cambridge">
+                    </datalist>
+                    <input type="text" placeholder="textinput">
+                    <textarea name="" id="">Eins zwei polizei</textarea>
+                    <input type="submit">
+                    <button type="submit" class="btn-green">Verzenden</button>
+                </form>
+            </div>
+            <div class="xs-col-8">
+                <form>
+                    <label>
+                        Textinput
+                        <input type="text" placeholder="textinput">
+                    </label>
+                    <label>
+                        Numberinput
+                        <input type="number" placeholder="5">
+                    </label>
+                    <select name="" id="">
+                        <option value="">Een</option>
+                        <option value="">Twee</option>
+                        <option value="">Drie</option>
+                    </select>
+
+                    <input type="text" name="city" list="cityname">
+                    <datalist id="cityname">
+                        <option value="Boston">
+                        <option value="Cambridge">
+                    </datalist>
+                    
+                    <input type="text" placeholder="textinput">
+                    <textarea name="" id="">Eins zwei polizei</textarea>
+                    <input type="submit">
+                    <button type="submit" class="btn-green">Verzenden</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

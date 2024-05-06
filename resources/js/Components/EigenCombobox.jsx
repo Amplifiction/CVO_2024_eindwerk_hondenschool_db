@@ -5,6 +5,8 @@ import { useState } from "react"
 
 // TO DO: user geef focus aan input > ul opent. User klikt buiten input > ul blijft open.
 // onBlur={() => {setShowUl(false)}} op input of parent div verhindert click event op ul!
+// -->OK
+
 
 // TO DO: wat als gebruiker niet in ul klikt, maar de gewenste waarde integraal typt?
 // Bij onBlur van input en input!='' : find in array, setReturnValue, foutmelding indien niet gevonden
@@ -13,6 +15,7 @@ export default function EigenCombobox ({}) {
     const [input, setInput] = useState('')
     const [returnValue, setReturnValue] = useState ('')
     const [showUl, setShowUl] = useState(false)
+    const [inputHasFocus, setInputHasFocus] = useState(false)
 
     //TURN INTO PROPS
         const title = 'test'
@@ -48,6 +51,20 @@ export default function EigenCombobox ({}) {
     //     }
     // }
 
+    // const handleInputFocus = () => { // WERKT NIET
+    //     setInputHasFocus(!inputHasFocus)
+    //     if (inputHasFocus) {
+    //         setShowUl(true)
+    //     } else {
+    //         setShowUl(false)
+    //     }
+    // }
+
+    const handleFocusOut = () => {
+        setTimeout(() => {setShowUl(false)}, 1000)
+        //Timeout is nodig om te voorkomen dat ul verdwijnt voor erop wordt geklikt.
+    }
+
     return (
         <div>
             <input
@@ -56,11 +73,12 @@ export default function EigenCombobox ({}) {
                 placeholder='klik of typ om te kiezen'
                 value={input}
                 onChange={e => {setInput(e.target.value)}}
-                onFocus={() => {setShowUl(true)}}
+                onFocus={() => setShowUl(true)}
+                onBlur={handleFocusOut} // React ondersteunt geen onfocusout.
             />
             <input
                 id={`${title}_id`} //$request->{title}_id will be used in a Laravel controller.
-                type="text" //make hidden
+                type="hidden"
                 value={returnValue}
             />
             {showUl &&

@@ -35,6 +35,18 @@ export default function EigenCombobox ({}) {
         console.log(`input is now ${input}`) // does not happen.
     }
 
+    // const handleBlur = () => {
+    //     setShowUl(false)
+    //     const found = array.find(input)
+    //     if (found) {
+    //         setReturnValue(found.id)
+    //         setInput(found.name)
+    //     } else {
+    //         alert('No matches found.')
+    //         setReturnValue('')
+    //     }
+    // }
+
     return (
         <>
             <input
@@ -44,10 +56,10 @@ export default function EigenCombobox ({}) {
                 value={input}
                 onChange={e => {setInput(e.target.value)}}
                 onFocus={() => {setShowUl(true)}}
-                onBlur={() => {setShowUl(false)}}
+                onBlur={() => {setShowUl(false)}} //insert handleBlur here
             />
             <input
-                id={`${title}_id`} //$request->{title}_id will be used in the controller to save an object in a table.
+                id={`${title}_id`} //$request->{title}_id will be used in a Laravel controller.
                 type="hidden"
                 value={returnValue}
             />

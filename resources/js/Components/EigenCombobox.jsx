@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 // TO DO: dit werkt voor geslachten, omdat hier enkel name moet worden weergegeven. Voor postcodes is dit echter postcode+' '+gemeente.
 // Oplossing: aangepaste array doorgeven. Of prop voorzien.
@@ -13,6 +13,9 @@ export default function EigenCombobox ({}) {
     const [input, setInput] = useState('')
     const [returnValue, setReturnValue] = useState ('')
     const [showUl, setShowUl] = useState(false)
+    const [mouseOnDiv, setMouseOnDiv] = useState(false)
+    const [inputHasFocus, setInputHasFocus] = useState(false)
+
 
     //TURN INTO PROPS
         const title = 'test'
@@ -48,15 +51,49 @@ export default function EigenCombobox ({}) {
     //     }
     // }
 
+    const handleMouseEnter = () => {
+        setMouseOnDiv(true)
+    }
+
+    const handleMouseLeave = () => {
+        setMouseOnDiv(false)
+        if (!inputHasFocus) {
+            setShowUl(false)
+        }
+    }
+
+    const handleInputFocus = () => {
+        setInputHasFocus(true)
+        setShowUl(true)
+    }
+    const handleInputFocusOut = () => {
+        setInputHasFocus(false)
+        if (!mouseOnDiv) {
+            setShowUl(false)
+        }
+    }
+
+    useEffect(() => {
+        if (!mouseOnDiv && ! inputHasFocus) {
+            setShowUl(false)
+        }
+    }, [mouseOnDiv, inputHasFocus])
+
     return (
-        <div>
+        <div
+            className="dark"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+        >
+            <p value={mouseOnDiv}></p>
             <input
                 id={`${title}_input`}
                 type="text"
                 placeholder='klik of typ om te kiezen'
                 value={input}
                 onChange={e => {setInput(e.target.value)}}
-                onFocus={() => {setShowUl(true)}}
+                onFocus={handleInputFocus}
+                onFocusOut={handleInputFocusOut}
             />
             <input
                 id={`${title}_id`} //$request->{title}_id will be used in a Laravel controller.

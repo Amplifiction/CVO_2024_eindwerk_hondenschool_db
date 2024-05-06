@@ -25,6 +25,7 @@ export default function test () {
                     hideEmptyPopup
                     data={["Red", "Yellow", "Blue", "Orange"]}
                     placeholder="Search for a color"
+                    name="color_id"
                 />
                 <div>
                     <input disabled={processing} type="submit" value="Verzenden" />

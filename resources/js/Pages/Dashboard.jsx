@@ -1,5 +1,5 @@
 import { usePage } from "@inertiajs/react"
-import EigenCombobox from "../Components/EigenCombobox"
+import ComboboxHeadlessUI from "../Components/ComboboxHeadlessUI"
 
 
 export default function Home () {
@@ -9,7 +9,6 @@ export default function Home () {
         <div>
             <h1>Mijn dashboard</h1>
             <p>{flash.message}</p>
-            {/* <EigenCombobox/> */}
         </div>
     )
 }

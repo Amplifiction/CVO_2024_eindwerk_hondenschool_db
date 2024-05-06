@@ -1,6 +1,7 @@
 <?php
 
 use Inertia\Inertia;
+use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProfileController;
@@ -15,3 +16,6 @@ Route::post('/logout', [AuthController::class, 'handleLogout'])->name('logout.po
 
 Route::get('/editProfile', [ProfileController::class, 'editProfile'])->name('editProfile.get')->middleware('auth');
 Route::post('/editProfile', [ProfileController::class, 'handleEditProfile'])->name('editProfile.post')->middleware('auth');
+
+Route::get('/test', [TestController::class, 'test'])->name('test.get');
+Route::post('/test', [TestController::class, 'handleTest'])->name('test.post');

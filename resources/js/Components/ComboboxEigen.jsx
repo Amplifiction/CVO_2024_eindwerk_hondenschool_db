@@ -8,7 +8,7 @@ import { useState } from "react"
 // TO DO: wat als gebruiker niet in ul klikt, maar de gewenste waarde integraal typt?
 // Bij onBlur van input en input!='' : find in array, setReturnValue, foutmelding indien niet gevonden
 
-export default function EigenCombobox ({}) {
+export default function ComboboxEigen ({}) {
     const [input, setInput] = useState('')
     const [returnValue, setReturnValue] = useState ('')
     const [showUl, setShowUl] = useState(false)

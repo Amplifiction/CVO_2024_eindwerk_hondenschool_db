@@ -3,22 +3,24 @@ import { useState, useEffect } from "react"
 // TO DO: dit werkt voor geslachten, omdat hier enkel name moet worden weergegeven. Voor postcodes is dit echter postcode+' '+gemeente.
 // Oplossing: aangepaste array doorgeven. Of prop voorzien.
 
-// TO DO: user geef focus aan input > ul opent. User klikt buiten input > ul blijft open.
-// onBlur={() => {setShowUl(false)}} op input of parent div verhindert click event op ul!
-// -->OK
-
-
 // TO DO: wat als gebruiker niet in ul klikt, maar de gewenste waarde integraal typt?
 // Bij onBlur van input en input!='' : find in array, setReturnValue, foutmelding indien niet gevonden
+    // const handleBlur = () => {
+    //     setShowUl(false)
+    //     const found = array.find(input)
+    //     if (found) {
+    //         setReturnValue(found.id)
+    //         setInput(found.name)
+    //     } else {
+    //         alert('No matches found.')
+    //         setReturnValue('')
+    //     }
+    // }
 
 export default function EigenCombobox ({}) {
     const [input, setInput] = useState('')
     const [returnValue, setReturnValue] = useState ('')
     const [showUl, setShowUl] = useState(false)
-    const [mouseOnDiv, setMouseOnDiv] = useState(false)
-    const [inputHasFocus, setInputHasFocus] = useState(false)
-
-    const [inputHasFocus, setInputHasFocus] = useState(false)
 
     //TURN INTO PROPS
         const title = 'test'
@@ -39,70 +41,15 @@ export default function EigenCombobox ({}) {
         setInput(name)
         setReturnValue(id)
         setShowUl(false)
-        console.log(`input is now ${input}`)
     }
-
-    // const handleBlur = () => {
-    //     setShowUl(false)
-    //     const found = array.find(input)
-    //     if (found) {
-    //         setReturnValue(found.id)
-    //         setInput(found.name)
-    //     } else {
-    //         alert('No matches found.')
-    //         setReturnValue('')
-    //     }
-    // }
-
-    const handleMouseEnter = () => {
-        setMouseOnDiv(true)
-    }
-
-    const handleMouseLeave = () => {
-        setMouseOnDiv(false)
-        if (!inputHasFocus) {
-            setShowUl(false)
-        }
-    }
-
-    const handleInputFocus = () => {
-        setInputHasFocus(true)
-        setShowUl(true)
-    }
-    const handleInputFocusOut = () => {
-        setInputHasFocus(false)
-        if (!mouseOnDiv) {
-            setShowUl(false)
-        }
-    }
-
-    useEffect(() => {
-        if (!mouseOnDiv && ! inputHasFocus) {
-            setShowUl(false)
-        }
-    }, [mouseOnDiv, inputHasFocus])
-
-    // const handleInputFocus = () => { // WERKT NIET
-    //     setInputHasFocus(!inputHasFocus)
-    //     if (inputHasFocus) {
-    //         setShowUl(true)
-    //     } else {
-    //         setShowUl(false)
-    //     }
-    // }
 
     const handleFocusOut = () => {
-        setTimeout(() => {setShowUl(false)}, 1000)
+        setTimeout(() => {setShowUl(false)}, 800)
         //Timeout is nodig om te voorkomen dat ul verdwijnt voor erop wordt geklikt.
     }
 
     return (
-        <div
-            className="dark"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-        >
-            <p value={mouseOnDiv}></p>
+        <div>
             <input
                 id={`${title}_input`}
                 type="text"

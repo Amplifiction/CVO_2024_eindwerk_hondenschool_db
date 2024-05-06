@@ -3,7 +3,7 @@ import { useState } from "react"
 // TO DO: dit werkt voor geslachten, omdat hier enkel name moet worden weergegeven. Voor postcodes is dit echter postcode+' '+gemeente.
 // Oplossing: aangepaste array doorgeven. Of prop voorzien.
 
-// TO DO: zie regels met "lijkt niet te gebeuren".
+// TO DO: zie regels met "does not happen".
 
 // TO DO: wat als gebruiker niet in ul klikt, maar de gewenste waarde integraal typt?
 // Bij onBlur van input en input!='' : find in array, setReturnValue, foutmelding indien niet gevonden
@@ -13,13 +13,14 @@ export default function EigenCombobox ({}) {
     const [returnValue, setReturnValue] = useState ('')
     const [showUl, setShowUl] = useState(false)
 
-    const title = 'test' //moet prop worden
-
-    const array = [ //moet prop worden
-        { id: 1, name: 'eins' },
-        { id: 2, name: 'zwei' },
-        { id: 3, name: 'polizei' },
-    ]
+    //TURN INTO PROPS
+        const title = 'test'
+        const array = [
+            { id: 1, name: 'eins' },
+            { id: 2, name: 'zwei' },
+            { id: 3, name: 'polizei' },
+        ]
+    //end of props
 
     const filteredArray = (
         input
@@ -28,10 +29,10 @@ export default function EigenCombobox ({}) {
     )
 
     const handleSelect = (name, id) => {
-        setInput(name) // lijkt niet te gebeuren.
-        setReturnValue(id) // lijkt niet te gebeuren.
+        setInput(name) // does not happen.
+        setReturnValue(id) // does not happen.
         setShowUl(false)
-        console.log(`input is nu ${input}`) // lijkt niet te gebeuren.
+        console.log(`input is now ${input}`) // does not happen.
     }
 
     return (
@@ -46,8 +47,8 @@ export default function EigenCombobox ({}) {
                 onBlur={() => {setShowUl(false)}}
             />
             <input
-                id={`${title}_id`} //Deze ID moet worden opgevraagd door de controller, terwijl de zichtbare input wordt genegeerd door de controller.
-                type="text" //hidden maken
+                id={`${title}_id`} //$request->{title}_id will be used in the controller to save an object in a table.
+                type="hidden"
                 value={returnValue}
             />
             {showUl &&

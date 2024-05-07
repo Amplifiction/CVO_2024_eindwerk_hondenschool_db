@@ -463,6 +463,13 @@ body {
   color: #000000;
 }
 
+.comboboxDropdown {
+  max-height: 300px;
+  overflow-y: scroll;
+  opacity: 0.9;
+  border: 1px solid black;
+}
+
 .flex-col {
   display: flex;
   flex-direction: column;

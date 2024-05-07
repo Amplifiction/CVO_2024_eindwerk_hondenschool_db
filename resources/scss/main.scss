@@ -21,6 +21,13 @@ body {
     color: vars.$fc-light;
 }
 
+.comboboxDropdown {
+    max-height: 300px;
+    overflow-y: scroll;
+    opacity: 0.9;
+    border: 1px solid black; //TO DO: kleur kiezen
+}
+
 //FLEX
 .flex-col {
     display: flex;

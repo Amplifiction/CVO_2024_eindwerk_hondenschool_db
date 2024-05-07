@@ -15,3 +15,5 @@ Route::post('/logout', [AuthController::class, 'handleLogout'])->name('logout.po
 
 Route::get('/editProfile', [ProfileController::class, 'editProfile'])->name('editProfile.get')->middleware('auth');
 Route::post('/editProfile', [ProfileController::class, 'handleEditProfile'])->name('editProfile.post')->middleware('auth');
+Route::get('/editPassword', [ProfileController::class, 'editPassword'])->name('editPassword.get')->middleware('auth');
+Route::post('/editPassword', [ProfileController::class, 'handleEditPassword'])->name('editPassword.post')->middleware('auth');

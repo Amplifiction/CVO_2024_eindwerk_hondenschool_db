@@ -1,13 +1,12 @@
-import { useState, useRef } from "react"
+import { useState, useRef, useEffect } from "react"
 
-// TO DO: dit werkt voor geslachten, omdat hier enkel name moet worden weergegeven. Voor postcodes is dit echter postcode+' '+gemeente.
-// Oplossing: aangepaste array doorgeven. Of prop voorzien.
+// TO DO, eventueel: on key down 'enter' in input: if filteredArray.length > 0, select filteredArray[0]
 
 export default function EigenCombobox ({
     field,
     title,
     placeholder='',
-    array,
+    array, // moet een name en id bevatten.
     data,
     errors,
     setData,
@@ -24,6 +23,15 @@ export default function EigenCombobox ({
         : array
     )
 
+    useEffect(() => {
+        if (data[field]) {
+            const found = array.find(item => item.id === data[field])
+            if (found) {
+                setInputState(found.name)
+            }
+        }
+    }, []) // runs only on mount. Repopulates the input.
+
     const handleSelect = (name, id) => {
         inputRef.current = name
         setInputState(name)
@@ -35,7 +43,10 @@ export default function EigenCombobox ({
     const handleBlur = () => {
         setTimeout(() => {
             setShowUl(false)
-            if (!optionSelectedRef.current) { // wat als gebruiker niet in ul klikt, maar de gewenste waarde integraal typt?
+            if (inputRef.current ==='') {
+                setData(field, '')
+            }
+            if (!optionSelectedRef.current && inputRef.current!=='') { // wat als gebruiker niet in ul klikt, maar de gewenste waarde integraal typt?
                 const found = array.find(item => item.name === inputRef.current)
                 if (found) {
                     setData(field, found.id)
@@ -73,6 +84,7 @@ export default function EigenCombobox ({
                 onChange={e => handleChange(e) }
                 onFocus={() => setShowUl(true)}
             />
+            {/* TO DO: scroll knop toevoegen */}
             <input
                 id={field} //$request->{title}_id will be used in a Laravel controller.
                 type="hidden"
@@ -82,14 +94,16 @@ export default function EigenCombobox ({
                 <div className="error">{errors[field]}</div>
             }
             {showUl &&
-                <ul style={{ listStyleType: 'none'}}>
-                    {filteredArray.map(item => (
-                        <li
-                            key={item.id}
-                            onClick={() => handleSelect(item.name, item.id)}
-                        >{item.name}</li>
-                    ))}
-                </ul>
+                <div className="comboboxDropdown">
+                    <ul style={{ listStyleType: 'none'}}>
+                        {filteredArray.map(item => (
+                            <li
+                                key={item.id}
+                                onClick={() => handleSelect(item.name, item.id)}
+                            >{item.name}</li>
+                        ))}
+                    </ul>
+                </div>
             }
         </div>
     )

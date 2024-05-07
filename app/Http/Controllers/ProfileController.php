@@ -22,6 +22,21 @@ class ProfileController extends Controller
         ]);
     }
 
+    public function editPassword () {
+        return Inertia::render('Profile/EditPassword');
+    }
+
+    public function handleEditPassword (Request $request) {
+        $user = Auth::user();
+        $request->validate([
+            'password' => 'required|confirmed|min:8'
+        ]);
+        $request->session()->flash('message', 'Uw wachtwoord werd bijgewerkt.');
+        $user->password = Hash::make($request->password);
+        $user->save();
+        return redirect()->route('dashboard');
+    }
+
     public function handleEditProfile (Request $request) {
         $user = Auth::user();
         $request->validate([
@@ -38,7 +53,6 @@ class ProfileController extends Controller
             'street'=>'required',
             'housenumber' =>'required',
             'postal_code_id' => ['required', Rule::notIn(['-1'])],
-            'password' => 'confirmed|min:8'
         ]);
         $user->first_name = $request->first_name;
         $user->last_name = $request->last_name;
@@ -51,7 +65,6 @@ class ProfileController extends Controller
         $user->housenumber = $request->housenumber;
         $user->housenumber_addition = $request->housenumber_addition;
         $user->postal_code_id = $request->postal_code_id;
-        $user->password = Hash::make($request->password);
         $user->save();
 
         $request->session()->flash('message', 'Uw gegevens werden bijgewerkt.');

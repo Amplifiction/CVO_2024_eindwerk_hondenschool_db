@@ -1,4 +1,4 @@
-import { usePage } from "@inertiajs/react"
+import { usePage, Link } from "@inertiajs/react"
 
 export default function Home () {
     const { flash } = usePage().props
@@ -7,6 +7,7 @@ export default function Home () {
         <div>
             <h1>Mijn dashboard</h1>
             <p>{flash.message}</p>
+            <Link href="/dogs/create">Hond toevoegen</Link>
         </div>
     )
 }

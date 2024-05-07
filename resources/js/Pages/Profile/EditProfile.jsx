@@ -1,5 +1,6 @@
 import { useForm, usePage } from "@inertiajs/react"
-import InputsUser from "../../Components/InputsUser"
+import InputsUser from "../../Components/Auth/InputsUser"
+import FormSubmitButton from "../../Components/FormSubmitButton"
 
 export default function EditProfile ({postal_codes, sexes}) {
     const { auth } = usePage().props
@@ -41,9 +42,10 @@ export default function EditProfile ({postal_codes, sexes}) {
                     setData={setData}
                     setError={setError}
                 />
-                <div>
-                    <input disabled={processing} type="submit" value="Bewaren" />
-                </div>
+                <FormSubmitButton
+                    title='Bewaren'
+                    processing={processing}
+                />
             </form>
         </div>
     )

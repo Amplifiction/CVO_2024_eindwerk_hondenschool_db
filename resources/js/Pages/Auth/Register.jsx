@@ -1,6 +1,7 @@
 import { useForm } from "@inertiajs/react"
-import InputsPassword from "../../Components/InputsPassword"
-import InputsUser from "../../Components/InputsUser"
+import InputsPassword from "../../Components/Auth/InputsPassword"
+import InputsUser from "../../Components/Auth/InputsUser"
+import FormSubmitButton from "../../Components/FormSubmitButton"
 
 export default function Register ({postal_codes, sexes}) {
     const { data, setData, post, processing, errors, setError } = useForm({
@@ -44,11 +45,11 @@ export default function Register ({postal_codes, sexes}) {
                     setData={setData}
                     setError={setError}
                 />
-                <div>
-                    <input disabled={processing} type="submit" value="Verzenden" />
-                </div>
-        </form>
-
+                <FormSubmitButton
+                    title='Registreren'
+                    processing={processing}
+                />
+            </form>
         </div>
     )
 }

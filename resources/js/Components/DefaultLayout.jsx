@@ -1,4 +1,4 @@
-import { Head, usePage } from "@inertiajs/react";
+import { Head, Link, usePage } from "@inertiajs/react";
 import '../../css/main.css'
 import GuestMenu from "../Components/GuestMenu"
 import AuthMenu from "../Components/AuthMenu"
@@ -15,7 +15,10 @@ export function DefaultLayout({children}) {
             </Head>
             <main>
                 <header>
-                    <div className="m-xy-1">{auth.user? <AuthMenu/> : <GuestMenu/>}</div>
+                    <div className="m-xy-1">
+                        <Link href="/">Dashboard</Link>
+                        {auth.user? <AuthMenu/> : <GuestMenu/>}
+                    </div>
                     <hr />
                 </header>
                 <section className="container">

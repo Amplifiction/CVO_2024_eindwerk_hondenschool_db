@@ -1,4 +1,4 @@
-import SingleInput from "./SingleInput";
+import SingleInput from "../SingleInput";
 
 
 export default function PasswordInputs ({data, errors, setData, setError}) {

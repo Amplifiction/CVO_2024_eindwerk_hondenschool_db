@@ -1,5 +1,5 @@
-import EigenCombobox from "./EigenCombobox"
-import SingleInput from "./SingleInput"
+import EigenCombobox from "../EigenCombobox"
+import SingleInput from "../SingleInput"
 
 
 export default function InputsUser ({

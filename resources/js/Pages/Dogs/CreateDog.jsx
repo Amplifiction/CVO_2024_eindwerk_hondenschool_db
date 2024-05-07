@@ -1,26 +1,27 @@
-import { useForm, usePage } from "@inertiajs/react"
-import InputsPassword from "../../Components/Auth/InputsPassword"
+import { useForm } from "@inertiajs/react"
 import FormSubmitButton from "../../Components/FormSubmitButton"
+import InputsDog from "../../Components/Dogs/InputsDog"
 
 
-export default function EditPassword ({}) {
-    const { auth } = usePage().props
-
+export default function CreateDog ({breeds}) {
     const { data, setData, post, processing, errors, setError } = useForm({
-        password: '',
-        password_confirmation: '',
+        breed_id: '',
+        date_of_birth: '',
+        name: '',
+        sex: '',
     })
 
     function handleSubmit(e) {
         e.preventDefault()
-        post('/editPassword')
+        post('/dogs')
     }
 
     return (
         <div>
-            <h1>Wachtwoord wijzigen</h1>
+            <h1>Hond toevoegen</h1>
             <form onSubmit={handleSubmit}>
-                <InputsPassword
+                <InputsDog
+                    breeds={breeds}
                     data={data}
                     errors={errors}
                     setData={setData}

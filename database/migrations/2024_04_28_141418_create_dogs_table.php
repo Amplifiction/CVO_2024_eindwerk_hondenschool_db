@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('dogs', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->foreignId('race_id')->constrained();
+            $table->foreignId('breed_id')->constrained();
             $table->date('date_of_birth');
             $table->string('name');
             $table->boolean('sex'); //0=reu, 1=teef

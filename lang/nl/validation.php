@@ -274,13 +274,16 @@ return [
 
     // De volgende array zorgt voor custom benoeming van veldnamen in error messages. Hoofdlettergevoelig.
     'attributes' => [
+        'breed_id' => 'ras',
         'cellphone' => 'GSM',
         'date_of_birth' => 'geboortedatum',
         'first_name' => 'voornaam',
         'housenumber' => 'huisnummer',
         'last_name' => 'achternaam',
+        'name' => 'naam',
         'password' => 'wachtwoord',
         'postal_code_id' => 'postcode/gemeente',
+        'sex' => 'geslacht',
         'sex_id' => 'geslacht',
         'street' => 'straat',
     ],

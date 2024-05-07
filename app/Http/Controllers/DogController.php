@@ -37,6 +37,6 @@ class DogController extends Controller
 
         $dog->ownerships()->attach($user); //mag ook andersom: dog aan user attachen
 
-        return redirect()->route('dashboard');
+        return redirect()->route('home');
     }
 }

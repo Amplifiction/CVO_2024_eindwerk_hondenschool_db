@@ -1,6 +1,5 @@
 import { usePage, Link } from "@inertiajs/react"
-
-export default function Home () {
+export default function Dashboard ({}) {
     const { flash } = usePage().props
 
     return (

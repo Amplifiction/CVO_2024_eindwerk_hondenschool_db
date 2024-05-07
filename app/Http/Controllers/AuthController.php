@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    public function login() {
-        return Inertia::render('Auth/Login');
-    }
+    // public function login() {
+    //     return Inertia::render('Auth/Login');
+    // }
 
     public function handleLogin(Request $request) {
         $request->validate([
@@ -24,7 +24,7 @@ class AuthController extends Controller
         ]);
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             //$request->session()->flash('message', 'Login succesvol');
-            return redirect()->route('dashboard');
+            return redirect()->route('home');
         }
         return back()->withErrors([
             'email' => 'Wij kunnen u niet aanmelden met de door u verstrekte gegevens.'
@@ -33,20 +33,21 @@ class AuthController extends Controller
 
     public function handleLogout() {
         Auth::logout();
-        return redirect()->route('dashboard');
+        return redirect()->route('home');
     }
 
-    public function register() {
-        $postal_codes = Postal_code::all('id', 'postal_code', 'municipality');
-        $sexes = Sex::all();
+    // public function register() {
+    //     $postal_codes = Postal_code::all('id', 'postal_code', 'municipality');
+    //     $sexes = Sex::all();
 
-        return Inertia::render('Auth/Register',[
-            'postal_codes' => $postal_codes,
-            'sexes' => $sexes,
-        ]);
-    }
+    //     return Inertia::render('Auth/Register',[
+    //         'postal_codes' => $postal_codes,
+    //         'sexes' => $sexes,
+    //     ]);
+    // }
 
     public function handleRegister (Request $request) {
+        //TO DO: not in -1 rules zijn restanten van selects (ipv combobox - zie vroege commits) en mogen w geschrapt
         $request->validate([
             'first_name' => 'required',
             'last_name' => 'required',
@@ -75,9 +76,9 @@ class AuthController extends Controller
         $user->role_id = 1;
         $user->save();
 
+        Auth::login($user);
         $request->session()->flash('message', 'Registratie succesvol! U werd automatisch ingelogd.');
         //PHP Intelephense plugin: method 'flash' is zogezegd unidentified, maar werkt.
-        Auth::login($user);
 
         return redirect()->route('dashboard');
     }

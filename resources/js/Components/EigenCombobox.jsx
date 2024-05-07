@@ -5,22 +5,12 @@ import { useState, useEffect } from "react"
 
 // TO DO: wat als gebruiker niet in ul klikt, maar de gewenste waarde integraal typt?
 // Bij onBlur van input en input!='' : find in array, setReturnValue, foutmelding indien niet gevonden
-    // const handleBlur = () => {
-    //     setShowUl(false)
-    //     const found = array.find(input)
-    //     if (found) {
-    //         setReturnValue(found.id)
-    //         setInput(found.name)
-    //     } else {
-    //         alert('No matches found.')
-    //         setReturnValue('')
-    //     }
-    // }
 
 export default function EigenCombobox ({}) {
     const [input, setInput] = useState('')
     const [returnValue, setReturnValue] = useState ('')
     const [showUl, setShowUl] = useState(false)
+    const [optionSelected, setOptionSelected] = useState(false)
 
     //TURN INTO PROPS
         const title = 'test'
@@ -41,11 +31,28 @@ export default function EigenCombobox ({}) {
         setInput(name)
         setReturnValue(id)
         setShowUl(false)
+        setOptionSelected(true)
+        console.log(`HS: optionSelected=${optionSelected}`)
     }
 
     const handleFocusOut = () => {
-        setTimeout(() => {setShowUl(false)}, 800)
-        //Timeout is nodig om te voorkomen dat ul verdwijnt voor erop wordt geklikt.
+        setTimeout(() => {
+            setShowUl(false)
+            console.log(`HFO: optionSelected=${optionSelected}`)
+            console.log(`HFO: input=${input}`)
+            if (!optionSelected) {
+                const found = array.find(item => item.name === input)
+                console.log(`HFO: found=${found}`)
+                if (found) {
+                    setReturnValue(found.id)
+                } else {
+                    alert('No matches found.')
+                    setReturnValue('')
+                    setInput('')
+                }
+            }
+            setOptionSelected(false)
+        }, 1000) //Timeout is nodig om te voorkomen dat ul verdwijnt voor erop wordt geklikt.
     }
 
     return (
@@ -61,11 +68,11 @@ export default function EigenCombobox ({}) {
             />
             <input
                 id={`${title}_id`} //$request->{title}_id will be used in a Laravel controller.
-                type="hidden"
+                type="text" //make hidden
                 value={returnValue}
             />
             {showUl &&
-                <ul>
+                <ul style={{ listStyleType: 'none'}}>
                     {filteredArray.map(item => (
                         <li
                             key={item.id}

@@ -1,6 +1,7 @@
-import { useForm, router } from "@inertiajs/react"
+import { useForm } from "@inertiajs/react"
 import SingleInput from "../../Components/SingleInput"
 import InputsPassword from "../../Components/InputsPassword"
+import EigenCombobox from "../../Components/EigenCombobox"
 
 export default function Register ({postal_codes, sexes}) {
     const { data, setData, post, processing, errors, setError } = useForm({
@@ -51,26 +52,16 @@ export default function Register ({postal_codes, sexes}) {
                 setData={setData}
                 setError={setError}
             />
-            <div>
-                <label htmlFor="sex_id">Geslacht</label>
-                <select
-                    id="sex_id"
-                    value={data.sex_id}
-                    onChange={e => {
-                        setError('sex_id', '')
-                        setData('sex_id', e.target.value)
-                    }}
-                >
-                    <option value="-1" disabled>-- kies een geslacht --</option>
-                    {sexes.map(sex => (
-                        <option
-                            key={sex.id}
-                            value={sex.id}
-                        >{sex.name}</option>
-                    ))}
-                </select>
-                {errors.sex_id && <div>{errors.sex_id}</div>}
-            </div>
+            <EigenCombobox
+                field='sex_id'
+                title='Geslacht'
+                placeholder='kies een geslacht'
+                array={sexes}
+                data={data}
+                errors={errors}
+                setData={setData}
+                setError={setError}
+            />
             <SingleInput
                 field='date_of_birth'
                 title='Geboortedatum'

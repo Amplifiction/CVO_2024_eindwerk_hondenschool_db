@@ -4,29 +4,19 @@ import { useState, useRef } from "react"
 // Oplossing: aangepaste array doorgeven. Of prop voorzien.
 
 export default function EigenCombobox ({
-    // title,
-    // array,
-    // field,
-    // data,
-    // errors,
-    // setData,
-    // setError,
-    // placeholder=''
+    field,
+    title,
+    placeholder='',
+    array,
+    data,
+    errors,
+    setData,
+    setError,
 }) {
-    const [returnValue, setReturnValue] = useState ('')
     const [showUl, setShowUl] = useState(false)
-    const optionSelectedRef = useRef(false)
     const [inputState, setInputState] = useState('') // state is nodig voor de two way binding van <input>
     const inputRef = useRef('') // ref is nodig omdat handleSelect variabelen aanpast die handleBlur vlak daarna nodig heeft. Owv asynchrone werking React krijgt handleBlur verouderde waarden door indien er wordt gebruik gemaakt van state.
-
-    //TURN INTO PROPS
-        const title = 'test'
-        const array = [
-            { id: 1, name: 'eins' },
-            { id: 2, name: 'zwei' },
-            { id: 3, name: 'polizei' },
-        ]
-    //end of props
+    const optionSelectedRef = useRef(false)
 
     const filteredArray = (
         inputState
@@ -37,7 +27,7 @@ export default function EigenCombobox ({
     const handleSelect = (name, id) => {
         inputRef.current = name
         setInputState(name)
-        setReturnValue(id)
+        setData(field, id)
         setShowUl(false)
         optionSelectedRef.current = true
     }
@@ -48,10 +38,10 @@ export default function EigenCombobox ({
             if (!optionSelectedRef.current) { // wat als gebruiker niet in ul klikt, maar de gewenste waarde integraal typt?
                 const found = array.find(item => item.name === inputRef.current)
                 if (found) {
-                    setReturnValue(found.id)
+                    setData(field, found.id)
                 } else {
-                    alert('No matches found.')
-                    setReturnValue('')
+                    alert(`${title}: ${inputRef.current} niet gevonden.`)
+                    setData(field, '')
                     setInputState('')
                     inputRef.current = ''
                 }
@@ -61,6 +51,7 @@ export default function EigenCombobox ({
     }
 
     const handleChange = (e) => {
+        setError(field, '')
         setInputState(e.target.value)
         inputRef.current=e.target.value
     }
@@ -71,25 +62,25 @@ export default function EigenCombobox ({
             onBlur={handleBlur}
         > {/* React ondersteunt geen onfocusout. */}
             <label
-                htmlFor={`${title}_input`}
+                htmlFor={`${field}_input`}
                 className="fw-bold"
             >{title}</label>
             <input
-                id={`${title}_input`}
+                id={`${field}_input`}
                 type="text"
-                placeholder='klik of typ om te kiezen'
+                placeholder={placeholder}
                 value={inputState}
                 onChange={e => handleChange(e) }
                 onFocus={() => setShowUl(true)}
             />
             <input
-                id={`${title}_id`} //$request->{title}_id will be used in a Laravel controller.
-                type="text"
-                value={returnValue}
+                id={field} //$request->{title}_id will be used in a Laravel controller.
+                type="hidden"
+                value={data[field]}
             />
-            {/* {errors[field] &&
+            {errors[field] &&
                 <div className="error">{errors[field]}</div>
-            } */}
+            }
             {showUl &&
                 <ul style={{ listStyleType: 'none'}}>
                     {filteredArray.map(item => (

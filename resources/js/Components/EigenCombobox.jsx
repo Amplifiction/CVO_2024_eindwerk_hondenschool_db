@@ -24,7 +24,7 @@ export default function EigenCombobox ({
     )
 
     useEffect(() => {
-        if (data[field] || data[field]===0) { //0 omdat hondengeslacht boolean is en dus met 0 kan worden ingevuld. 0=false
+        if (data[field] !== undefined) {
             const found = array.find(item => item.id === data[field])
             if (found) {
                 setInputState(found.name)

@@ -20,12 +20,12 @@ export default function EditDog ({dog, breeds}) {
         <div>
             <Form onSubmit={handleSubmit}>
                 <InputsDog
-                        breeds={breeds}
-                        data={data}
-                        errors={errors}
-                        setData={setData}
-                        setError={setError}
-                    />
+                    breeds={breeds}
+                    data={data}
+                    errors={errors}
+                    setData={setData}
+                    setError={setError}
+                />
                 <FormStandardButtons
                     title='Bewaren'
                     processing={processing}

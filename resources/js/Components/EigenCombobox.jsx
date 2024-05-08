@@ -24,13 +24,13 @@ export default function EigenCombobox ({
     )
 
     useEffect(() => {
-        if (data[field]) {
+        if (data[field] || data[field]===0) { //0 omdat hondengeslacht boolean is en dus met 0 kan worden ingevuld. 0=false
             const found = array.find(item => item.id === data[field])
             if (found) {
                 setInputState(found.name)
             }
         }
-    }, []) // runs only on mount. Repopulates the input.
+    }, []) // Doel: velden repopulaten. Loopt enkel on mount.
 
     const handleSelect = (name, id) => {
         inputRef.current = name
@@ -86,7 +86,7 @@ export default function EigenCombobox ({
             />
             {/* TO DO: scroll knop toevoegen */}
             <input
-                id={field} //$request->{title}_id will be used in a Laravel controller.
+                id={field}
                 type="hidden"
                 value={data[field]}
             />

@@ -16,4 +16,17 @@ class DashboardController extends Controller
         return Inertia::render('Dashboard', ['dogs' => $dogs]);
     }
 
+    public function home() {
+        // if (Auth::user()) //Overbodig: wordt opgevangen door de middleware in web.php
+        //     return redirect()->route('dashboard');
+        // }
+        $postal_codes = Postal_code::all('id', 'postal_code', 'municipality');
+        $sexes = Sex::all();
+
+        return Inertia::render('Home', [
+            'postal_codes' => $postal_codes,
+            'sexes' => $sexes
+        ]);
+    }
+
 }

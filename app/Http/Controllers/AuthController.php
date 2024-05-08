@@ -13,19 +13,6 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    public function home() {
-        if (Auth::user()) {
-            return redirect()->route('dashboard');
-        }
-        $postal_codes = Postal_code::all('id', 'postal_code', 'municipality');
-        $sexes = Sex::all();
-
-        return Inertia::render('Home', [
-            'postal_codes' => $postal_codes,
-            'sexes' => $sexes
-        ]);
-    }
-
     public function handleLogin(Request $request) {
         $request->validate([
             'email' =>'required|email',
@@ -82,18 +69,18 @@ class AuthController extends Controller
         return redirect()->route('dashboard');
     }
 
-    // public function register() {
-    //     $postal_codes = Postal_code::all('id', 'postal_code', 'municipality');
-    //     $sexes = Sex::all();
+    // DEZE FUNCTIES ZIJN OVERBODIG NU DIT GEEN PAGES MAAR COMPONENTS ZIJN
+        // public function register() {
+        //     $postal_codes = Postal_code::all('id', 'postal_code', 'municipality');
+        //     $sexes = Sex::all();
 
-    //     return Inertia::render('Auth/Register',[
-    //         'postal_codes' => $postal_codes,
-    //         'sexes' => $sexes,
-    //     ]);
-    // }
-
-    // public function login() {
-    //     return Inertia::render('Auth/Login');
-    // }
+        //     return Inertia::render('Auth/Register',[
+        //         'postal_codes' => $postal_codes,
+        //         'sexes' => $sexes,
+        //     ]);
+        // }
+        // public function login() {
+        //     return Inertia::render('Auth/Login');
+        // }
 
 }

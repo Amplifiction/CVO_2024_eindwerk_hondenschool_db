@@ -6,14 +6,20 @@ export default function IndexDogs ({dogs}) {
         <div>
             <h2>Mijn honden</h2>
             <Link href="/dogs/create">Hond toevoegen</Link>
-            <ul>
-                {dogs.map(dog => (
-                    <li key={dog.id}>
+            <div>
+                {dogs.length<1
+                ? <p>Geen honden gevonden.</p>
+                : dogs.map(dog => (
+                    <div
+                        key={dog.id}
+                        className="flex-row"
+                    >
                         {dog.name}
                         <ActionButtonsDog dog={dog}/>
-                    </li>
-                ))}
-            </ul>
+                    </div>
+                ))
+                }
+            </div>
         </div>
     )
 }

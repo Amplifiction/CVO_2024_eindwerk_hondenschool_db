@@ -1,6 +1,7 @@
 import { useForm } from "@inertiajs/react"
-import FormSubmitButton from "../../Components/FormSubmitButton"
+import FormStandardButtons from "../../Components/FormStandardButtons"
 import InputsDog from "../../Components/Dogs/InputsDog"
+import Form from "../../Components/Form"
 
 
 export default function CreateDog ({breeds}) {
@@ -19,7 +20,7 @@ export default function CreateDog ({breeds}) {
     return (
         <div>
             <h1>Hond toevoegen</h1>
-            <form onSubmit={handleSubmit}>
+            <Form onSubmit={handleSubmit}>
                 <InputsDog
                     breeds={breeds}
                     data={data}
@@ -27,11 +28,11 @@ export default function CreateDog ({breeds}) {
                     setData={setData}
                     setError={setError}
                 />
-                <FormSubmitButton
+                <FormStandardButtons
                     title='Bewaren'
                     processing={processing}
                 />
-            </form>
+            </Form>
         </div>
     )
 }

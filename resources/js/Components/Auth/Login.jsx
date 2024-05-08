@@ -1,6 +1,7 @@
 import { useForm } from "@inertiajs/react"
 import SingleInput from "../SingleInput"
-import FormSubmitButton from "../FormSubmitButton"
+import FormStandardButtons from "../FormStandardButtons"
+import Form from "../Form"
 
 export default function Login ({}) {
     const { data, setData, post, processing, errors, setError } = useForm({
@@ -16,7 +17,7 @@ export default function Login ({}) {
     return (
         <div>
             <h1>Inloggen</h1>
-            <form onSubmit={handleSubmit}>
+            <Form onSubmit={handleSubmit}>
                 <SingleInput
                     field='email'
                     title='Email'
@@ -35,11 +36,11 @@ export default function Login ({}) {
                     setData={setData}
                     setError={setError}
                 />
-                <FormSubmitButton
+                <FormStandardButtons
                     title='Inloggen'
                     processing={processing}
                 />
-            </form>
+            </Form>
         </div>
     )
 }

@@ -1,6 +1,7 @@
 import { useForm, usePage } from "@inertiajs/react"
 import InputsUser from "../../Components/Auth/InputsUser"
-import FormSubmitButton from "../../Components/FormSubmitButton"
+import FormStandardButtons from "../../Components/FormStandardButtons"
+import Form from "../../Components/Form"
 
 export default function EditProfile ({postal_codes, sexes}) {
     const { auth } = usePage().props
@@ -33,7 +34,7 @@ export default function EditProfile ({postal_codes, sexes}) {
     return (
         <div>
             <h1>Mijn profiel</h1>
-            <form onSubmit={handleSubmit}>
+            <Form onSubmit={handleSubmit}>
                 <InputsUser
                     postal_codes={postal_codes}
                     sexes={sexes}
@@ -42,11 +43,11 @@ export default function EditProfile ({postal_codes, sexes}) {
                     setData={setData}
                     setError={setError}
                 />
-                <FormSubmitButton
+                <FormStandardButtons
                     title='Bewaren'
                     processing={processing}
                 />
-            </form>
+            </Form>
         </div>
     )
 }

@@ -1,6 +1,7 @@
 import { useForm, usePage } from "@inertiajs/react"
 import InputsPassword from "../../Components/Auth/InputsPassword"
-import FormSubmitButton from "../../Components/FormSubmitButton"
+import FormStandardButtons from "../../Components/FormStandardButtons"
+import Form from "../../Components/Form"
 
 
 export default function EditPassword ({}) {
@@ -19,18 +20,18 @@ export default function EditPassword ({}) {
     return (
         <div>
             <h1>Wachtwoord wijzigen</h1>
-            <form onSubmit={handleSubmit}>
+            <Form onSubmit={handleSubmit}>
                 <InputsPassword
                     data={data}
                     errors={errors}
                     setData={setData}
                     setError={setError}
                 />
-                <FormSubmitButton
+                <FormStandardButtons
                     title='Bewaren'
                     processing={processing}
                 />
-            </form>
+            </Form>
         </div>
     )
 }

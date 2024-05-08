@@ -1,12 +1,15 @@
 import { usePage, Link } from "@inertiajs/react"
-export default function Dashboard ({}) {
+import IndexDogs from "../Components/Dogs/IndexDogs"
+export default function Dashboard ({dogs}) {
     const { flash } = usePage().props
 
     return (
         <div>
             <h1>Mijn dashboard</h1>
             <p>{flash.message}</p>
-            <Link href="/dogs/create">Hond toevoegen</Link>
+            <IndexDogs
+                dogs={dogs}
+            />
         </div>
     )
 }

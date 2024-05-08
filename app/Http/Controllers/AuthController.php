@@ -13,9 +13,18 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    // public function login() {
-    //     return Inertia::render('Auth/Login');
-    // }
+    public function home() {
+        if (Auth::user()) {
+            return redirect()->route('dashboard');
+        }
+        $postal_codes = Postal_code::all('id', 'postal_code', 'municipality');
+        $sexes = Sex::all();
+
+        return Inertia::render('Home', [
+            'postal_codes' => $postal_codes,
+            'sexes' => $sexes
+        ]);
+    }
 
     public function handleLogin(Request $request) {
         $request->validate([
@@ -35,16 +44,6 @@ class AuthController extends Controller
         Auth::logout();
         return redirect()->route('home');
     }
-
-    // public function register() {
-    //     $postal_codes = Postal_code::all('id', 'postal_code', 'municipality');
-    //     $sexes = Sex::all();
-
-    //     return Inertia::render('Auth/Register',[
-    //         'postal_codes' => $postal_codes,
-    //         'sexes' => $sexes,
-    //     ]);
-    // }
 
     public function handleRegister (Request $request) {
         //TO DO: not in -1 rules zijn restanten van selects (ipv combobox - zie vroege commits) en mogen w geschrapt
@@ -82,5 +81,19 @@ class AuthController extends Controller
 
         return redirect()->route('dashboard');
     }
+
+    // public function register() {
+    //     $postal_codes = Postal_code::all('id', 'postal_code', 'municipality');
+    //     $sexes = Sex::all();
+
+    //     return Inertia::render('Auth/Register',[
+    //         'postal_codes' => $postal_codes,
+    //         'sexes' => $sexes,
+    //     ]);
+    // }
+
+    // public function login() {
+    //     return Inertia::render('Auth/Login');
+    // }
 
 }

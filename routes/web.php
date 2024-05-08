@@ -4,12 +4,12 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DogController;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 
-Route::get('/', [HomeController::class, 'home'])->name('home')->middleware('guest');
-Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard')->middleware('auth');
+Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard')->middleware('auth');
 
+Route::get('/', [AuthController::class, 'home'])->name('home')->middleware('guest');
 //Route::get('/register', [AuthController::class, 'register'])->name('register.get')->middleware('guest');
 Route::post('/register', [AuthController::class, 'handleRegister'])->name('register.post')->middleware('guest');
 //Route::get('/login', [AuthController::class, 'login'])->name('login.get')->middleware('guest');
@@ -24,7 +24,7 @@ Route::post('/editPassword', [ProfileController::class, 'handleEditPassword'])->
 Route::get('/dogs/create', [DogController::class, 'create'])->name('dogs.create')->middleware('auth');
 Route::post('/dogs', [DogController::class, 'store'])->name('dogs.store')->middleware('auth');
 //Route::get('/dogs', [DogController::class, 'index'])->name('dogs.index')->middleware('auth'); //TO DO: gates aanmaken obv ownership
-Route::get('/dogs/{id}', [DogController::class, 'show'])->name('dogs.show')->middleware('auth'); //gate aanmaken obv ownership
+Route::get('/dogs/{id}', [DogController::class, 'edit'])->name('dogs.edit')->middleware('auth'); //gate aanmaken obv ownership
 Route::put('dogs/{id}', [DogController::class, 'update'])->name('dogs.update')->middleware('auth'); //gate aanmaken obv ownership
 Route::delete('/dogs/{id}', [DogController::class, 'destroy'])->name('dogs.destroy')->middleware('auth'); //gate aanmaken obv ownership
 

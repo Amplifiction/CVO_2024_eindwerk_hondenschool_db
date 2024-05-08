@@ -12,9 +12,8 @@ use Illuminate\Support\Facades\Auth;
 class DogController extends Controller
 {
 
-    public function create () { //view
+    public function create () {
         $breeds=Breed::all();
-
         return Inertia::render('Dogs/CreateDog', [
             'breeds' => $breeds
         ]);
@@ -37,6 +36,37 @@ class DogController extends Controller
 
         $dog->ownerships()->attach($user); //mag ook andersom: dog aan user attachen
 
-        return redirect()->route('home');
+        return redirect()->route('dashboard');
+    }
+
+    public function edit (Dog $dog) {
+        $breeds=Breed::all();
+        return Inertia::render('Dogs/EditDog', [
+            'breeds' => $breeds,
+            'dog' => $dog
+        ]);
+    }
+
+    public function update (Request $request, Dog $dog) {
+        $request->validate([
+            'breed_id' => 'required',
+            'date_of_birth' => 'required',
+            'name' => 'required',
+            'sex' => 'required',
+        ]);
+        $dog->breed_id = $request->breed_id;
+        $dog->date_of_birth = $request->date_of_birth;
+        $dog->name = $request->name;
+        $dog->sex = $request->sex;
+        $dog->save();
+
+        $request->session()->flash('message', 'De gegevens van uw hond werden bijgewerkt.');
+        return redirect()->route('dashboard');
+    }
+
+    public function destroy (Dog $dog) {
+        $dog->ownerships()->detach(Auth::user()); //TO DO: is dit nodig? Zo ja, zelfde voor memberships
+        $dog->delete();
+        return redirect()->route('dashboard');
     }
 }

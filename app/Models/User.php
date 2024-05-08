@@ -62,7 +62,7 @@ class User extends Authenticatable
     }
 
     public function memberships() {
-        return $this->belongsToMany(User::class, 'memberships', 'user_id', 'dog_id')
+        return $this->belongsToMany(Dog::class, 'memberships', 'user_id', 'dog_id')
         ->withPivot('discipline_id', 'start_date', 'end_date', 'fee');
     }
 }

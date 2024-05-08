@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Dog;
 use Inertia\Inertia;
 use App\Models\Breed;
+use App\Models\Ownership;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -41,7 +42,7 @@ class DogController extends Controller
     }
 
     public function edit (Dog $dog) {
-        if (! Gate::allows('ownership', Auth::user())) {
+        if (! Gate::allows('ownership', $dog)) {
             abort(403);
         }
         $breeds=Breed::all();
@@ -51,10 +52,16 @@ class DogController extends Controller
         ]);
     }
 
+    // $user=Auth::user();
+    // dd($user->ownerships);
+
+    // if(!auth()->user()->can('ownership', $dog)) {
+    //     abort(403);
+    // }
+
+
     public function update (Request $request, Dog $dog) {
-        if (! Gate::allows('ownership', $dog)) {
-            abort(403);
-        }
+        // TO DO: Gate toevoegen
         $request->validate([
             'breed_id' => 'required',
             'date_of_birth' => 'required',
@@ -72,9 +79,7 @@ class DogController extends Controller
     }
 
     public function destroy (Dog $dog) {
-        if (! Gate::allows('ownership', $dog)) {
-            abort(403);
-        }
+        // TO DO: Gate toevoegen
         $dog->ownerships()->detach(Auth::user()); //TO DO: is dit nodig? Zo ja, zelfde voor memberships
         $dog->delete();
         return redirect()->route('dashboard');

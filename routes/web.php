@@ -23,8 +23,8 @@ Route::post('/editPassword', [ProfileController::class, 'handleEditPassword'])->
 
 Route::get('/dogs/create', [DogController::class, 'create'])->name('dogs.create')->middleware('auth');
 Route::post('/dogs', [DogController::class, 'store'])->name('dogs.store')->middleware('auth');
-//Route::get('/dogs', [DogController::class, 'index'])->name('dogs.index')->middleware('auth'); //TO DO: gates aanmaken obv ownership
-Route::get('/dogs/{dog}', [DogController::class, 'edit'])->name('dogs.edit')->middleware('auth'); //gate aanmaken obv ownership
-Route::put('dogs/{dog}', [DogController::class, 'update'])->name('dogs.update')->middleware('auth'); //gate aanmaken obv ownership
-Route::delete('/dogs/{dog}', [DogController::class, 'destroy'])->name('dogs.destroy')->middleware('auth'); //gate aanmaken obv ownership
+//Route::get('/dogs', [DogController::class, 'index'])->name('dogs.index')->middleware('auth');
+Route::get('/dogs/{dog}', [DogController::class, 'edit'])->name('dogs.edit')->middleware('auth');
+Route::put('dogs/{dog}', [DogController::class, 'update'])->name('dogs.update')->middleware('auth');
+Route::delete('/dogs/{dog}', [DogController::class, 'destroy'])->name('dogs.destroy')->middleware('auth');
 

@@ -15,7 +15,7 @@ export function DefaultLayout({children}) {
             <main>
                 <header>
                     {auth.user &&
-                    <div className="m-xy-1"> {/* TO DO: border-bottom */}
+                    <div className="container"> {/* TO DO: border-bottom */}
                         <AuthMenu/>
                     </div>
                     }
@@ -24,10 +24,10 @@ export function DefaultLayout({children}) {
                     {children}
                 </section>
                 <footer>
-                    <hr />
-                    <div className="m-xy-1">
+                    {/* TO DO: border-top */}
+                    <div className="container">
                         <a href="https://www.hondenschoolderoedel.be/" target="_blank">De Roedel vzw</a> | <a href="https://www.facebook.com/hondenschoolderoedelhelchteren/" target="_blank">Facebook</a>
-                        <p>Copyright &copy; 2024 Bart Stevens</p>
+                        <p>&copy; 2024 Bart Stevens</p>
                     </div>
                 </footer>
             </main>

@@ -101,16 +101,15 @@ class DogController extends Controller
     }
 
     public function destroy (Request $request, Dog $dog) {
-        // if (! Gate::allows('ownership', $dog)) {
-        //     abort(403);
-        // }
-        //TO DO: deze gate laat verwijderen gedeelde hond niet toe.
+        if (! Gate::allows('ownership', $dog)) {
+            abort(403);
+        }
         $dogCount = $dog->ownerships()->count();
-        if ($dogCount-1 > 0) {
+        if ($dogCount > 1) {
             $dog->ownerships()->detach(Auth::user());
             $request->session()->flash('message', 'De hond werd ontkoppeld van uw account.');
         } else {
-            $dog->delete();
+            $dog->delete(); //TO DO: constraint violation: cascaden?
             //$dog->ownerships()->detach(Auth::user());
             $request->session()->flash('message', 'De hond werd verwijderd uit de database.');
         }

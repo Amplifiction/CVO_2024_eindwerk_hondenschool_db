@@ -7,7 +7,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 
-Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard')->middleware('auth');
+Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard'); //->middleware('auth') //middleware vervangen door handmatige redirect. Zie Zie "eigen logboek.docx", 9/5/2024 voor details.
 
 Route::get('/', [DashboardController::class, 'home'])->name('home')->middleware('guest');
 //Route::get('/register', [AuthController::class, 'register'])->name('register.get')->middleware('guest');
@@ -21,8 +21,9 @@ Route::post('/editProfile', [ProfileController::class, 'handleEditProfile'])->na
 Route::get('/editPassword', [ProfileController::class, 'editPassword'])->name('editPassword.get')->middleware('auth');
 Route::post('/editPassword', [ProfileController::class, 'handleEditPassword'])->name('editPassword.post')->middleware('auth');
 
-Route::get('/dogs/create', [DogController::class, 'create'])->name('dogs.create')->middleware('auth');
-Route::post('/dogs', [DogController::class, 'store'])->name('dogs.store')->middleware('auth');
+Route::get('/dogs/add', [DogController::class, 'add'])->name('dogs.add')->middleware('auth'); // view voor zowel store als addshared
+Route::post('/dogs/store', [DogController::class, 'store'])->name('dogs.store')->middleware('auth');
+Route::post('/dogs/addshared', [DogController::class, 'addShared'])->name('dogs.addshared')->middleware('auth');
 //Route::get('/dogs', [DogController::class, 'index'])->name('dogs.index')->middleware('auth');
 Route::get('/dogs/{dog}', [DogController::class, 'edit'])->name('dogs.edit')->middleware('auth');
 Route::put('dogs/{dog}', [DogController::class, 'update'])->name('dogs.update')->middleware('auth');

@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 class DashboardController extends Controller
 {
     public function dashboard() {
+        if (!Auth::user()) return redirect()->route('home'); // Is (samen met verwijderen middleware van route) noodzakelijk om fout "Route [login] not defined." te voorkomen. Zie "eigen logboek.docx", 9/5/2024 voor details.
         $dogs=Auth::user()->ownerships;
         return Inertia::render('Dashboard', ['dogs' => $dogs]);
     }

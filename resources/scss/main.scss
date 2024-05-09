@@ -3,6 +3,7 @@
 @use 'grid'; //responsiveness
 @use 'containers';
 @use 'buttons';
+@use 'components';
 
 body {
     font-family: vars.$font-stack;
@@ -19,13 +20,6 @@ body {
 .light {
     background-color: vars.$bg-light;
     color: vars.$fc-light;
-}
-
-.comboboxDropdown {
-    max-height: 300px;
-    overflow-y: scroll;
-    opacity: 0.9;
-    border: 1px solid black; //TO DO: kleur kiezen
 }
 
 //FLEX
@@ -58,14 +52,6 @@ body {
 .error {
     color: vars.$fc-error;
     font-style: italic;
-}
-
-//FORMS
-input, textarea, datalist {
-    margin: 1px -1px 3px -1px;
-}
-select {
-    margin: 1px 0px;
 }
 
 //MARGIN & PADDING

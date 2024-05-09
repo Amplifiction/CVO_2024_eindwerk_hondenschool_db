@@ -445,6 +445,55 @@ p, h1, h2, h3, h4, h5, h6 {
   cursor: not-allowed;
 }
 
+.comboboxDropdown {
+  max-height: 300px;
+  overflow-y: scroll;
+  opacity: 0.9;
+  border: 1px solid black;
+}
+
+.tabButton {
+  width: 50%;
+}
+
+.activeTabButton {
+  font-weight: bold;
+}
+
+input, textarea, datalist {
+  margin: 1px -1px 3px -1px;
+}
+
+select {
+  margin: 1px 0px;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  position: relative;
+  background-color: white;
+  padding: 10px;
+}
+
 body {
   font-family: Helvetica, sans-serif;
 }
@@ -461,13 +510,6 @@ body {
 .light {
   background-color: #ffffff;
   color: #000000;
-}
-
-.comboboxDropdown {
-  max-height: 300px;
-  overflow-y: scroll;
-  opacity: 0.9;
-  border: 1px solid black;
 }
 
 .flex-col {
@@ -522,14 +564,6 @@ h6 {
 .error {
   color: red;
   font-style: italic;
-}
-
-input, textarea, datalist {
-  margin: 1px -1px 3px -1px;
-}
-
-select {
-  margin: 1px 0px;
 }
 
 .m-y-1 {

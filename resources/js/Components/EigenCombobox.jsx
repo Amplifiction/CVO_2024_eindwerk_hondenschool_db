@@ -51,7 +51,7 @@ export default function EigenCombobox ({
                 if (found) {
                     setData(field, found.id)
                 } else {
-                    alert(`${title}: ${inputRef.current} niet gevonden.`)
+                    alert(`${title}: ${inputRef.current} niet gevonden.`) // TO DO, eventueel: elegantere manier vinden om dan alert. Modal in default Layout + event emitten om een of andere global state aan te passen?
                     setData(field, '')
                     setInputState('')
                     inputRef.current = ''

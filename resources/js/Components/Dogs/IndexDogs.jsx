@@ -1,11 +1,11 @@
 import { Link } from "@inertiajs/react";
 import ActionButtonsDog from "./ActionButtonsDog";
 
-export default function IndexDogs ({dogs}) {
+export default function IndexDogs ({dogs, deleteEvent, shareEvent}) {
     return (
         <div>
             <h2>Mijn honden</h2>
-            <Link href="/dogs/create">Hond toevoegen</Link>
+            <Link href="/dogs/add">Hond toevoegen</Link>
             <div>
                 {dogs.length<1
                 ? <p>Geen honden gevonden.</p>
@@ -15,7 +15,11 @@ export default function IndexDogs ({dogs}) {
                         className="flex-row"
                     >
                         {dog.name}
-                        <ActionButtonsDog dog={dog}/>
+                        <ActionButtonsDog
+                            dog={dog}
+                            deleteEvent={deleteEvent}
+                            shareEvent={shareEvent}
+                        />
                     </div>
                 ))
                 }

@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Gate;
 class DogController extends Controller
 {
 
-    public function create () {
+    public function add () {
         $breeds=Breed::all();
-        return Inertia::render('Dogs/CreateDog', [
+        return Inertia::render('Dogs/AddDog', [
             'breeds' => $breeds
         ]);
     }
@@ -41,6 +41,26 @@ class DogController extends Controller
         return redirect()->route('dashboard');
     }
 
+    public function addShared (Request $request) {
+        $request->validate(['uuid' => 'required']);
+        $dog = Dog::where('uuid', $request->uuid)->first();
+        $user = Auth::user();
+        $doubleDog = $dog->ownerships()
+            ->where('user_id', $user->id)
+            ->where('dog_id', $dog->id)
+            ->first();
+        if ($doubleDog) {
+            $request->session()->flash('message', 'Deze hond is al toegewezen aan uw account.');
+            return redirect()->route('dashboard');
+        }
+        $dog->ownerships()->attach($user);
+
+        $request->session()->flash('message', 'Gedeelde hond werd toegevoegd.');
+        return redirect()->route('dashboard');
+    }
+
+    //TO DO: verwijderen van shared dog: Integrity constraint violation
+
     public function edit (Dog $dog) {
         if (! Gate::allows('ownership', $dog)) {
             abort(403);
@@ -61,7 +81,9 @@ class DogController extends Controller
 
 
     public function update (Request $request, Dog $dog) {
-        // TO DO: Gate toevoegen
+        if (! Gate::allows('ownership', $dog)) {
+            abort(403);
+        }
         $request->validate([
             'breed_id' => 'required',
             'date_of_birth' => 'required',
@@ -78,10 +100,20 @@ class DogController extends Controller
         return redirect()->route('dashboard');
     }
 
-    public function destroy (Dog $dog) {
-        // TO DO: Gate toevoegen
-        $dog->ownerships()->detach(Auth::user()); //TO DO: is dit nodig? Zo ja, zelfde voor memberships
-        $dog->delete();
+    public function destroy (Request $request, Dog $dog) {
+        // if (! Gate::allows('ownership', $dog)) {
+        //     abort(403);
+        // }
+        //TO DO: deze gate laat verwijderen gedeelde hond niet toe.
+        $dogCount = $dog->ownerships()->count();
+        if ($dogCount-1 > 0) {
+            $dog->ownerships()->detach(Auth::user());
+            $request->session()->flash('message', 'De hond werd ontkoppeld van uw account.');
+        } else {
+            $dog->delete();
+            //$dog->ownerships()->detach(Auth::user());
+            $request->session()->flash('message', 'De hond werd verwijderd uit de database.');
+        }
         return redirect()->route('dashboard');
     }
 }

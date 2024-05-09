@@ -39,7 +39,7 @@ class AuthController extends Controller
             'last_name' => 'required',
             'sex_id' => ['required', Rule::notIn(['-1'])],
             'date_of_birth' => 'required',
-            'email' => 'required|email:rfc,dns|unique:users',
+            'email' => 'required|email:rfc,dns|unique:users', //TO DO: dns controle lijkt niet te werken.
             'cellphone' => 'required',
             'street'=>'required',
             'housenumber' =>'required',

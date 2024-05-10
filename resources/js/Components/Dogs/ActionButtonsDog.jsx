@@ -1,6 +1,6 @@
 import { Link } from "@inertiajs/react"
 
-export default function ActionButtonsDog ({dog, deleteEvent, shareEvent}) {
+export default function ActionButtonsDog ({dog, dogDeleteEvent, shareEvent}) {
 
     // const handleDelete = (id) => {
     //     router.delete(`/dogs/${id}`, {
@@ -14,7 +14,7 @@ export default function ActionButtonsDog ({dog, deleteEvent, shareEvent}) {
             <Link href={`/dogs/${dog.id}`} as="button">Bewerken</Link>
 
             {/* Deze buttons emitten een event naar parent */} {/* Link ondersteunt geen delete, vandaar buttons */}
-            <button onClick={() => deleteEvent(dog)}>Verwijderen</button>
+            <button onClick={() => dogDeleteEvent(dog)}>Verwijderen</button>
             <button onClick={() => shareEvent(dog)}>Delen</button>
         </div>
     )

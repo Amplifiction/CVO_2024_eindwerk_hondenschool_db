@@ -40,5 +40,8 @@ class MembershipController extends Controller
 
     public function destroy (Request $request, Membership $ms) {
         //TO DO: gate toevoegen
+        $ms->delete(); //TO Do: werkt niet
+        $request->session()->flash('message', 'Lidmaatschap verwijderd.');
+        return redirect()->route('dashboard');
     }
 }

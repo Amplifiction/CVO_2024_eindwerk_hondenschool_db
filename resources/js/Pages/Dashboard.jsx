@@ -6,25 +6,38 @@ import IndexMemberships from "../Components/Memberships/IndexMemberships"
 export default function Dashboard ({dogs, memberships}) {
     const { flash } = usePage().props
 
-    const [showDeleteModal, setShowDeleteModal] = useState(false)
+    const [showDogDeleteModal, setShowDogDeleteModal] = useState(false)
     const [deleteModalDog, setDeleteModalDog] = useState({})
 
     const [showShareModal, setShowShareModal] = useState(false)
     const [shareModalDog, setShareModalDog] = useState({})
+
+    const [showMsDeleteModal, setShowMsDeleteModal] = useState(false)
+    const [deleteModalMs, setDeleteModalMs] = useState({})
 
     const handleShareEvent = (dog) => {
         setShareModalDog(dog)
         setShowShareModal(true)
     }
 
-    const handleDeleteEvent = (dog) => {
+    const handledogDeleteEvent = (dog) => {
         setDeleteModalDog(dog)
-        setShowDeleteModal(true)
+        setShowDogDeleteModal(true)
     }
 
-    const handleDelete = (id) => {
+    const handleDogDelete = (id) => {
         router.delete(`/dogs/${id}`, {})
-        setShowDeleteModal(false)
+        setShowDogDeleteModal(false)
+    }
+
+    const handleMsDeleteEvent = (ms) => {
+        setDeleteModalMs(ms)
+        setShowMsDeleteModal(true)
+    }
+
+    const handleMsDelete = (id) => {
+        router.delete(`/memberships/${id}`, {})
+        setShowMsDeleteModal(false)
     }
 
     return (
@@ -33,24 +46,25 @@ export default function Dashboard ({dogs, memberships}) {
             <p>{flash.message}</p>
             <IndexDogs
                 dogs={dogs}
-                deleteEvent={handleDeleteEvent}
+                dogDeleteEvent={handledogDeleteEvent}
                 shareEvent={handleShareEvent}
             />
             <IndexMemberships
                 memberships={memberships}
+                msDeleteEvent={handleMsDeleteEvent}
             />
-            {showDeleteModal &&
+            {showDogDeleteModal &&
                 <Modal
-                    close={() => setShowDeleteModal(false)}
+                    close={() => setShowDogDeleteModal(false)}
                 >
                     <p>Weet u zeker dat u {deleteModalDog.name} wilt verwijderen?</p>
                     <button
-                        onClick={() => handleDelete(deleteModalDog.id)}
+                        onClick={() => handleDogDelete(deleteModalDog.id)}
                     >
                         Verwijderen
                     </button>
                     <button
-                        onClick={() => setShowDeleteModal(false)}
+                        onClick={() => setShowDogDeleteModal(false)}
                     >
                         Annuleren
                     </button>
@@ -66,6 +80,25 @@ export default function Dashboard ({dogs, memberships}) {
                         onClick={() => setShowShareModal(false)}
                     >
                         Sluiten
+                    </button>
+                </Modal>
+            }
+            {showMsDeleteModal &&
+                <Modal
+                    close={() => setShowMsDeleteModal(false)}
+                >
+                    <p>
+                        Weet u zeker dat u uw lidmaatschap met {deleteModalMs.dog_name} van {deleteModalMs.start_date} wilt annuleren?
+                    </p>
+                    <button
+                        onClick={() => handleMsDelete(deleteModalMs.id)}
+                    >
+                        Verwijderen
+                    </button>
+                    <button
+                        onClick={() => setShowMsDeleteModal(false)}
+                    >
+                        Annuleren
                     </button>
                 </Modal>
             }

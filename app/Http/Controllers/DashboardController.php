@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Dog;
 use App\Models\Sex;
 use Inertia\Inertia;
+use App\Models\Status;
+use App\Models\Discipline;
 use App\Models\Membership;
 use App\Models\Postal_Code;
 use Illuminate\Http\Request;
@@ -17,17 +19,10 @@ class DashboardController extends Controller
             // Is (samen met verwijderen middleware van route) noodzakelijk om fout "Route [login] not defined." te voorkomen. Zie "eigen logboek.docx", 9/5/2024 voor details.
         $dogs=Auth::user()->ownerships;
         $memberships = Membership::where('user_id', Auth::user()->id)->get();
-        foreach ($memberships as $ms) {
-            //resultaat: Attempt to read property "name" on null
-                //$dogname = $ms->dog->name;
-                //$dogname = Dog::find($ms->dog_id)->name;
-            //resultaat: SQLSTATE[HY000]: General error: 1 near "from": syntax error
-                //$dogname = Dog::find('id', $ms->dog_id)->value('name');
-            //resultaat: dog_name is leeg.
-                //$dogname = Dog::where('id', $ms->dog_id)->value('name');
-            //resultaat: juist
-                $dogname = Dog::where('id', $ms->dog_id)->first()->name;
-            $ms->dog_name = $dogname;
+        foreach ($memberships as $ms) { // toevoegen extra velden om aan compo door te geven als één array.
+            $ms->dog_name = Dog::where('id', $ms->dog_id)->first()->name;
+            $ms->disc_name = Discipline::where('id', $ms->discipline_id)->first()->name;
+            $ms->status_name = Status::where('id', $ms->status_id)->first()->name;
         }
 
         return Inertia::render('Dashboard', [

@@ -112,5 +112,5 @@ class DogController extends Controller
             $request->session()->flash('message', 'De hond werd verwijderd uit de database.');
         }
         return redirect()->route('dashboard');
-    }
+    } //TO DO: wat als ingelogde user én hond lidms hebben?
 }

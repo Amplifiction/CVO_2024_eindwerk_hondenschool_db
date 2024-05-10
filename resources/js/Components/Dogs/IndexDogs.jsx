@@ -1,7 +1,7 @@
 import { Link } from "@inertiajs/react";
 import ActionButtonsDog from "./ActionButtonsDog";
 
-export default function IndexDogs ({dogs, deleteEvent, shareEvent}) {
+export default function IndexDogs ({dogs, dogDeleteEvent, shareEvent}) {
     return (
         <div>
             <h2>Mijn honden</h2>
@@ -18,7 +18,7 @@ export default function IndexDogs ({dogs, deleteEvent, shareEvent}) {
                         {dog.name}
                         <ActionButtonsDog
                             dog={dog}
-                            deleteEvent={deleteEvent}
+                            dogDeleteEvent={dogDeleteEvent}
                             shareEvent={shareEvent}
                         />
                     </div>

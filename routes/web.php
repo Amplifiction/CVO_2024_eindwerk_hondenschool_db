@@ -9,8 +9,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MembershipController;
 
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard'); //->middleware('auth') //middleware vervangen door handmatige redirect. Zie Zie "eigen logboek.docx", 9/5/2024 voor details.
-
 Route::get('/', [DashboardController::class, 'home'])->name('home')->middleware('guest');
+
 //Route::get('/register', [AuthController::class, 'register'])->name('register.get')->middleware('guest');
 Route::post('/register', [AuthController::class, 'handleRegister'])->name('register.post')->middleware('guest');
 //Route::get('/login', [AuthController::class, 'login'])->name('login.get')->middleware('guest');

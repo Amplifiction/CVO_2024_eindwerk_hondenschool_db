@@ -14,6 +14,7 @@ export default function IndexMemberships ({memberships}) {
                         className="flex-row"
                     >
                         <div>Hond:{ms.dog_name}</div>
+                        <div>Startdatum: {ms.start_date}</div>
                     </div>
                 ))
                 }

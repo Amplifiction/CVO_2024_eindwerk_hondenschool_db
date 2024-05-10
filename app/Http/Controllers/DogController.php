@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Gate;
 class DogController extends Controller
 {
 
-    public function add () {
+    public function add () { //view voor zowel store (nieuwe hond) als addShared.
         $breeds=Breed::all();
         return Inertia::render('Dogs/AddDog', [
             'breeds' => $breeds
@@ -59,8 +59,6 @@ class DogController extends Controller
         return redirect()->route('dashboard');
     }
 
-    //TO DO: verwijderen van shared dog: Integrity constraint violation
-
     public function edit (Dog $dog) {
         if (! Gate::allows('ownership', $dog)) {
             abort(403);
@@ -104,13 +102,13 @@ class DogController extends Controller
         if (! Gate::allows('ownership', $dog)) {
             abort(403);
         }
-        $dogCount = $dog->ownerships()->count();
-        if ($dogCount > 1) {
+        $ownCount = $dog->ownerships()->count();
+        if ($ownCount > 1) {
             $dog->ownerships()->detach(Auth::user());
-            $request->session()->flash('message', 'De hond werd ontkoppeld van uw account.');
+            $request->session()->flash('message', 'De hond werd ontkoppeld van uw account (maar niet van die van mede-eigenaars).');
         } else {
-            $dog->delete(); //TO DO: constraint violation: cascaden?
-            //$dog->ownerships()->detach(Auth::user());
+            $dog->ownerships()->detach(Auth::user());
+            $dog->delete();
             $request->session()->flash('message', 'De hond werd verwijderd uit de database.');
         }
         return redirect()->route('dashboard');

@@ -16,11 +16,12 @@ return new class extends Migration
             $table->timestamps();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('dog_id')->constrained();
-            //niet-standaard many2many velden: (withPivot nodig in models)
-            $table->foreignId('discipline_id')->constrained();
-            $table->date('start_date');
-            $table->date('end_date');
-            $table->decimal('fee')->nullable();
+            //non-standaard many2many velden: (withPivot nodig in models)
+                $table->foreignId('discipline_id')->constrained();
+                $table->date('start_date');
+                //$table->date('end_date'); //lidmaatschappen duren steeds een jaar
+                $table->foreignId('status_id')->constrained();
+                $table->decimal('fee')->nullable();
         });
     }
 

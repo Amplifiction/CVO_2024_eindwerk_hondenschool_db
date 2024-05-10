@@ -19,6 +19,6 @@ class Dog extends Model
 
     public function memberships() {
         return $this->belongsToMany(User::class, 'memberships', 'dog_id', 'user_id')
-        ->withPivot('discipline_id', 'start_date', 'end_date', 'fee');
+        ->withPivot('discipline_id', 'start_date', 'status_id', 'fee');
     }
 }

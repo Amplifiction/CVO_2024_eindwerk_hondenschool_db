@@ -29,7 +29,6 @@ export default function AddSharedDog ({}) {
                 processing={processing}
             />
             <p>Voer hier de code in die u heeft gekregen van de eigenaar van de hond waarmee u wil trainen.</p>
-            <p>9c005fc2-c807-4626-996d-4afcc9ed52b6</p>
         </Form>
     )
 }

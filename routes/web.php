@@ -4,8 +4,9 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DogController;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\MembershipController;
 
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard'); //->middleware('auth') //middleware vervangen door handmatige redirect. Zie Zie "eigen logboek.docx", 9/5/2024 voor details.
 
@@ -28,4 +29,8 @@ Route::post('/dogs/addshared', [DogController::class, 'addShared'])->name('dogs.
 Route::get('/dogs/{dog}', [DogController::class, 'edit'])->name('dogs.edit')->middleware('auth');
 Route::put('dogs/{dog}', [DogController::class, 'update'])->name('dogs.update')->middleware('auth');
 Route::delete('/dogs/{dog}', [DogController::class, 'destroy'])->name('dogs.destroy')->middleware('auth');
+
+Route::get('/memberships/create', [MembershipController::class, 'create'])->name('memberships.create')->middleware('auth');
+Route::post('/memberships/store', [MembershipController::class, 'store'])->name('memberships.store')->middleware('auth');
+Route::post('memberships/{membership}', [MembershipController::class, 'destroy'])->name('memberships.destroy')->middleware('auth');
 

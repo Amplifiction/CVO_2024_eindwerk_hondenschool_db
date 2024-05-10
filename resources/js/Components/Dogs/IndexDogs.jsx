@@ -14,6 +14,7 @@ export default function IndexDogs ({dogs, deleteEvent, shareEvent}) {
                         key={dog.id}
                         className="flex-row"
                     >
+                    {/* TO DO: mede-eigenaars weergeven */}
                         {dog.name}
                         <ActionButtonsDog
                             dog={dog}

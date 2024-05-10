@@ -2,7 +2,8 @@ import { usePage, router } from "@inertiajs/react"
 import IndexDogs from "../Components/Dogs/IndexDogs"
 import Modal from "../Components/Modal"
 import { useState } from "react"
-export default function Dashboard ({dogs}) {
+import IndexMemberships from "../Components/Memberships/IndexMemberships"
+export default function Dashboard ({dogs, memberships}) {
     const { flash } = usePage().props
 
     const [showDeleteModal, setShowDeleteModal] = useState(false)
@@ -34,6 +35,9 @@ export default function Dashboard ({dogs}) {
                 dogs={dogs}
                 deleteEvent={handleDeleteEvent}
                 shareEvent={handleShareEvent}
+            />
+            <IndexMemberships
+                memberships={memberships}
             />
             {showDeleteModal &&
                 <Modal

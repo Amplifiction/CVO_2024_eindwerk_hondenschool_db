@@ -25,7 +25,13 @@ class DatabaseSeeder extends Seeder
             SexesSeeder::class,
             BreedsSeeder::class,
             DisciplinesSeeder::class,
-            PostalCodesSeeder::class
+            PostalCodesSeeder::class,
+            StatusesSeeder::class,
+
+            // Seeders voor testing. DISABLE FOR PRODUCTION!
+                UsersSeeder::class,
+                DogsSeeder::class,
+                OwnershipsSeeder::class,
         ]);
     }
 }

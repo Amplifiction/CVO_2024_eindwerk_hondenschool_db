@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Status;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Membership extends Model
 {
@@ -13,6 +14,10 @@ class Membership extends Model
         return $this->belongsTo(Discipline::class);
     }
 
-    // De overige twee relaties (met users en dogs) worden gedefinieerd in de User en Dog models,
+    public function status() {
+        return $this->belongsTo(Status::class);
+    }
+
+    // De relaties met users en dogs worden gedefinieerd in de User en Dog models,
     // per https://laravel.com/docs/11.x/eloquent-relationships#many-to-many .
 }

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('dogs', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->foreignId('breed_id'); //geen constrained() : hond met geassioceerd ras mag worden verwijderd.
+            $table->foreignId('breed_id')->constrained(); //constraint verhindert deleten van breed indien een dog dat breed heeft.
             $table->date('date_of_birth');
             $table->string('name');
             $table->boolean('sex'); //0=reu, 1=teef

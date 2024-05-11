@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('ownerships', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->foreignId('user_id')->constrained();
-            $table->foreignId('dog_id')->constrained();
+            $table->foreignId('user_id'); //geen constrained(): user deletion niet voorzien.
+            $table->foreignId('dog_id'); //geen constrained(): geen delete van dog indien meerdere ownerships. +bij 1 ownership wordt die wordt detached voor dog wordt gedelete. (Zie DogController)
         });
     }
 

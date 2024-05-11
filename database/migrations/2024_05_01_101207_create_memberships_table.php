@@ -14,15 +14,17 @@ return new class extends Migration
         Schema::create('memberships', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->foreignId('user_id')->constrained();
-            $table->foreignId('dog_id')->constrained();
+            $table->foreignId('user_id'); //geen constrained(), want geen user deletion voorzien.
+            $table->foreignId('dog_id'); //geen constrained(), want memberships worden verwijderd voor hond w verwijderd. (zie DogController)
             //non-standaard many2many velden: (withPivot nodig in models)
-                $table->foreignId('discipline_id')->constrained();
+                $table->foreignId('discipline_id')->constrained(); // discipline mag niet w verwijderd indien geassocieerde ms
                 $table->date('start_date');
                 //$table->date('end_date'); //lidmaatschappen duren steeds een jaar
-                $table->foreignId('status_id')->constrained();
+                $table->foreignId('status_id')->constrained(); // status mag niet w verwijderd indien geassocieerde ms
                 $table->decimal('fee')->nullable();
         });
+
+        //TO DO: user+dog+disc moet uniek zijn
     }
 
     /**

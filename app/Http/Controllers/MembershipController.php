@@ -8,6 +8,7 @@ use App\Models\Discipline;
 use App\Models\Membership;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class MembershipController extends Controller
 {
@@ -38,9 +39,14 @@ class MembershipController extends Controller
         return redirect()->route('dashboard');
     }
 
-    public function destroy (Request $request, Membership $ms) {
-        //TO DO: gate toevoegen
-        $ms->delete(); //TO Do: werkt niet
+    public function destroy (Request $request, Membership $membership) {
+        // $user=Auth::user();
+        // $dog = $membership->dog;
+        // $discipline = $membership->discipline;
+        if (! Gate::allows('membership', $membership)) {
+            abort(403);
+        }
+        $membership->delete();
         $request->session()->flash('message', 'Lidmaatschap verwijderd.');
         return redirect()->route('dashboard');
     }

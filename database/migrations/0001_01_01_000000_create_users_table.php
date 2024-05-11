@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('member_number')->nullable();
             $table->string('first_name');
             $table->string('last_name');
-            $table->foreignId('sex_id')->constrained();
+            $table->foreignId('sex_id')->constrained(); //constraint verhindert deleten van geslacht indien een user dat geslacht heeft.
             $table->date('date_of_birth');
             $table->string('cellphone');
             $table->string('phone')->nullable();

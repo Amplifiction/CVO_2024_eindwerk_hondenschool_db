@@ -16,6 +16,7 @@ class OwnershipsSeeder extends Seeder
         DB::table('ownerships')->insert([
             ['user_id' => 1, 'dog_id' => 1],
             ['user_id' => 2, 'dog_id' => 2],
+            ['user_id' => 1, 'dog_id' => 2],
         ]);
     }
 }

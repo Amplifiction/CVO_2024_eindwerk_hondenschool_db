@@ -6,6 +6,7 @@ use App\Models\Dog;
 use Inertia\Inertia;
 use App\Models\Breed;
 use App\Models\Ownership;
+use App\Models\Membership;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -102,6 +103,13 @@ class DogController extends Controller
         if (! Gate::allows('ownership', $dog)) {
             abort(403);
         }
+        $user = Auth::user();
+        $memberships = Membership::where('user_id', $user->id)
+            ->where('dog_id', $dog->id)
+            ->get();
+        foreach ($memberships as $membership) {
+            $membership->delete();
+        }
         $ownCount = $dog->ownerships()->count();
         if ($ownCount > 1) {
             $dog->ownerships()->detach(Auth::user());
@@ -112,5 +120,8 @@ class DogController extends Controller
             $request->session()->flash('message', 'De hond werd verwijderd uit de database.');
         }
         return redirect()->route('dashboard');
-    } //TO DO: wat als ingelogde user én hond lidms hebben?
+    }
+    //Membership zonder ownership is niet mogelijk. Dus moet/mag het verwijderen van memberships van andere users niet worden voorzien.
+        //(Dog wordt niet deleted indien ownCount > 1)
+    //Geen flash message nodig over deletion membership: gebruiker wordt gewaarschuwd dat dog deleten = ms deleten.
 }

@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react"
 
 // TO DO, eventueel: on key down 'enter' in input: if filteredArray.length > 0, select filteredArray[0]
+// TO DO, eventueel: autocomplete van browser triggert geen update van inputRef/setInputState.
 
 export default function EigenCombobox ({
     field,

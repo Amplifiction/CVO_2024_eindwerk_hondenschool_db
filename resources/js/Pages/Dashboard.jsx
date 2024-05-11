@@ -6,35 +6,30 @@ import IndexMemberships from "../Components/Memberships/IndexMemberships"
 export default function Dashboard ({dogs, memberships}) {
     const { flash } = usePage().props
 
-    const [showDogDeleteModal, setShowDogDeleteModal] = useState(false)
-    const [deleteModalDog, setDeleteModalDog] = useState({})
-
     const [showShareModal, setShowShareModal] = useState(false)
     const [shareModalDog, setShareModalDog] = useState({})
-
-    const [showMsDeleteModal, setShowMsDeleteModal] = useState(false)
-    const [deleteModalMs, setDeleteModalMs] = useState({})
-
     const handleShareEvent = (dog) => {
         setShareModalDog(dog)
         setShowShareModal(true)
     }
 
+    const [showDogDeleteModal, setShowDogDeleteModal] = useState(false)
+    const [deleteModalDog, setDeleteModalDog] = useState({})
     const handledogDeleteEvent = (dog) => {
         setDeleteModalDog(dog)
         setShowDogDeleteModal(true)
     }
-
     const handleDogDelete = (id) => {
         router.delete(`/dogs/${id}`, {})
         setShowDogDeleteModal(false)
     }
 
+    const [showMsDeleteModal, setShowMsDeleteModal] = useState(false)
+    const [deleteModalMs, setDeleteModalMs] = useState({})
     const handleMsDeleteEvent = (ms) => {
         setDeleteModalMs(ms)
         setShowMsDeleteModal(true)
     }
-
     const handleMsDelete = (id) => {
         router.delete(`/memberships/${id}`, {})
         setShowMsDeleteModal(false)
@@ -58,6 +53,7 @@ export default function Dashboard ({dogs, memberships}) {
                     close={() => setShowDogDeleteModal(false)}
                 >
                     <p>Weet u zeker dat u {deleteModalDog.name} wilt verwijderen?</p>
+                    <p>Deze actie verwijdert ook alle lidmaatschappen die u met de hond heeft.</p>
                     <button
                         onClick={() => handleDogDelete(deleteModalDog.id)}
                     >
@@ -88,7 +84,7 @@ export default function Dashboard ({dogs, memberships}) {
                     close={() => setShowMsDeleteModal(false)}
                 >
                     <p>
-                        Weet u zeker dat u uw lidmaatschap met {deleteModalMs.dog_name} van {deleteModalMs.start_date} wilt annuleren?
+                        Weet u zeker dat u het lidmaatschap met {deleteModalMs.dog_name} voor {deleteModalMs.disc_name} wilt annuleren?
                     </p>
                     <button
                         onClick={() => handleMsDelete(deleteModalMs.id)}

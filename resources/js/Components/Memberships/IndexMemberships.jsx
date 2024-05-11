@@ -17,7 +17,7 @@ export default function IndexMemberships ({memberships, msDeleteEvent}) {
                         <div>{ms.start_date}</div>
                         <div>{ms.disc_name}</div>
                         <div>{ms.status_name}</div>
-                        <button onClick={() => msDeleteEvent(ms.id)}>Verwijderen</button>
+                        <button onClick={() => msDeleteEvent(ms)}>Verwijderen</button>
                     </div>
                 ))
                 }

@@ -31,6 +31,22 @@ class DogsSeeder extends Seeder
                 'sex' => 1,
                 'uuid'=> Str::orderedUuid(),
             ],
+            [
+                'id' => 3,
+                'breed_id' => 115,
+                'date_of_birth' => '2012-03-11',
+                'name' => 'Lenka',
+                'sex' => 1,
+                'uuid'=> Str::orderedUuid(),
+            ],
+            [
+                'id' => 4,
+                'breed_id' => 83,
+                'date_of_birth' => '2021-04-15',
+                'name' => 'Ollie',
+                'sex' => 0,
+                'uuid'=> Str::orderedUuid(),
+            ]
         ]);
     }
 }

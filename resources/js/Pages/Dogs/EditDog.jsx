@@ -13,7 +13,7 @@ export default function EditDog ({dog, breeds}) {
 
     function handleSubmit(e) {
         e.preventDefault()
-        put('/dogs')
+        put(`/dogs/${dog.id}`)
     }
 
     return (

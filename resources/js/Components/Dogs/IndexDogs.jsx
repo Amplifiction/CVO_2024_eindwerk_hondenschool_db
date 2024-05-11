@@ -22,10 +22,10 @@ export default function IndexDogs ({dogs, dogDeleteEvent, shareEvent}) {
                         />
                         {dog.other_owners.length>0
                         ? <div>
-                            {dog.other_owners.map(oo =>
+                            {dog.other_owners.map((oo, index) =>
                                 <span key={oo.id}>
                                     {`${oo.first_name} ${oo.last_name}`}
-                                    {/* TO DO: komma's voorzien, behalve bij laatste */}
+                                    {index < dog.other_owners.length - 1 ? ', ' : ''}
                                 </span>
                             )}
                         </div>

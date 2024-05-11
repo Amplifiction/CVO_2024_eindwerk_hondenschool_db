@@ -23,8 +23,6 @@ return new class extends Migration
                 $table->foreignId('status_id')->constrained(); // status mag niet w verwijderd indien geassocieerde ms
                 $table->decimal('fee')->nullable();
         });
-
-        //TO DO: user+dog+disc moet uniek zijn
     }
 
     /**

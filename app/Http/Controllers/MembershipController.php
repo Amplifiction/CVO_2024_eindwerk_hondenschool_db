@@ -29,6 +29,15 @@ class MembershipController extends Controller
             'discipline_id' => 'required',
             'start_date' => 'required',
         ]);
+        // TO DO: aanpassen, testen, form terug invullen
+        // $doubleMs = $dog->ownerships()
+        //     ->where('user_id', Auth::user()->id)
+        //     ->where('discipline_id', $request->discipline_id)
+        //     ->first();
+        // if ($doubleMs) {
+        //     $request->session()->flash('message', 'U heeft reeds een inschrijving voor de gekozen hond en discipline.');
+        //     return redirect()->route('memberships.create');
+        // }
         $ms = new Membership();
         $ms->user_id = Auth::user()->id;
         $ms->dog_id = $request->dog_id;

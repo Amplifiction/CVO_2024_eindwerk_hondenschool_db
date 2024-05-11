@@ -33,17 +33,16 @@ class AuthController extends Controller
     }
 
     public function handleRegister (Request $request) {
-        //TO DO: not in -1 rules zijn restanten van selects (ipv combobox - zie vroege commits) en mogen w geschrapt
         $request->validate([
             'first_name' => 'required',
             'last_name' => 'required',
-            'sex_id' => ['required', Rule::notIn(['-1'])],
+            'sex_id' => 'required',
             'date_of_birth' => 'required',
-            'email' => 'required|email:rfc,dns|unique:users', //TO DO: dns controle lijkt niet te werken.
+            'email' => 'required|email:rfc,dns|unique:users',
             'cellphone' => 'required',
             'street'=>'required',
             'housenumber' =>'required',
-            'postal_code_id' => ['required', Rule::notIn(['-1'])],
+            'postal_code_id' => 'required',
             'password' => 'required|confirmed|min:8'
         ]);
         $user = new User;

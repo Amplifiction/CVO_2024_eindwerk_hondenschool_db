@@ -1,4 +1,4 @@
-import { usePage, router } from "@inertiajs/react"
+import { usePage, router, Link } from "@inertiajs/react"
 import IndexDogs from "../Components/Dogs/IndexDogs"
 import Modal from "../Components/Modal"
 import { useState } from "react"
@@ -39,6 +39,10 @@ export default function Dashboard ({dogs, memberships}) {
         <div>
             <h1>Mijn dashboard</h1>
             <p>{flash.message}</p>
+            <div className="flex-col">
+                <Link href="/editProfile">Profiel bewerken</Link>
+                <Link href="/editPassword">Wachtwoord wijzigen</Link>
+            </div>
             <IndexDogs
                 dogs={dogs}
                 dogDeleteEvent={handledogDeleteEvent}

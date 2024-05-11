@@ -277,6 +277,8 @@ return [
         'breed_id' => 'ras',
         'cellphone' => 'GSM',
         'date_of_birth' => 'geboortedatum',
+        'discipline_id' => 'discipline',
+        'dog_id' => 'hond',
         'first_name' => 'voornaam',
         'housenumber' => 'huisnummer',
         'last_name' => 'achternaam',
@@ -285,6 +287,7 @@ return [
         'postal_code_id' => 'postcode/gemeente',
         'sex' => 'geslacht',
         'sex_id' => 'geslacht',
+        'start_date' => 'startdatum',
         'street' => 'straat',
     ],
 ];

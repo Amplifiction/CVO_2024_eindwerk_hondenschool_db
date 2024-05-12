@@ -7,6 +7,7 @@ use App\Models\Status;
 use App\Models\Discipline;
 use App\Models\Membership;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 
@@ -24,13 +25,26 @@ class MembershipController extends Controller
     }
 
     public function store (Request $request) {
+        if (!is_null($request->dog_id)) {
+            $dog_id = $request->dog_id;
+        }
+        if(!is_null($request->discipline_id)) {
+            $discipline_id = $request->discipline_id;
+        }
+        $user_id = Auth::user()->id;
         $request->validate([
             'dog_id' => 'required',
             'discipline_id' => 'required',
             'start_date' => 'required',
+            Rule::unique('memberships')
+                ->where(function ($query) use ($user_id, $dog_id, $discipline_id) {
+                return $query->where('user_id', $user_id)
+                    ->where('dog_id', $dog_id)
+                    ->where('discipline_id', $discipline_id);
+            }),
         ]);
-        // TO DO: aanpassen, testen, form terug invullen
-        // $doubleMs = $dog->ownerships()
+        //TO DO: aanpassen, testen, form terug invullen
+        // $doubleMs = $dog->memberships()
         //     ->where('user_id', Auth::user()->id)
         //     ->where('discipline_id', $request->discipline_id)
         //     ->first();

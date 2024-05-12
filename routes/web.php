@@ -33,4 +33,3 @@ Route::delete('/dogs/{dog}', [DogController::class, 'destroy'])->name('dogs.dest
 Route::get('/memberships/create', [MembershipController::class, 'create'])->name('memberships.create')->middleware('auth');
 Route::post('/memberships/store', [MembershipController::class, 'store'])->name('memberships.store')->middleware('auth');
 Route::delete('memberships/{membership}', [MembershipController::class, 'destroy'])->name('memberships.destroy')->middleware('auth');
-

@@ -25,33 +25,37 @@ class MembershipController extends Controller
     }
 
     public function store (Request $request) {
-        if (!is_null($request->dog_id)) {
-            $dog_id = $request->dog_id;
-        }
-        if(!is_null($request->discipline_id)) {
-            $discipline_id = $request->discipline_id;
-        }
-        $user_id = Auth::user()->id;
+        // variabelen voor Rule::unique
+            // if (!is_null($request->dog_id)) {
+            //     $dog_id = $request->dog_id;
+            // }
+            // if(!is_null($request->discipline_id)) {
+            //     $discipline_id = $request->discipline_id;
+            // }
+            // $user_id = Auth::user()->id;
         $request->validate([
             'dog_id' => 'required',
             'discipline_id' => 'required',
             'start_date' => 'required',
-            Rule::unique('memberships')
-                ->where(function ($query) use ($user_id, $dog_id, $discipline_id) {
-                return $query->where('user_id', $user_id)
-                    ->where('dog_id', $dog_id)
-                    ->where('discipline_id', $discipline_id);
-            }),
+            // Rule::unique('memberships')
+            //     ->where(function ($query) use ($user_id, $dog_id, $discipline_id) {
+            //     return $query->where('user_id', $user_id)
+            //         ->where('dog_id', $dog_id)
+            //         ->where('discipline_id', $discipline_id);
+            // }),
         ]);
-        //TO DO: aanpassen, testen, form terug invullen
-        // $doubleMs = $dog->memberships()
-        //     ->where('user_id', Auth::user()->id)
-        //     ->where('discipline_id', $request->discipline_id)
-        //     ->first();
-        // if ($doubleMs) {
-        //     $request->session()->flash('message', 'U heeft reeds een inschrijving voor de gekozen hond en discipline.');
-        //     return redirect()->route('memberships.create');
-        // }
+
+        //Controle op unique membership
+        //TO DO: werkt, maar oplossing waarbij form wordt repopulated zou beter zijn.
+        $doubleMs = Membership::where('dog_id', $request->dog_id)
+            ->where('user_id', Auth::user()->id)
+            ->where('discipline_id', $request->discipline_id)
+            ->first();
+        if ($doubleMs) {
+            $request->session()->flash('message', 'U heeft reeds een inschrijving voor de gekozen hond en discipline.');
+            return redirect()->route('dashboard');
+        }
+
         $ms = new Membership();
         $ms->user_id = Auth::user()->id;
         $ms->dog_id = $request->dog_id;
@@ -63,9 +67,6 @@ class MembershipController extends Controller
     }
 
     public function destroy (Request $request, Membership $membership) {
-        // $user=Auth::user();
-        // $dog = $membership->dog;
-        // $discipline = $membership->discipline;
         if (! Gate::allows('membership', $membership)) {
             abort(403);
         }

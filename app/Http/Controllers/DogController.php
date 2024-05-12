@@ -48,7 +48,6 @@ class DogController extends Controller
         $user = Auth::user();
         $doubleDog = $dog->ownerships()
             ->where('user_id', $user->id)
-            ->where('dog_id', $dog->id) //overbodig?
             ->first();
         if ($doubleDog) {
             $request->session()->flash('message', 'Deze hond is al toegewezen aan uw account.');

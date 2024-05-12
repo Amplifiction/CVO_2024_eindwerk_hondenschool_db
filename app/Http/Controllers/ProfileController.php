@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Notifications\PasswordUpdateNoti;
 
 class ProfileController extends Controller
 {
@@ -31,9 +32,10 @@ class ProfileController extends Controller
         $request->validate([
             'password' => 'required|confirmed|min:8'
         ]);
-        $request->session()->flash('message', 'Uw wachtwoord werd bijgewerkt.');
         $user->password = Hash::make($request->password);
         $user->save();
+        $request->session()->flash('message', 'Uw wachtwoord werd bijgewerkt.');
+        $user->notify(new PasswordUpdateNoti($user));
         return redirect()->route('dashboard');
     }
 
@@ -69,6 +71,8 @@ class ProfileController extends Controller
 
         $request->session()->flash('message', 'Uw gegevens werden bijgewerkt.');
         //PHP Intelephense plugin: method 'flash' is zogezegd unidentified, maar werkt.
+
+        $user->notify(new PasswordUpdateNoti($user));
 
         return redirect()->route('dashboard');
     }

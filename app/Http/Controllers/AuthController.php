@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Notifications\RegistrationNoti;
 
 class AuthController extends Controller
 {
@@ -64,6 +65,8 @@ class AuthController extends Controller
         Auth::login($user);
         $request->session()->flash('message', 'Registratie succesvol! U werd automatisch ingelogd.');
         //PHP Intelephense plugin: method 'flash' is zogezegd unidentified, maar werkt.
+
+        $user->notify(new RegistrationNoti($user));
 
         return redirect()->route('dashboard');
     }

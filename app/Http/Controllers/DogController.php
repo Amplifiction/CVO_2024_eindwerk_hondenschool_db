@@ -11,6 +11,8 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use App\Notifications\SharedDogAddedNoti;
+use Illuminate\Support\Facades\Notification;
 
 class DogController extends Controller
 {
@@ -56,6 +58,10 @@ class DogController extends Controller
         $dog->ownerships()->attach($user);
 
         $request->session()->flash('message', 'Gedeelde hond werd toegevoegd.');
+
+        $users = $dog->ownerships()->get();
+        Notification::send($users, new SharedDogAddedNoti($dog));
+
         return redirect()->route('dashboard');
     }
 

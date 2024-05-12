@@ -36,6 +36,8 @@ class ProfileUpdateNoti extends Notification
     {
         return (new MailMessage)
                     ->subject('Je profiel werd bijgwerkt')
+                    ->line('We hebben de wijzigingen aan je profiel goed ontvangen.')
+                    ->line('Je kan je profiel steeds bekijken en wijzigen op je dashboard.')
                     ->line('Bedankt om ons op de hoogte te houden, '.$this->user['first_name'].'.')
                     // ->action('Notification Action', url('/'))
                     // ->line('Thank you for using our application!')

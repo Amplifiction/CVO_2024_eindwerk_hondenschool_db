@@ -8,7 +8,7 @@ export default function IndexMemberships ({memberships, msDeleteEvent}) {
             <Link
                 href="/memberships/create"
                 as="button"
-                className="btn-green"
+                className="btn-green m-y-1"
             >Lidmaatschap aanvragen</Link>
             <div>
                 {memberships.length<1
@@ -42,3 +42,11 @@ export default function IndexMemberships ({memberships, msDeleteEvent}) {
         </div>
     )
 }
+
+{/* <TableRow>
+<div className="xs-col-3">Naam</div>
+<div className="xs-col-3">{ms.start_date}</div>
+<div className="xs-col-3">{ms.disc_name}</div>
+<div className="xs-col-2">{ms.status_name}</div>
+<div className="xs-col-1"></div>
+</TableRow> */}

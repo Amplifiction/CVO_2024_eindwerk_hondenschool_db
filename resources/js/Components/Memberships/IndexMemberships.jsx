@@ -2,7 +2,7 @@ import { Link } from "@inertiajs/react";
 
 export default function IndexMemberships ({memberships, msDeleteEvent}) {
     return (
-        <div>
+        <div className="m-y-2">
             <h2>Mijn lidmaatschappen</h2>
             <Link
                 href="/memberships/create"

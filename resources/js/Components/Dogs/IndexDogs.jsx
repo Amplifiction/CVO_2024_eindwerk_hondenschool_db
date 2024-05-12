@@ -3,7 +3,7 @@ import ActionButtonsDog from "./ActionButtonsDog";
 
 export default function IndexDogs ({dogs, dogDeleteEvent, shareEvent}) {
     return (
-        <div>
+        <div className="m-y-2">
             <h2>Mijn honden</h2>
             <Link
                 href="/dogs/add"

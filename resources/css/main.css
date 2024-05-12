@@ -587,6 +587,11 @@ h6 {
   margin-bottom: 0.5rem;
 }
 
+.m-y-2 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
 .m-xy-1 {
   margin: 0.5rem;
 }

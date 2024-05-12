@@ -38,19 +38,21 @@ export default function Dashboard ({dogs, memberships}) {
 
     return (
         <div>
-            <h1>Mijn dashboard</h1>
-            <p>{flash.message}</p>
-            <div>
-                <Link
-                    href="/editProfile"
-                    as="button"
-                    className="btn-accent"
-                >Profiel bewerken</Link>
-                <Link
-                    href="/editPassword"
-                    as="button"
-                    className="btn-accent"
-                >Wachtwoord wijzigen</Link>
+            <div className="m-y-2">
+                <h1>Mijn dashboard</h1>
+                <p>{flash.message}</p>
+                <div>
+                    <Link
+                        href="/editProfile"
+                        as="button"
+                        className="btn-accent"
+                    >Profiel bewerken</Link>
+                    <Link
+                        href="/editPassword"
+                        as="button"
+                        className="btn-accent"
+                    >Wachtwoord wijzigen</Link>
+                </div>
             </div>
             <IndexDogs
                 dogs={dogs}

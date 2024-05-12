@@ -74,8 +74,13 @@ export default function Dashboard ({dogs, memberships}) {
                 <Modal
                     close={() => setShowShareModal(false)}
                 >
-                    <p>Om {shareModalDog.name} te delen, bezorgt u de volgende code aan de persoon die met uw hond gaat trainen:</p>
-                    <p>{shareModalDog.uuid}</p> {/* TO DO: copy to clipboard-knop */}
+                    <p>Om {shareModalDog.name} te delen, deel je de volgende code:</p>
+                    <input
+                        type="text"
+                        value={shareModalDog.uuid}
+                        readOnly
+                        className="width-90 fs-80 txt-center ff-code"
+                    /> {/* TO DO: copy to clipboard-knop */}
                     <button
                         onClick={() => setShowShareModal(false)}
                     >
@@ -88,7 +93,7 @@ export default function Dashboard ({dogs, memberships}) {
                     close={() => setShowMsDeleteModal(false)}
                 >
                     <p>
-                        Weet u zeker dat u het lidmaatschap met {deleteModalMs.dog_name} voor {deleteModalMs.disc_name} wilt annuleren?
+                        Weet je zeker dat je het lidmaatschap met {deleteModalMs.dog_name} voor {deleteModalMs.disc_name} wilt annuleren?
                     </p>
                     <button
                         onClick={() => handleMsDelete(deleteModalMs.id)}

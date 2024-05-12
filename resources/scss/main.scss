@@ -22,6 +22,10 @@ body {
     color: vars.$fc-light;
 }
 
+.width-90 {
+    width: 90%;
+}
+
 //FLEX
 .flex-col {
     display: flex;
@@ -43,15 +47,24 @@ body {
         font-size: 220-$i*20%;
     }
 }
-.fw-bold {
-    font-weight: bold;
+.error {
+    color: vars.$fc-error;
+    font-style: italic;
+}
+.ff-code {
+    font-family: vars.$code-font-stack;
+}
+.fs-80 {
+    font-size: 80%;
 }
 .fs-ita {
     font-style: italic;
 }
-.error {
-    color: vars.$fc-error;
-    font-style: italic;
+.fw-bold {
+    font-weight: bold;
+}
+.txt-center {
+    text-align: center;
 }
 
 //MARGIN & PADDING

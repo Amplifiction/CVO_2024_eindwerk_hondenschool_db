@@ -491,7 +491,7 @@ select {
 .modal-content {
   position: relative;
   background-color: white;
-  padding: 10px;
+  padding: 20px;
 }
 
 body {
@@ -510,6 +510,10 @@ body {
 .light {
   background-color: #ffffff;
   color: #000000;
+}
+
+.width-90 {
+  width: 90%;
 }
 
 .flex-col {
@@ -553,17 +557,29 @@ h6 {
   font-size: 100%;
 }
 
-.fw-bold {
-  font-weight: bold;
+.error {
+  color: red;
+  font-style: italic;
+}
+
+.ff-code {
+  font-family: Consolas, monaco, monospace;
+}
+
+.fs-80 {
+  font-size: 80%;
 }
 
 .fs-ita {
   font-style: italic;
 }
 
-.error {
-  color: red;
-  font-style: italic;
+.fw-bold {
+  font-weight: bold;
+}
+
+.txt-center {
+  text-align: center;
 }
 
 .m-y-1 {

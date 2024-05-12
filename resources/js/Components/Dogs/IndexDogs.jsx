@@ -3,7 +3,7 @@ import ActionButtonsDog from "./ActionButtonsDog";
 
 export default function IndexDogs ({dogs, dogDeleteEvent, shareEvent}) {
     return (
-        <div className="m-y-2">
+        <div className="m-y-3">
             <h2>Mijn honden</h2>
             <Link
                 href="/dogs/add"
@@ -16,9 +16,9 @@ export default function IndexDogs ({dogs, dogDeleteEvent, shareEvent}) {
                 : dogs.map(dog => (
                     <div
                         key={dog.id}
-                        className="flex-row"
+                        className="flex-row align-center"
                     >
-                        {dog.name}
+                        <div>{dog.name}</div>
                         <ActionButtonsDog
                             dog={dog}
                             dogDeleteEvent={dogDeleteEvent}

@@ -5,12 +5,12 @@ export default function AuthMenu ({}) {
 
     return (
         <div className="flex-row just-between">
-            {`Welkom, ${auth.user.first_name}.`}
             <Link
                 href="/dashboard"
                 as="button"
                 className="btn-gray"
             >Dashboard</Link>
+            <div className="m-y-1">{`Welkom, ${auth.user.first_name}.`}</div>
             <Link
                 href="/logout"
                 method="post"

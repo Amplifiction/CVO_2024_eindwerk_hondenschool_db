@@ -14,9 +14,9 @@ class PasswordUpdateNoti extends Notification
     /**
      * Create a new notification instance.
      */
-    public function __construct()
+    public function __construct($user)
     {
-        //
+        $this->user = $user;
     }
 
     /**
@@ -36,10 +36,10 @@ class PasswordUpdateNoti extends Notification
     {
         return (new MailMessage)
                     ->subject('Wachtwoord werd gewijzigd')
-                    ->line('U heeft uw wachtwoord succesvol gewijzigd.')
+                    ->line('Het wachtwoord voor je account met het mailadres '.$this->user['email'].' werd zonet gewijzigd.')
                     // ->action('Notification Action', url('/'))
                     // ->line('Thank you for using our application!')
-                    ->salutation('Vriendelijke groeten, Hondenschool DB');
+                    ->salutation('Tot in de wei, of de kantine!');
     }
 
     /**

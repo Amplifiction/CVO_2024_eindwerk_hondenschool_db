@@ -60,7 +60,9 @@ class DogController extends Controller
         $request->session()->flash('message', 'Gedeelde hond werd toegevoegd.');
 
         $users = $dog->ownerships()->get();
-        Notification::send($users, new SharedDogAddedNoti($dog));
+        $notiData['dog_name'] = $dog->name;
+        $notiData['user_name'] = $user->first_name.' '.$user->last_name;
+        Notification::send($users, new SharedDogAddedNoti($notiData));
 
         return redirect()->route('dashboard');
     }

@@ -14,9 +14,9 @@ class SharedDogAddedNoti extends Notification
     /**
      * Create a new notification instance.
      */
-    public function __construct()
+    public function __construct($notiData)
     {
-        //
+        $this->notiData = $notiData;
     }
 
     /**
@@ -36,11 +36,11 @@ class SharedDogAddedNoti extends Notification
     {
         return (new MailMessage)
                     ->subject('Gedeelde hond toegevoegd')
-                    ->line('Eén van uw honden kreeg net een extra baasje!')
-                    ->line('Raadpleeg uw dashboard voor een actuele stand van zaken.')
+                    ->line($this->notiData['dog_name'].' heeft er een baasje bij: '.$this->notiData['user_name'].'!')
+                    ->line('Dat wordt fijn trainen samen!')
                     // ->action('Notification Action', url('/'))
                     // ->line('Thank you for using our application!')
-                    ->salutation('Vriendelijke groeten, Hondenschool DB');
+                    ->salutation('Tot in de wei, of de kantine!');
                     ;
     }
 

@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Notifications\ProfileUpdateNoti;
 use App\Notifications\PasswordUpdateNoti;
 
 class ProfileController extends Controller
@@ -72,7 +73,7 @@ class ProfileController extends Controller
         $request->session()->flash('message', 'Uw gegevens werden bijgewerkt.');
         //PHP Intelephense plugin: method 'flash' is zogezegd unidentified, maar werkt.
 
-        $user->notify(new PasswordUpdateNoti($user));
+        $user->notify(new ProfileUpdateNoti($user));
 
         return redirect()->route('dashboard');
     }

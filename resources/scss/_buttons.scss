@@ -1,7 +1,9 @@
+@use 'variables' as vars;
+
 @mixin button($bgcolor, $fc) {
     text-align: center;
-    padding: 0 3px;
-    margin: 2px -1px; //inline blocks (zoals buttons) hebben standaard verticale "margin" tussen elkaar owv regeleinden ed
+    padding: 3px 5px;
+    margin: 2px;
     color: $fc;
     background-color: $bgcolor;
     transition: background-color 0.3s;
@@ -17,17 +19,17 @@
 }
 
 .btn-red {
-    @include button(red, white);
+    @include button(vars.$red, white);
 }
 
 .btn-green {
     @include button(green, white);
 }
 
-.btn-blue {
-    @include button(blue, white);
+.btn-accent {
+    @include button(vars.$accent, white);
 }
 
 .btn-gray {
-    @include button(gray, black);
+    @include button(rgb(155, 155, 155), black);
 }

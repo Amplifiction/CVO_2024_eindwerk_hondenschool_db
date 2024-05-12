@@ -5,7 +5,11 @@ export default function IndexDogs ({dogs, dogDeleteEvent, shareEvent}) {
     return (
         <div>
             <h2>Mijn honden</h2>
-            <Link href="/dogs/add">Hond toevoegen</Link>
+            <Link
+                href="/dogs/add"
+                as="button"
+                className="btn-green"
+            >Hond toevoegen</Link>
             <div>
                 {dogs.length<1
                 ? <p>Geen honden gevonden.</p>

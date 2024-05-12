@@ -22,10 +22,6 @@ body {
     color: vars.$fc-light;
 }
 
-.width-90 {
-    width: 90%;
-}
-
 //FLEX
 .flex-col {
     display: flex;
@@ -36,6 +32,9 @@ body {
 }
 .align-center {
     align-items: center;
+}
+.just-between {
+    justify-content: space-between;
 }
 .just-center {
     justify-content: center;
@@ -48,14 +47,14 @@ body {
     }
 }
 .error {
-    color: vars.$fc-error;
+    color: vars.$red;
     font-style: italic;
 }
 .ff-code {
     font-family: vars.$code-font-stack;
 }
-.fs-80 {
-    font-size: 80%;
+.fs-90 {
+    font-size: 90%;
 }
 .fs-ita {
     font-style: italic;

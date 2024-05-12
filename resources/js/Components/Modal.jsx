@@ -6,7 +6,7 @@ export default function Modal({
     return (
         <div className="modal">
             <div className="modal-overlay" onClick={close}></div>
-            <div className="modal-content flex-col align-center">
+            <div className="modal-content flex-col txt-center align-center">
                 {children}
             </div>
         </div>

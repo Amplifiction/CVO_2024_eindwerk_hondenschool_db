@@ -4,12 +4,23 @@ export default function AuthMenu ({}) {
     const { auth } = usePage().props
 
     return (
-        <p>
+        <div className="flex-row just-between">
             {`Welkom, ${auth.user.first_name}.`}
-            <Link href="/dashboard">Dashboard</Link>
+            <Link
+                href="/dashboard"
+                as="button"
+                className="btn-gray"
+            >Dashboard</Link>
+            <Link
+                href="/logout"
+                method="post"
+                as="button"
+                className="btn-gray"
+            >Uitloggen</Link>
+
             {/* <Link href="/editProfile">Profiel bewerken</Link> */}
             {/* <Link href="/editPassword">Wachtwoord wijzigen</Link> */}
-            <Link href="/logout" method="post" as="button">Uitloggen</Link>
-        </p>
+
+        </div>
     )
 }

@@ -40,9 +40,17 @@ export default function Dashboard ({dogs, memberships}) {
         <div>
             <h1>Mijn dashboard</h1>
             <p>{flash.message}</p>
-            <div className="flex-col">
-                <Link href="/editProfile">Profiel bewerken</Link>
-                <Link href="/editPassword">Wachtwoord wijzigen</Link>
+            <div>
+                <Link
+                    href="/editProfile"
+                    as="button"
+                    className="btn-accent"
+                >Profiel bewerken</Link>
+                <Link
+                    href="/editPassword"
+                    as="button"
+                    className="btn-accent"
+                >Wachtwoord wijzigen</Link>
             </div>
             <IndexDogs
                 dogs={dogs}
@@ -57,60 +65,68 @@ export default function Dashboard ({dogs, memberships}) {
                 <Modal
                     close={() => setShowDogDeleteModal(false)}
                 >
-                    <p>Weet u zeker dat u {deleteModalDog.name} wilt verwijderen?</p>
-                    <p>Deze actie verwijdert ook alle lidmaatschappen die u met de hond heeft.</p>
-                    <button
-                        onClick={() => handleDogDelete(deleteModalDog.id)}
-                    >
-                        Verwijderen
-                    </button>
-                    <button
-                        onClick={() => setShowDogDeleteModal(false)}
-                    >
-                        Annuleren
-                    </button>
+                    <p className="m-y-1 fw-bold">
+                        Weet u zeker dat u {deleteModalDog.name} wilt verwijderen?
+                    </p>
+                    <p className="m-y-1">
+                        Deze actie verwijdert ook alle lidmaatschappen die u met de hond heeft.
+                    </p>
+                    <div className="flex-row just-center m-y-1">
+                        <button
+                            onClick={() => handleDogDelete(deleteModalDog.id)}
+                            className="btn-red"
+                        >Verwijderen</button>
+                        <button
+                            onClick={() => setShowDogDeleteModal(false)}
+                            className="btn-gray"
+                        >Annuleren</button>
+                    </div>
                 </Modal>
             }
             {showShareModal &&
                 <Modal
                     close={() => setShowShareModal(false)}
                 >
-                    <p>Om {shareModalDog.name} te delen, deel je de volgende code:</p>
-                    <input
-                        type="text"
-                        value={shareModalDog.uuid}
-                        readOnly
-                        className="width-90 fs-80 txt-center ff-code"
-                    />
-                    <button
-                        onClick={() => copy(shareModalDog.uuid)}
-                    >
-                        Copy
-                    </button>
+                    <p className="m-y-1 fw-bold">Om {shareModalDog.name} te delen, deel je de volgende code:</p>
+                    <div className="grid-row m-y-1">
+                        <input
+                            type="text"
+                            value={shareModalDog.uuid}
+                            readOnly
+                            className="xs-col-10 fs-90 txt-center ff-code"
+                        />
+                        <button
+                            onClick={() => copy(shareModalDog.uuid)}
+                            className="btn-accent xs-col-2"
+                        >Copy</button>
+                    </div>
+                    <p className="m-y-1 fs-90">
+                        Deze code kan door een andere gebruiker worden ingevoerd onder <br/>
+                        Dashboard &gt; 'Hond toevoegen' &gt; 'Gedeelde hond toevoegen'
+                    </p>
                     <button
                         onClick={() => setShowShareModal(false)}
-                    >
-                        Sluiten
-                    </button>
+                        className="btn-gray"
+                    >Sluiten</button>
                 </Modal>
             }
             {showMsDeleteModal &&
                 <Modal
                     close={() => setShowMsDeleteModal(false)}
                 >
-                    <p>
-                        Weet je zeker dat je het lidmaatschap met {deleteModalMs.dog_name} voor {deleteModalMs.disc_name} wilt annuleren?
+                    <p className="m-y-1 fw-bold">
+                        Weet je zeker dat je het lidmaatschap met {deleteModalMs.dog_name} voor {deleteModalMs.disc_name} wil verwijderen?
                     </p>
-                    <button
-                        onClick={() => handleMsDelete(deleteModalMs.id)}
-                    >
-                        Verwijderen
-                    </button>
-                    <button
-                        onClick={() => setShowMsDeleteModal(false)}
-                    >
-                        Annuleren
-                    </button>
+                    <div className="flex-row just-center">
+                        <button
+                            onClick={() => handleMsDelete(deleteModalMs.id)}
+                            className="btn-red"
+                        >Verwijderen</button>
+                        <button
+                            onClick={() => setShowMsDeleteModal(false)}
+                            className="btn-gray"
+                        >Annuleren</button>
+                    </div>
                 </Modal>
             }
         </div>

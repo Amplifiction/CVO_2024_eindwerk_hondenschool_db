@@ -4,7 +4,11 @@ export default function IndexMemberships ({memberships, msDeleteEvent}) {
     return (
         <div>
             <h2>Mijn lidmaatschappen</h2>
-            <Link href="/memberships/create">Lidmaatschap aanvragen</Link>
+            <Link
+                href="/memberships/create"
+                as="button"
+                className="btn-green"
+            >Lidmaatschap aanvragen</Link>
             <div>
                 {memberships.length<1
                 ? <p>Geen lidmaatschappen gevonden.</p>
@@ -17,7 +21,10 @@ export default function IndexMemberships ({memberships, msDeleteEvent}) {
                         <div>{ms.start_date}</div>
                         <div>{ms.disc_name}</div>
                         <div>{ms.status_name}</div>
-                        <button onClick={() => msDeleteEvent(ms)}>Verwijderen</button>
+                        <button
+                            onClick={() => msDeleteEvent(ms)}
+                            className="btn-red"
+                        >Verwijderen</button>
                     </div>
                 ))
                 }

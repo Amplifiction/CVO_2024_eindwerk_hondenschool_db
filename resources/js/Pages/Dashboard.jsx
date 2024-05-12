@@ -3,6 +3,7 @@ import IndexDogs from "../Components/Dogs/IndexDogs"
 import Modal from "../Components/Modal"
 import { useState } from "react"
 import IndexMemberships from "../Components/Memberships/IndexMemberships"
+import copy from "copy-to-clipboard";
 export default function Dashboard ({dogs, memberships}) {
     const { flash } = usePage().props
 
@@ -81,6 +82,11 @@ export default function Dashboard ({dogs, memberships}) {
                         readOnly
                         className="width-90 fs-80 txt-center ff-code"
                     /> {/* TO DO: copy to clipboard-knop */}
+                    <button
+                        onClick={() => copy(shareModalDog.uuid)}
+                    >
+                        Copy
+                    </button>
                     <button
                         onClick={() => setShowShareModal(false)}
                     >

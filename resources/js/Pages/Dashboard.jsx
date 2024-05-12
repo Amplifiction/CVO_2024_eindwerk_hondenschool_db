@@ -38,7 +38,7 @@ export default function Dashboard ({dogs, memberships}) {
 
     return (
         <div>
-            <div className="m-y-2">
+            <div className="m-y-3">
                 <h1>Mijn dashboard</h1>
                 <p>{flash.message}</p>
                 <div>
@@ -95,7 +95,7 @@ export default function Dashboard ({dogs, memberships}) {
                             type="text"
                             value={shareModalDog.uuid}
                             readOnly
-                            className="xs-col-10 fs-90 txt-center ff-code"
+                            className="xs-col-10 fs-90 txt-center ff-code width-350px"
                         />
                         <button
                             onClick={() => copy(shareModalDog.uuid)}
@@ -103,7 +103,7 @@ export default function Dashboard ({dogs, memberships}) {
                         >Copy</button>
                     </div>
                     <p className="m-y-1 fs-90">
-                        Deze code kan door een andere gebruiker worden ingevoerd onder <br/>
+                        In te voeren door andere gebruikers onder <br/>
                         Dashboard &gt; 'Hond toevoegen' &gt; 'Gedeelde hond toevoegen'
                     </p>
                     <button

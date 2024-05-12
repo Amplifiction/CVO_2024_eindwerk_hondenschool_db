@@ -496,6 +496,12 @@ select {
 
 body {
   font-family: Helvetica, sans-serif;
+  background-color: rgb(18, 20, 27);
+  color: rgb(237, 237, 237);
+}
+
+a {
+  color: rgb(237, 237, 237);
 }
 
 * {
@@ -503,13 +509,17 @@ body {
 }
 
 .dark {
-  background-color: rgb(29, 29, 29);
+  background-color: rgb(18, 20, 27);
   color: rgb(237, 237, 237);
 }
 
 .light {
   background-color: #ffffff;
   color: #000000;
+}
+
+.width-350px {
+  width: 350px;
 }
 
 .flex-col {
@@ -590,6 +600,11 @@ h6 {
 .m-y-2 {
   margin-top: 2rem;
   margin-bottom: 2rem;
+}
+
+.m-y-3 {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
 .m-xy-1 {

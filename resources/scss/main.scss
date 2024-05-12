@@ -7,6 +7,12 @@
 
 body {
     font-family: vars.$font-stack;
+    background-color: vars.$bg-dark;
+    color: vars.$fc-dark;
+}
+
+a {
+    color: vars.$fc-dark;
 }
 
 * {
@@ -20,6 +26,10 @@ body {
 .light {
     background-color: vars.$bg-light;
     color: vars.$fc-light;
+}
+
+.width-350px {
+    width: 350px;
 }
 
 //FLEX
@@ -74,6 +84,10 @@ body {
 .m-y-2 {
     margin-top: 2rem;
     margin-bottom: 2rem;
+}
+.m-y-3 {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
 }
 .m-xy-1 {
     margin: 0.5rem;

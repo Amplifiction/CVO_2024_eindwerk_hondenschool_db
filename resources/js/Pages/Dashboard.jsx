@@ -81,7 +81,7 @@ export default function Dashboard ({dogs, memberships}) {
                         value={shareModalDog.uuid}
                         readOnly
                         className="width-90 fs-80 txt-center ff-code"
-                    /> {/* TO DO: copy to clipboard-knop */}
+                    />
                     <button
                         onClick={() => copy(shareModalDog.uuid)}
                     >

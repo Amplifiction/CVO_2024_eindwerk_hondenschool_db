@@ -17,8 +17,12 @@ export default function EditDog ({dog, breeds}) {
     }
 
     return (
-        <div>
-            <Form onSubmit={handleSubmit}>
+        <div className="bg5 padding-20px m-y-3">
+            <Form
+                onSubmit={handleSubmit}
+                header='Je hond bewerken'
+                subheader='Figuurlijk toch.'
+            >
                 <InputsDog
                     breeds={breeds}
                     data={data}

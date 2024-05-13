@@ -10,6 +10,15 @@ export default function InputsDog ({
 }) {
     return (
         <>
+            <SingleInput
+                field='name'
+                title='Naam'
+                type='text'
+                data={data}
+                errors={errors}
+                setData={setData}
+                setError={setError}
+            />
             <EigenCombobox
                 field='breed_id'
                 title='Ras'
@@ -24,15 +33,6 @@ export default function InputsDog ({
                 field='date_of_birth'
                 title='Geboortedatum'
                 type='date'
-                data={data}
-                errors={errors}
-                setData={setData}
-                setError={setError}
-            />
-            <SingleInput
-                field='name'
-                title='Naam'
-                type='text'
                 data={data}
                 errors={errors}
                 setData={setData}

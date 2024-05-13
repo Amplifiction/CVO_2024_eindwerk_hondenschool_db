@@ -323,7 +323,7 @@ p, h1, h2, h3, h4, h5, h6 {
   padding: 3px 5px;
   margin: 2px;
   color: white;
-  background-color: green;
+  background-color: rgb(0, 128, 0);
   transition: background-color 0.3s;
   border: none;
 }
@@ -376,16 +376,16 @@ p, h1, h2, h3, h4, h5, h6 {
   font-size: 150%;
   width: 50%;
   height: 100px;
-  border-radius: 0;
+  border-radius: 5px 5px 0 0;
   border: none;
-  color: rgb(175, 175, 175);
-  background-color: rgb(48, 52, 71);
+  color: rgb(199, 199, 199);
+  background-color: rgb(74, 80, 109);
 }
 
 .activeTabButton {
   font-weight: bold;
   color: rgb(237, 237, 237);
-  background-color: rgb(88, 95, 129);
+  background-color: rgb(123, 128, 151);
 }
 
 .comboboxDropdown {
@@ -399,13 +399,13 @@ p, h1, h2, h3, h4, h5, h6 {
 input, textarea, datalist {
   padding: 2px;
   margin: 1px -1px 3px -1px;
-  background-color: rgb(88, 95, 129);
+  background-color: rgb(74, 80, 109);
   border: 1px solid rgb(237, 237, 237);
   color: rgb(237, 237, 237);
 }
 
 ::placeholder {
-  color: rgb(175, 175, 175);
+  color: rgb(199, 199, 199);
 }
 
 select {
@@ -413,11 +413,11 @@ select {
 }
 
 .nullable {
-  background-color: rgb(48, 52, 71);
+  background-color: rgb(74, 80, 109);
 }
 
 .required {
-  background-color: rgb(88, 95, 129);
+  background-color: rgb(48, 52, 71);
 }
 
 .modal {
@@ -448,7 +448,7 @@ select {
 
 .table-header {
   border-bottom: 1px solid rgb(237, 237, 237);
-  background-color: rgb(88, 95, 129);
+  background-color: rgb(74, 80, 109);
 }
 
 .table-row:nth-child(even) {
@@ -457,6 +457,75 @@ select {
 
 .table-row:nth-child(odd) {
   background-color: rgb(48, 52, 71);
+}
+
+h1 {
+  font-size: 200%;
+}
+
+h2 {
+  font-size: 180%;
+}
+
+h3 {
+  font-size: 160%;
+}
+
+h4 {
+  font-size: 140%;
+}
+
+h5 {
+  font-size: 120%;
+}
+
+h6 {
+  font-size: 100%;
+}
+
+.error {
+  color: rgb(255, 0, 0);
+  font-style: italic;
+}
+
+.fc1 {
+  color: rgb(237, 237, 237);
+}
+
+.fc2 {
+  color: rgb(199, 199, 199);
+}
+
+.fc3 {
+  color: rgb(48, 52, 71);
+}
+
+.ff-code {
+  font-family: Consolas, monaco, monospace;
+}
+
+.fs-90 {
+  font-size: 90%;
+}
+
+.fs-150 {
+  font-size: 150%;
+}
+
+.fs-300 {
+  font-size: 300%;
+}
+
+.fs-ita {
+  font-style: italic;
+}
+
+.fw-bold {
+  font-weight: bold;
+}
+
+.txt-center {
+  text-align: center;
 }
 
 body {
@@ -479,6 +548,20 @@ img {
   object-fit: contain; /*The image keeps its aspect ratio, but is resized to fit within the given dimension*/
 }
 
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.border-radius-50 {
+  border-radius: 50%;
+}
+
+.border-radius-bottom {
+  border-radius: 0 0 5px 5px;
+}
+
 .height-100vh {
   height: 100vh;
 }
@@ -491,16 +574,16 @@ img {
   max-width: 400px;
 }
 
-.max-width-600p {
-  max-width: 600px;
+.min-width-500p {
+  min-width: 500px;
 }
 
-.width-350p {
+.width-100pc {
+  width: 100%;
+}
+
+.width-350px {
   width: 350px;
-}
-
-.border-radius-50 {
-  border-radius: 50%;
 }
 
 .background-image {
@@ -513,10 +596,12 @@ img {
   background-color: rgb(33, 36, 49);
 }
 
-footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
+.bg4 {
+  background-color: rgb(74, 80, 109);
+}
+
+.bg5 {
+  background-color: rgb(123, 128, 151);
 }
 
 .flex-col {
@@ -553,75 +638,6 @@ footer {
     justify-content: end;
   }
 }
-h1 {
-  font-size: 200%;
-}
-
-h2 {
-  font-size: 180%;
-}
-
-h3 {
-  font-size: 160%;
-}
-
-h4 {
-  font-size: 140%;
-}
-
-h5 {
-  font-size: 120%;
-}
-
-h6 {
-  font-size: 100%;
-}
-
-.error {
-  color: rgb(255, 0, 0);
-  font-style: italic;
-}
-
-.fc1 {
-  color: rgb(237, 237, 237);
-}
-
-.fc2 {
-  color: rgb(175, 175, 175);
-}
-
-.fc3 {
-  color: rgb(48, 52, 71);
-}
-
-.ff-code {
-  font-family: Consolas, monaco, monospace;
-}
-
-.fs-90 {
-  font-size: 90%;
-}
-
-.fs-150 {
-  font-size: 150%;
-}
-
-.fs-300 {
-  font-size: 300%;
-}
-
-.fs-ita {
-  font-style: italic;
-}
-
-.fw-bold {
-  font-weight: bold;
-}
-
-.txt-center {
-  text-align: center;
-}
-
 .m-y-1 {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
@@ -641,7 +657,7 @@ h6 {
   margin: 0.5rem;
 }
 
-.padding-20p {
+.padding-20px {
   padding: 20px;
 }
 

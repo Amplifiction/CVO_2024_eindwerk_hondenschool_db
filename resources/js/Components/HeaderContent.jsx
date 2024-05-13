@@ -18,7 +18,7 @@ export default function HeaderContent ({}) {
                         href="/logout"
                         method="post"
                         as="button"
-                        className="btn-accent border-radius-50 padding-20p fs-150"
+                        className="btn-accent border-radius-50 padding-20px fs-150"
                     ><i className="fa-solid fa-arrow-right-from-bracket"></i></Link>
                 </div>
             </>}

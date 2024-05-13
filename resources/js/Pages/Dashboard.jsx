@@ -39,7 +39,12 @@ export default function Dashboard ({dogs, memberships}) {
     return (
         <div>
             <div className="m-y-3">
-                <p>{flash.message}</p>
+                {flash.message &&
+                    <div className="bg4 padding-20px m-y-1">
+                        <i className="fa-solid fa-circle-info fs-150 fc3"></i>
+                        <p className="fs-ita">{flash.message}</p>
+                    </div>
+                }
                 <h1>Mijn dashboard</h1>
                 <div className="m-y-1">{`Welkom, ${auth.user.first_name}.`}</div>
                 <div>
@@ -90,13 +95,19 @@ export default function Dashboard ({dogs, memberships}) {
                 <Modal
                     close={() => setShowShareModal(false)}
                 >
+                    <div className="flex-row just-end width-100pc">
+                        <button
+                            onClick={() => setShowShareModal(false)}
+                            className="btn-accent"
+                        ><i className="fa-solid fa-xmark"></i></button>
+                    </div>
                     <p className="m-y-1 fw-bold">Om {shareModalDog.name} te delen, deel je de volgende code:</p>
                     <div className="grid-row m-y-1">
                         <input
                             type="text"
                             value={shareModalDog.uuid}
                             readOnly
-                            className="xs-col-10 fs-90 txt-center ff-code width-350p"
+                            className="xs-col-10 fs-90 txt-center ff-code width-350px"
                         />
                         <button
                             onClick={() => copy(shareModalDog.uuid)}
@@ -107,10 +118,6 @@ export default function Dashboard ({dogs, memberships}) {
                         In te voeren door andere gebruikers onder <br/>
                         Dashboard &gt; 'Hond toevoegen' &gt; 'Gedeelde hond toevoegen'
                     </p>
-                    <button
-                        onClick={() => setShowShareModal(false)}
-                        className="btn-gray"
-                    >Sluiten</button>
                 </Modal>
             }
             {showMsDeleteModal &&

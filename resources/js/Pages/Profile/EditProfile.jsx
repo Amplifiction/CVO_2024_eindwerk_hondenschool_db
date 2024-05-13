@@ -34,13 +34,13 @@ export default function EditProfile ({postal_codes, sexes}) {
     }
 
     return (
-        <div>
+        <div className="bg5 padding-20px m-y-3">
             <Form
                 onSubmit={handleSubmit}
                 header='Mijn profiel'
             >
                 <div className="grid-row">
-                    <div className="xs-col-12 m-col-6 bg2 padding-20">
+                    <div className="xs-col-12 m-col-6 padding-20px">
                         <InputsUserReq
                             data={data}
                             errors={errors}
@@ -55,7 +55,7 @@ export default function EditProfile ({postal_codes, sexes}) {
                             setError={setError}
                         />
                     </div>
-                    <div className="xs-col-12 m-col-6 bg2 padding-20">
+                    <div className="xs-col-12 m-col-6 padding-20px">
                         <InputsUserNullB
                             postal_codes={postal_codes}
                             data={data}
@@ -66,7 +66,7 @@ export default function EditProfile ({postal_codes, sexes}) {
                     </div>
                 </div>
                 <div className="grid-row">
-                    <div className="xs-col-12 flex-row just-center bg2 padding-20">
+                    <div className="xs-col-12 flex-row just-center padding-20">
                         <FormStandardButtons
                             title='Bewaren'
                             processing={processing}

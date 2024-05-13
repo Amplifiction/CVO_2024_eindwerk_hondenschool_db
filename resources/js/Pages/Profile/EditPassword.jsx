@@ -1,12 +1,10 @@
-import { useForm, usePage } from "@inertiajs/react"
+import { useForm } from "@inertiajs/react"
 import InputsPassword from "../../Components/Auth/InputsPassword"
 import FormStandardButtons from "../../Components/FormStandardButtons"
 import Form from "../../Components/Form"
 
 
 export default function EditPassword ({}) {
-    const { auth } = usePage().props
-
     const { data, setData, post, processing, errors, setError } = useForm({
         password: '',
         password_confirmation: '',
@@ -18,9 +16,11 @@ export default function EditPassword ({}) {
     }
 
     return (
-        <div>
-            <h1>Wachtwoord wijzigen</h1>
-            <Form onSubmit={handleSubmit}>
+        <div className="bg5 padding-20px m-y-3">
+            <Form
+                onSubmit={handleSubmit}
+                header='Wachtwoord wijzigen'
+            >
                 <InputsPassword
                     data={data}
                     errors={errors}

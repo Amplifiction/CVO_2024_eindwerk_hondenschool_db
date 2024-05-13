@@ -4,26 +4,122 @@
 @use 'containers';
 @use 'buttons';
 @use 'components';
+@use 'typography';
 
 body {
     font-family: vars.$font-stack;
     background-color: vars.$bg1;
     color: vars.$fc1;
 }
-
 a {
     color: vars.$fc1;
 }
-
-* {
+* { //kan worden overschreven door class selectors (specificiteit)
     border-radius: 5px;
 }
-
 img {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain; /*The image keeps its aspect ratio, but is resized to fit within the given dimension*/
 }
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.border-radius-50 {
+    border-radius: 50%; //TO DO: is ei ipv cirkel
+}
+.border-radius-bottom {
+    border-radius: 0 0 5px 5px;
+}
+
+//DIMENSIONS
+    .height-100vh {
+        height: 100vh;
+    }
+    .max-height-100p {
+        max-height: 100px;
+    }
+    .max-width-400p {
+        max-width: 400px;
+    }
+    .min-width-500p {
+        min-width: 500px;
+    }
+    .width-100pc {
+        width: 100%;
+    }
+    .width-350px {
+        width: 350px;
+    }
+
+//BACKGROUNDS
+    .background-image { //url wordt bepaald in components
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    .bg2 {
+        background-color: vars.$bg2;
+    }
+    .bg4 {
+        background-color: vars.$bg4;
+    }
+    .bg5 {
+        background-color: vars.$bg5;
+    }
+
+//FLEX
+    .flex-col {
+        display: flex;
+        flex-direction: column;
+    }
+    .flex-row {
+        display: flex;
+    }
+    .align-center {
+        align-items: center;
+    }
+    .just-between {
+        justify-content: space-between;
+    }
+    .just-center {
+        justify-content: center;
+    }
+    .just-end {
+        justify-content: end;
+    }
+    .just-end-m {
+        justify-content: start;
+    }
+    @media (min-width:768px) {
+        .just-end-m {
+            justify-content: end;
+        }
+    }
+
+//MARGIN & PADDING
+    .m-y-1 {
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+    .m-y-2 {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+    .m-y-3 {
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+    }
+    .m-xy-1 {
+        margin: 0.5rem;
+    }
+    .padding-20px {
+        padding: 20px;
+    }
+
 
 // .dark {
 //     background-color: vars.$bg1;
@@ -33,128 +129,3 @@ img {
 //     background-color: vars.$bg-light;
 //     color: vars.$fc1light;
 // }
-
-.height-100vh {
-    height: 100vh;
-}
-.max-height-100p {
-    max-height: 100px;
-}
-.max-width-400p {
-    max-width: 400px;
-}
-.max-width-600p {
-    max-width: 600px;
-}
-.width-350p {
-    width: 350px;
-}
-
-.border-radius-50 {
-    border-radius: 50%; //TO DO: is ei ipv cirkel
-}
-
-.background-image {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-.bg2 {
-    background-color: vars.$bg2;
-}
-
-footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-}
-
-//FLEX
-.flex-col {
-    display: flex;
-    flex-direction: column;
-}
-.flex-row {
-    display: flex;
-}
-.align-center {
-    align-items: center;
-}
-.just-between {
-    justify-content: space-between;
-}
-.just-center {
-    justify-content: center;
-}
-.just-end {
-    justify-content: end;
-}
-.just-end-m {
-    justify-content: start;
-}
-@media (min-width:768px) {
-    .just-end-m {
-        justify-content: end;
-    }
-}
-
-//TYPOGRAPHY
-@for $i from 1 through 6 {
-    h#{$i} {
-        font-size: 220-$i*20%;
-    }
-}
-.error {
-    color: vars.$fcred;
-    font-style: italic;
-}
-.fc1 {
-    color: vars.$fc1;
-}
-.fc2 {
-    color: vars.$fc2;
-}
-.fc3 {
-    color: vars.$bg3;
-}
-.ff-code {
-    font-family: vars.$code-font-stack;
-}
-.fs-90 {
-    font-size: 90%;
-}
-.fs-150 {
-    font-size: 150%;
-}
-.fs-300 {
-    font-size: 300%;
-}
-.fs-ita {
-    font-style: italic;
-}
-.fw-bold {
-    font-weight: bold;
-}
-.txt-center {
-    text-align: center;
-}
-
-//MARGIN & PADDING
-.m-y-1 {
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-}
-.m-y-2 {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-}
-.m-y-3 {
-    margin-top: 3rem;
-    margin-bottom: 3rem;
-}
-.m-xy-1 {
-    margin: 0.5rem;
-}
-.padding-20p {
-    padding: 20px;
-}

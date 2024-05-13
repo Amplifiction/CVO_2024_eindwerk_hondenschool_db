@@ -28,8 +28,10 @@ export function DefaultLayout({children}) {
                     </div>
                 </header>
                 <section
-                    className="container">
-                    {children}
+                    className="container flex-col align-center">
+                        <div className="">
+                            {children}
+                        </div>
                 </section>
                 <footer className= "bg2">
                     <div className="container">

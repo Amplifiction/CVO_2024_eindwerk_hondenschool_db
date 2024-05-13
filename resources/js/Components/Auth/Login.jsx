@@ -15,7 +15,7 @@ export default function Login ({}) {
     }
 
     return (
-        <div>
+        <div className="bg5 padding-20px border-radius-bottom">
             <Form
                 onSubmit={handleSubmit}
             >

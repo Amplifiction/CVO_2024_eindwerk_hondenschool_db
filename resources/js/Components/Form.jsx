@@ -1,8 +1,14 @@
-export default function Form ({onSubmit, children, header=''}) {
+export default function Form ({
+    onSubmit,
+    children,
+    header='',
+    subheader=''
+}) {
     return (
 
-        <div className="">
-            <h1>{header}</h1>
+        <div>
+            <h1 className="txt-center">{header}</h1>
+            <div className="txt-center">{subheader}</div>
             <form onSubmit={onSubmit}>
                 {children}
             </form>

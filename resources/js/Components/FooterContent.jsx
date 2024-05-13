@@ -17,7 +17,7 @@ export default function FooterContent ({}) {
                 <button
                     href="https://www.facebook.com/hondenschoolderoedelhelchteren/"
                     target="_blank"
-                    className="btn-accent border-radius-50 padding-20p fs-150"
+                    className="btn-accent border-radius-50 padding-20px fs-150"
                 >
                     <a href="https://www.facebook.com/hondenschoolderoedelhelchteren/" target="_blank">
                     <i className="fa-brands fa-facebook"></i>

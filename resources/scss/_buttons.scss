@@ -23,7 +23,7 @@
 }
 
 .btn-green {
-    @include button(green, white);
+    @include button(vars.$green, white);
 }
 
 .btn-accent {
@@ -39,13 +39,13 @@
         font-size: 150%;
         width: 50%;
         height: 100px;
-        border-radius: 0;
+        border-radius: 5px 5px 0 0;
         border: none;
         color: vars.$fc2;
-        background-color: vars.$bg3;
+        background-color: vars.$bg4;
     }
     .activeTabButton {
         font-weight: bold;
         color: vars.$fc1;
-        background-color: vars.$bg4;
+        background-color: vars.$bg5;
     }

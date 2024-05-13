@@ -94,10 +94,10 @@ export default function EigenCombobox ({
                     className={`width-100pc mr-auto ${required? 'required' : 'nullable'}`}
                 />
                 <button
-                    className="btn-gray"
+                    className="btn-accent"
                     onClick={e => handleDdClick(e)}
                 >
-                    <i className="fa-solid fa-sort-down"></i>
+                    <i className="fa-solid fa-square-caret-down"></i>
                 </button>
             </div>
             <input

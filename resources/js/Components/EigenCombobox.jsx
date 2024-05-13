@@ -14,7 +14,7 @@ export default function EigenCombobox ({
     setError,
     required=true,
 }) {
-    const [showUl, setShowUl] = useState(false)
+    const [showDd, setShowDd] = useState(false)
     const [inputState, setInputState] = useState('') // state is nodig voor de two way binding van <input>
     const inputRef = useRef('') // ref is nodig omdat handleSelect variabelen aanpast die handleBlur vlak daarna nodig heeft. Owv asynchrone werking React krijgt handleBlur verouderde waarden door indien er wordt gebruik gemaakt van state.
     const optionSelectedRef = useRef(false)
@@ -38,13 +38,13 @@ export default function EigenCombobox ({
         inputRef.current = name
         setInputState(name)
         setData(field, id)
-        setShowUl(false)
+        setShowDd(false)
         optionSelectedRef.current = true
     }
 
     const handleBlur = () => {
         setTimeout(() => {
-            setShowUl(false)
+            setShowDd(false)
             if (inputRef.current ==='') {
                 setData(field, '')
             }
@@ -69,6 +69,11 @@ export default function EigenCombobox ({
         inputRef.current=e.target.value
     }
 
+    const handleDdClick = (e) => {
+        e.preventDefault()
+        setShowDd(!showDd)
+    }
+
     return (
         <div
             className="flex-col m-y-1"
@@ -78,16 +83,23 @@ export default function EigenCombobox ({
                 htmlFor={`${field}_input`}
                 className={`fw-bold ${required? 'fc1' : 'fc2'}`}
             >{title}</label>
-            <input
-                id={`${field}_input`}
-                type="text"
-                placeholder={placeholder}
-                value={inputState}
-                onChange={e => handleChange(e) }
-                onFocus={() => setShowUl(true)}
-                className={required? 'required' : 'nullable'}
-            />
-            {/* TO DO: scroll knop toevoegen */}
+            <div className="flex-row">
+                <input
+                    id={`${field}_input`}
+                    type="text"
+                    placeholder={placeholder}
+                    value={inputState}
+                    onChange={e => handleChange(e)}
+                    onFocus={() => setShowDd(true)}
+                    className={`width-100pc mr-auto ${required? 'required' : 'nullable'}`}
+                />
+                <button
+                    className="btn-gray"
+                    onClick={e => handleDdClick(e)}
+                >
+                    <i className="fa-solid fa-sort-down"></i>
+                </button>
+            </div>
             <input
                 id={field}
                 type="hidden"
@@ -96,7 +108,7 @@ export default function EigenCombobox ({
             {errors[field] &&
                 <div className="error">{errors[field]}</div>
             }
-            {showUl &&
+            {showDd &&
                 <div className="comboboxDropdown">
                     <div>
                         {filteredArray.map(item => (

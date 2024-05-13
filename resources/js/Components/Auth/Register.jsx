@@ -44,7 +44,7 @@ export default function Register ({postal_codes, sexes}) {
                 onSubmit={handleSubmit}
             >
                 <div className="grid-row">
-                    <div className="xs-col-12 m-col-6 bg2 padding-20 flex-col just-between">
+                    <div className="xs-col-12 m-col-6 padding-20 flex-col just-between">
                         <div>
                             <InputsUserReq
                                 data={data}
@@ -72,7 +72,7 @@ export default function Register ({postal_codes, sexes}) {
                             />
                         </div>
                     </div>
-                    {showNullables && <div className="xs-col-12 m-col-6 bg2 padding-20">
+                    {showNullables && <div className="xs-col-12 m-col-6 padding-20">
                         <InputsUserNullA
                             sexes={sexes}
                             data={data}

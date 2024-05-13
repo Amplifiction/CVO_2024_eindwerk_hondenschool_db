@@ -6,12 +6,18 @@ import TableHeader from "../TableHeader";
 export default function IndexDogs ({dogs, dogDeleteEvent, shareEvent}) {
     return (
         <div className="m-y-3">
-            <h2>Mijn honden</h2>
-            <Link
-                href="/dogs/add"
-                as="button"
-                className="btn-green m-y-1"
-            ><i class="fa-regular fa-square-plus"></i> Hond toevoegen</Link>
+            <div className="grid-row">
+                <div className="xs-col-12 m-col-6">
+                    <h2>Mijn honden</h2>
+                </div>
+                <div className="xs-col-12 m-col-6 flex-row just-end-m">
+                    <Link
+                        href="/dogs/add"
+                        as="button"
+                        className="btn-green"
+                    ><i className="fa-regular fa-square-plus"></i> Hond toevoegen</Link>
+                </div>
+            </div>
             <div>
                 {dogs.length<1
                 ? <p>Geen honden gevonden.</p>

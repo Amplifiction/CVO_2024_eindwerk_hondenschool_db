@@ -5,7 +5,7 @@ import { useState } from "react"
 import IndexMemberships from "../Components/Memberships/IndexMemberships"
 import copy from "copy-to-clipboard";
 export default function Dashboard ({dogs, memberships}) {
-    const { flash } = usePage().props
+    const { flash, auth } = usePage().props
 
     const [showShareModal, setShowShareModal] = useState(false)
     const [shareModalDog, setShareModalDog] = useState({})
@@ -39,8 +39,9 @@ export default function Dashboard ({dogs, memberships}) {
     return (
         <div>
             <div className="m-y-3">
-                <h1>Mijn dashboard</h1>
                 <p>{flash.message}</p>
+                <h1>Mijn dashboard</h1>
+                <div className="m-y-1">{`Welkom, ${auth.user.first_name}.`}</div>
                 <div>
                     <Link
                         href="/editProfile"
@@ -100,7 +101,7 @@ export default function Dashboard ({dogs, memberships}) {
                         <button
                             onClick={() => copy(shareModalDog.uuid)}
                             className="btn-accent xs-col-2"
-                        ><i class="fa-regular fa-copy"></i></button>
+                        ><i className="fa-regular fa-copy"></i></button>
                     </div>
                     <p className="m-y-1 fs-90">
                         In te voeren door andere gebruikers onder <br/>

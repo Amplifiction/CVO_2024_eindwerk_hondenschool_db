@@ -5,12 +5,18 @@ import TableHeader from "../TableHeader";
 export default function IndexMemberships ({memberships, msDeleteEvent}) {
     return (
         <div className="m-y-3">
-            <h2>Mijn lidmaatschappen</h2>
-            <Link
-                href="/memberships/create"
-                as="button"
-                className="btn-green m-y-1"
-            ><i class="fa-regular fa-square-plus"></i> Lidmaatschap aanvragen</Link>
+            <div className="grid-row">
+                <div className="xs-col-12 m-col-6">
+                    <h2>Mijn lidmaatschappen</h2>
+                </div>
+                <div className="xs-col-12 m-col-6 flex-row just-end-m">
+                    <Link
+                        href="/memberships/create"
+                        as="button"
+                        className="btn-green"
+                    ><i className="fa-regular fa-square-plus"></i> Lidmaatschap aanvragen</Link>
+                </div>
+            </div>
             <div>
                 {memberships.length<1
                 ? <p>Geen lidmaatschappen gevonden.</p>
@@ -34,7 +40,7 @@ export default function IndexMemberships ({memberships, msDeleteEvent}) {
                                 <button
                                     onClick={() => msDeleteEvent(ms)}
                                     className="btn-red"
-                                ><i class="fa-solid fa-trash-can"></i></button>
+                                ><i className="fa-solid fa-trash-can"></i></button>
                             </div>
                         </TableRow>
                     ))}
@@ -43,11 +49,3 @@ export default function IndexMemberships ({memberships, msDeleteEvent}) {
         </div>
     )
 }
-
-{/* <TableRow>
-<div className="xs-col-3">Naam</div>
-<div className="xs-col-3">{ms.start_date}</div>
-<div className="xs-col-3">{ms.disc_name}</div>
-<div className="xs-col-2">{ms.status_name}</div>
-<div className="xs-col-1"></div>
-</TableRow> */}

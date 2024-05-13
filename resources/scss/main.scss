@@ -51,7 +51,7 @@ img {
 }
 
 .border-radius-50 {
-    border-radius: 50%;
+    border-radius: 50%; //TO DO: is ei ipv cirkel
 }
 
 .background-image {
@@ -89,6 +89,14 @@ footer {
 .just-end {
     justify-content: end;
 }
+.just-end-m {
+    justify-content: start;
+}
+@media (min-width:768px) {
+    .just-end-m {
+        justify-content: end;
+    }
+}
 
 //TYPOGRAPHY
 @for $i from 1 through 6 {
@@ -106,6 +114,9 @@ footer {
 .fc2 {
     color: vars.$fc2;
 }
+.fc3 {
+    color: vars.$bg3;
+}
 .ff-code {
     font-family: vars.$code-font-stack;
 }
@@ -114,6 +125,9 @@ footer {
 }
 .fs-150 {
     font-size: 150%;
+}
+.fs-300 {
+    font-size: 300%;
 }
 .fs-ita {
     font-style: italic;

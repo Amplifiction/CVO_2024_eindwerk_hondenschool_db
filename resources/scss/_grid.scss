@@ -21,7 +21,7 @@
 @for $i from 1 through 12 {
     .xs-col-#{$i} {
         grid-column: span #{$i};
-        @include padding;
+        // @include padding;
     }
 }
 
@@ -29,7 +29,7 @@
     @for $i from 1 through 12 {
         .s-col-#{$i} {
             grid-column: span #{$i};
-            @include padding;
+            // @include padding;
         }
     }
 }
@@ -38,7 +38,7 @@
     @for $i from 1 through 12 {
         .m-col-#{$i} {
             grid-column: span #{$i};
-            @include padding;
+            // @include padding;
         }
     }
 }
@@ -47,7 +47,7 @@
     @for $i from 1 through 12 {
         .l-col-#{$i} {
             grid-column: span #{$i};
-            @include padding;
+            // @include padding;
         }
     }
 }
@@ -56,7 +56,7 @@
     @for $i from 1 through 12 {
         .xl-col-#{$i} {
             grid-column: span #{$i};
-            @include padding;
+            // @include padding;
         }
     }
 }
@@ -65,7 +65,7 @@
     @for $i from 1 through 12 {
         .xxl-col-#{$i} {
             grid-column: span #{$i};
-            @include padding;
+            // @include padding;
         }
     }
 }

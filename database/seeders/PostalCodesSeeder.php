@@ -15,6 +15,7 @@ class PostalCodesSeeder extends Seeder
     {
 
 //TO DO: entries uncommenten
+//TO DO, eventueel: postcodes van organisaties ed (bv 3 Suisses) deleten.
 
 Postal_code::create( ['postal_code'=>'2970','municipality'=>"'s Gravenwezel",'is_borough'=>'Ja','main_municipality'=>"SCHILDE",'province'=>'ANTWERPEN','country'=>'België'] );
 Postal_code::create( ['postal_code'=>'3700','municipality'=>"'s Herenelderen",'is_borough'=>'Ja','main_municipality'=>"TONGEREN",'province'=>'LIMBURG','country'=>'België'] );

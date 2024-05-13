@@ -115,7 +115,7 @@ export default function EigenCombobox ({
                             <div
                                 key={item.id}
                                 onClick={() => handleSelect(item.name, item.id)}
-                                className="table-row"
+                                className="table-row border-radius-none"
                             >{item.name}</div>
                         ))}
                     </div>

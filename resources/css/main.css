@@ -562,6 +562,10 @@ footer {
   border-radius: 0 0 5px 5px;
 }
 
+.border-radius-top {
+  border-radius: 5px 5px 0 0;
+}
+
 .height-100vh {
   height: 100vh;
 }

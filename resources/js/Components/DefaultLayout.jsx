@@ -5,7 +5,7 @@ import FooterContent from "./FooterContent";
 
 
 export function DefaultLayout({children}) {
-    const backgrounds = ['bg-rect-1', 'bg-rect-2', 'bg-rect3']
+    const backgrounds = ['bg-rect-1', 'bg-rect-2', 'bg-rect-3']
     //TO DO: overbodige backgrounds verwijderen
     const randomBackground = backgrounds[Math.floor(Math.random() * backgrounds.length)];
 
@@ -20,7 +20,7 @@ export function DefaultLayout({children}) {
             </Head>
             <main>
                 <header
-                    className= "background-image"
+                    className= "background-image border-radius-bottom"
                     style={{backgroundImage: `url('/images/${randomBackground}.jpg')`}}
                 >
                     <div className="container">
@@ -33,7 +33,7 @@ export function DefaultLayout({children}) {
                             {children}
                         </div>
                 </section>
-                <footer className= "bg2">
+                <footer className= "bg2 border-radius-top">
                     <div className="container">
                         <FooterContent/>
                     </div>

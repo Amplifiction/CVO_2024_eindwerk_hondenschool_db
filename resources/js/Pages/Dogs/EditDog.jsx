@@ -21,7 +21,7 @@ export default function EditDog ({dog, breeds}) {
             <Form
                 onSubmit={handleSubmit}
                 header='Je hond bewerken'
-                subheader='Figuurlijk toch.'
+                subheader='Figuurlijk dan toch.'
             >
                 <InputsDog
                     breeds={breeds}

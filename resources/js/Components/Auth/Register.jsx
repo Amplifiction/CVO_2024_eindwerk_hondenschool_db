@@ -30,8 +30,9 @@ export default function Register ({postal_codes, sexes}) {
 
     return (
         <div>
-            <h1>Registreren</h1>
-            <Form onSubmit={handleSubmit}>
+            <Form
+                onSubmit={handleSubmit}
+            >
                 <InputsUser
                     postal_codes={postal_codes}
                     sexes={sexes}

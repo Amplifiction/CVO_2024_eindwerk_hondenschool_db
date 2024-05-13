@@ -16,8 +16,9 @@ export default function Login ({}) {
 
     return (
         <div>
-            <h1>Inloggen</h1>
-            <Form onSubmit={handleSubmit}>
+            <Form
+                onSubmit={handleSubmit}
+            >
                 <SingleInput
                     field='email'
                     title='Email'

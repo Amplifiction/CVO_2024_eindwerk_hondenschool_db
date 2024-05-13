@@ -100,7 +100,7 @@ export default function Dashboard ({dogs, memberships}) {
                         <button
                             onClick={() => copy(shareModalDog.uuid)}
                             className="btn-accent xs-col-2"
-                        >Copy</button>
+                        ><i class="fa-regular fa-copy"></i></button>
                     </div>
                     <p className="m-y-1 fs-90">
                         In te voeren door andere gebruikers onder <br/>

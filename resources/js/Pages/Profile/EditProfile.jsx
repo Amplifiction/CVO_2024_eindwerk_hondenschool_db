@@ -33,8 +33,10 @@ export default function EditProfile ({postal_codes, sexes}) {
 
     return (
         <div>
-            <h1>Mijn profiel</h1>
-            <Form onSubmit={handleSubmit}>
+            <Form
+                onSubmit={handleSubmit}
+                header='Mijn profiel'
+            >
                 <InputsUser
                     postal_codes={postal_codes}
                     sexes={sexes}

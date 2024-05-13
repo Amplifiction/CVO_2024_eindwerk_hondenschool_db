@@ -5,9 +5,9 @@ export default function FormStandardButtons ({
     processing,
 }) {
     return (
-        <div>
-            <input disabled={processing} type="submit" value={title} />
-            <Link href="/" as="button">Annuleren</Link>
+        <div className="flex-row just-between m-y-1">
+            <input disabled={processing} type="submit" value={title} className="btn-green" />
+            <Link href="/" as="button" className="btn-gray">Annuleren</Link>
         </div>
     )
 }

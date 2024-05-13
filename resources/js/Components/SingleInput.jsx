@@ -6,13 +6,14 @@ export default function SingleInput ({
     errors,
     setData,
     setError,
-    placeholder=''
+    placeholder='',
+    required=true,
 }) {
     return (
         <div className="flex-col m-y-1">
             <label
                 htmlFor={field}
-                className="fw-bold"
+                className={`fw-bold ${required? 'fc1' : 'fc2'}`}
             >{title}</label>
             <input
                 value={data[field]}
@@ -24,6 +25,7 @@ export default function SingleInput ({
                 name={field}
                 id={field}
                 placeholder={placeholder}
+                className={required? 'input-required' : 'input-nullable'}
             />
             {errors[field] &&
                 <div className="error">{errors[field]}</div>

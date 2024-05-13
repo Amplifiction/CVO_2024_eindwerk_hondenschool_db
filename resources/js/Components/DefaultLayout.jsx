@@ -1,6 +1,6 @@
 import { Head, Link, usePage } from "@inertiajs/react";
 import '../../css/main.css'
-import AuthMenu from "../Components/AuthMenu"
+import HeaderContent from "../Components/HeaderContent"
 
 
 export function DefaultLayout({children}) {
@@ -11,12 +11,13 @@ export function DefaultLayout({children}) {
             <Head>
                 <title>Hondenschool DB</title>
                 <meta name="description" content="Een beheersysteem voor hondenscholen."/>
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
             </Head>
             <main>
                 <header>
                     {auth.user &&
-                    <div className="container"> {/* TO DO: border-bottom */}
-                        <AuthMenu/>
+                    <div className="container "> {/* TO DO: border-bottom */}
+                        <HeaderContent/>
                     </div>
                     }
                 </header>

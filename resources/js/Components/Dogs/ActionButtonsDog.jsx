@@ -14,15 +14,15 @@ export default function ActionButtonsDog ({dog, dogDeleteEvent, shareEvent}) {
                 href={`/dogs/${dog.id}`}
                 as="button"
                 className="btn-gray"
-            >E</Link>
+            ><i class="fa-solid fa-pen-to-square"></i></Link>
             <button
                 onClick={() => shareEvent(dog)}
                 className="btn-gray"
-            >S</button>
+            ><i class="fa-solid fa-square-share-nodes"></i></button>
                         <button
                 onClick={() => dogDeleteEvent(dog)}
                 className="btn-red"
-            >X</button>
+            ><i class="fa-solid fa-trash-can"></i></button>
             {/* Deze buttons emitten een event naar parent */} {/* Link ondersteunt geen delete, vandaar buttons */}
         </div>
     )

@@ -7,30 +7,44 @@
 
 body {
     font-family: vars.$font-stack;
-    background-color: vars.$bg-dark;
-    color: vars.$fc-dark;
+    background-color: vars.$bg1;
+    color: vars.$fc1;
 }
 
 a {
-    color: vars.$fc-dark;
+    color: vars.$fc1;
 }
 
 * {
     border-radius: 5px;
 }
 
-.dark {
-    background-color: vars.$bg-dark;
-    color: vars.$fc-dark;
-}
-.light {
-    background-color: vars.$bg-light;
-    color: vars.$fc-light;
+img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /*The image keeps its aspect ratio, but is resized to fit within the given dimension*/
 }
 
+// .dark {
+//     background-color: vars.$bg1;
+//     color: vars.$fc1;
+// }
+// .light {
+//     background-color: vars.$bg-light;
+//     color: vars.$fc1light;
+// }
+
+.max-height-100p {
+    max-height: 100px;
+}
 .width-350px {
     width: 350px;
 }
+
+.border-radius-50 {
+    border-radius: 50%;
+}
+
 
 //FLEX
 .flex-col {
@@ -49,6 +63,9 @@ a {
 .just-center {
     justify-content: center;
 }
+.just-end {
+    justify-content: end;
+}
 
 //TYPOGRAPHY
 @for $i from 1 through 6 {
@@ -60,11 +77,20 @@ a {
     color: vars.$red;
     font-style: italic;
 }
+.fc1 {
+    color: vars.$fc1;
+}
+.fc2 {
+    color: vars.$fc2;
+}
 .ff-code {
     font-family: vars.$code-font-stack;
 }
 .fs-90 {
     font-size: 90%;
+}
+.fs-150 {
+    font-size: 150%;
 }
 .fs-ita {
     font-style: italic;
@@ -91,4 +117,7 @@ a {
 }
 .m-xy-1 {
     margin: 0.5rem;
+}
+.padding-20p {
+    padding: 20px;
 }

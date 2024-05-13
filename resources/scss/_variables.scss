@@ -1,8 +1,18 @@
 $font-stack: Helvetica, sans-serif;
 $code-font-stack: Consolas, monaco, monospace;
-$bg-dark: rgb(18, 20, 27);
-$bg-light: #ffffff;
-$fc-dark: rgb(237, 237, 237);
-$fc-light: #000000;
+
+$bg1: rgb(18, 20, 27);
+$bg2: rgb(33, 36, 49);
+$bg3: rgb(48, 52, 71);
+$bg4: rgb(88, 95, 129);
+$fc1: rgb(237, 237, 237);
+$fc2: rgb(175, 175, 175);
+
 $red: rgb(100, 9, 9);
+$black: rgb(0, 0, 0);
 $accent: rgb(5, 5, 128);
+
+$box-shadow: 2px 1px 29px 2px $black;
+
+// $fc-light: #000000;
+// $bg-light: #ffffff;

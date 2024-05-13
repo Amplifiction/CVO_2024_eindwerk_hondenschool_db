@@ -13,7 +13,7 @@
 .grid-row {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    outline: 1px solid blue;
+    // outline: 1px solid blue;
     gap: 8px;
     @include padding;
 }

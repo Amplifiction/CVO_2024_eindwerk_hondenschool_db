@@ -1,5 +1,6 @@
 import { Link } from "@inertiajs/react";
 import TableRow from "../TableRow";
+import TableHeader from "../TableHeader";
 
 export default function IndexMemberships ({memberships, msDeleteEvent}) {
     return (
@@ -9,18 +10,18 @@ export default function IndexMemberships ({memberships, msDeleteEvent}) {
                 href="/memberships/create"
                 as="button"
                 className="btn-green m-y-1"
-            >Lidmaatschap aanvragen</Link>
+            ><i class="fa-regular fa-square-plus"></i> Lidmaatschap aanvragen</Link>
             <div>
                 {memberships.length<1
                 ? <p>Geen lidmaatschappen gevonden.</p>
                 :<>
-                    <TableRow>
+                    <TableHeader>
                         <div className="xs-col-3">Naam</div>
                         <div className="xs-col-3">Start</div>
                         <div className="xs-col-3">Discipline</div>
                         <div className="xs-col-2">Status</div>
                         <div className="xs-col-1"></div>
-                    </TableRow>
+                    </TableHeader>
                     {memberships.map(ms => (
                         <TableRow
                             key={ms.id}
@@ -33,7 +34,7 @@ export default function IndexMemberships ({memberships, msDeleteEvent}) {
                                 <button
                                     onClick={() => msDeleteEvent(ms)}
                                     className="btn-red"
-                                >X</button>
+                                ><i class="fa-solid fa-trash-can"></i></button>
                             </div>
                         </TableRow>
                     ))}

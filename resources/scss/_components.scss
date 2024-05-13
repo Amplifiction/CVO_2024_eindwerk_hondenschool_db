@@ -1,24 +1,38 @@
+@use 'variables' as vars;
+
 .comboboxDropdown {
+    padding: 2px;
     max-height: 300px;
     overflow-y: scroll;
     opacity: 0.9;
-    border: 1px solid black; //TO DO: kleur kiezen
+    border: 1px solid vars.$fc1;
+    background-color: vars.$bg3;
 }
 
-//TABBUTTON
-    .tabButton {
-        width: 50%;
-    }
-    .activeTabButton {
-        font-weight: bold;
-    }
-
 //FORM
+    .form {
+        padding: 20px;
+        max-width: 400px;
+        background-color: vars.$bg2;
+    }
     input, textarea, datalist {
+        padding: 2px;
         margin: 1px -1px 3px -1px;
+        background-color: vars.$bg4;
+        border: 1px solid vars.$fc1;
+        color: vars.$fc1;
+    }
+    ::placeholder {
+        color: vars.$fc2;
     }
     select {
         margin: 1px 0px;
+    }
+    .input-nullable {
+        background-color: vars.$bg2;
+    }
+    .input-required {
+        background-color: vars.$bg4;
     }
 
 
@@ -43,6 +57,18 @@
     }
     .modal-content {
         position: relative;
-        background-color: white;
+        background-color: vars.$bg3;
         padding: 20px;
+    }
+
+//TABLE
+    .table-header {
+        border-bottom: 1px solid vars.$fc1;
+        background-color: vars.$bg4;
+    }
+    .table-row:nth-child(even) {
+        background-color: vars.$bg2;
+    }
+    .table-row:nth-child(odd) {
+        background-color: vars.$bg3;
     }

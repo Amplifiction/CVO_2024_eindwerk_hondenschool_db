@@ -31,5 +31,13 @@
 }
 
 .btn-gray {
-    @include button(rgb(155, 155, 155), black);
+    @include button(rgb(117, 117, 117), white);
 }
+
+//TABBUTTON
+    .tabButton {
+        width: 50%;
+    }
+    .activeTabButton {
+        font-weight: bold;
+    }

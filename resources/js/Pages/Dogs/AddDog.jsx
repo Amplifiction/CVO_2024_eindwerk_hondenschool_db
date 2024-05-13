@@ -8,7 +8,6 @@ export default function AddDog ({breeds}) {
 
     return (
         <div>
-            <h1>Hond toevoegen</h1>
             <TabButton
                 onClick={() => setActiveTab('nieuw')}
                 active={activeTab === 'nieuw'}

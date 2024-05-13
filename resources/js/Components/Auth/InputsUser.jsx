@@ -79,6 +79,7 @@ export default function InputsUser ({
                 errors={errors}
                 setData={setData}
                 setError={setError}
+                required={false}
             />
             <SingleInput
                 field='street'
@@ -106,6 +107,8 @@ export default function InputsUser ({
                 errors={errors}
                 setData={setData}
                 setError={setError}
+                required={false}
+
             />
             <EigenCombobox
                 field='postal_code_id'

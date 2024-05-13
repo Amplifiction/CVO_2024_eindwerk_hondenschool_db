@@ -28,7 +28,6 @@ p, h1, h2, h3, h4, h5, h6 {
 .grid-row {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  outline: 1px solid blue;
   gap: 8px;
   padding: 8px;
 }
@@ -431,25 +430,18 @@ p, h1, h2, h3, h4, h5, h6 {
   text-align: center;
   padding: 3px 5px;
   margin: 2px;
-  color: black;
-  background-color: rgb(155, 155, 155);
+  color: white;
+  background-color: rgb(117, 117, 117);
   transition: background-color 0.3s;
   border: none;
 }
 .btn-gray:enabled:hover {
-  background-color: #cecece;
+  background-color: #a8a8a8;
   cursor: pointer;
 }
 .btn-gray:disabled {
   opacity: 0.3;
   cursor: not-allowed;
-}
-
-.comboboxDropdown {
-  max-height: 300px;
-  overflow-y: scroll;
-  opacity: 0.9;
-  border: 1px solid black;
 }
 
 .tabButton {
@@ -460,12 +452,43 @@ p, h1, h2, h3, h4, h5, h6 {
   font-weight: bold;
 }
 
+.comboboxDropdown {
+  padding: 2px;
+  max-height: 300px;
+  overflow-y: scroll;
+  opacity: 0.9;
+  border: 1px solid rgb(237, 237, 237);
+  background-color: rgb(48, 52, 71);
+}
+
+.form {
+  padding: 20px;
+  max-width: 400px;
+  background-color: rgb(33, 36, 49);
+}
+
 input, textarea, datalist {
+  padding: 2px;
   margin: 1px -1px 3px -1px;
+  background-color: rgb(88, 95, 129);
+  border: 1px solid rgb(237, 237, 237);
+  color: rgb(237, 237, 237);
+}
+
+::placeholder {
+  color: rgb(175, 175, 175);
 }
 
 select {
   margin: 1px 0px;
+}
+
+.input-nullable {
+  background-color: rgb(33, 36, 49);
+}
+
+.input-required {
+  background-color: rgb(88, 95, 129);
 }
 
 .modal {
@@ -490,8 +513,21 @@ select {
 
 .modal-content {
   position: relative;
-  background-color: white;
+  background-color: rgb(48, 52, 71);
   padding: 20px;
+}
+
+.table-header {
+  border-bottom: 1px solid rgb(237, 237, 237);
+  background-color: rgb(88, 95, 129);
+}
+
+.table-row:nth-child(even) {
+  background-color: rgb(33, 36, 49);
+}
+
+.table-row:nth-child(odd) {
+  background-color: rgb(48, 52, 71);
 }
 
 body {
@@ -508,18 +544,22 @@ a {
   border-radius: 5px;
 }
 
-.dark {
-  background-color: rgb(18, 20, 27);
-  color: rgb(237, 237, 237);
+img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /*The image keeps its aspect ratio, but is resized to fit within the given dimension*/
 }
 
-.light {
-  background-color: #ffffff;
-  color: #000000;
+.max-height-100p {
+  max-height: 100px;
 }
 
 .width-350px {
   width: 350px;
+}
+
+.border-radius-50 {
+  border-radius: 50%;
 }
 
 .flex-col {
@@ -541,6 +581,10 @@ a {
 
 .just-center {
   justify-content: center;
+}
+
+.just-end {
+  justify-content: end;
 }
 
 h1 {
@@ -572,12 +616,24 @@ h6 {
   font-style: italic;
 }
 
+.fc1 {
+  color: rgb(237, 237, 237);
+}
+
+.fc2 {
+  color: rgb(175, 175, 175);
+}
+
 .ff-code {
   font-family: Consolas, monaco, monospace;
 }
 
 .fs-90 {
   font-size: 90%;
+}
+
+.fs-150 {
+  font-size: 150%;
 }
 
 .fs-ita {
@@ -609,6 +665,10 @@ h6 {
 
 .m-xy-1 {
   margin: 0.5rem;
+}
+
+.padding-20p {
+  padding: 20px;
 }
 
 /*# sourceMappingURL=main.css.map */

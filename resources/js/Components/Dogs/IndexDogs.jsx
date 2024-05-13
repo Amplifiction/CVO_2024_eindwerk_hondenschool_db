@@ -1,6 +1,7 @@
 import { Link } from "@inertiajs/react";
 import ActionButtonsDog from "./ActionButtonsDog";
 import TableRow from "../TableRow";
+import TableHeader from "../TableHeader";
 
 export default function IndexDogs ({dogs, dogDeleteEvent, shareEvent}) {
     return (
@@ -10,16 +11,16 @@ export default function IndexDogs ({dogs, dogDeleteEvent, shareEvent}) {
                 href="/dogs/add"
                 as="button"
                 className="btn-green m-y-1"
-            >Hond toevoegen</Link>
+            ><i class="fa-regular fa-square-plus"></i> Hond toevoegen</Link>
             <div>
                 {dogs.length<1
                 ? <p>Geen honden gevonden.</p>
                 : <>
-                    <TableRow>
+                    <TableHeader>
                         <div className="xs-col-3">Naam</div>
                         <div className="xs-col-3">Acties</div>
                         <div className="xs-col-6">Mede-eigenaars</div>
-                    </TableRow>
+                    </TableHeader>
                     {dogs.map(dog => (
                         <TableRow
                             key={dog.id}

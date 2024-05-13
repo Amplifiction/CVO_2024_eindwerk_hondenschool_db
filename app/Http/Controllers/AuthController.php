@@ -37,13 +37,13 @@ class AuthController extends Controller
         $request->validate([
             'first_name' => 'required',
             'last_name' => 'required',
-            'sex_id' => 'required',
-            'date_of_birth' => 'required',
+            // 'sex_id' => 'required',
+            // 'date_of_birth' => 'required',
             'email' => 'required|email:rfc,dns|unique:users',
-            'cellphone' => 'required',
-            'street'=>'required',
-            'housenumber' =>'required',
-            'postal_code_id' => 'required',
+            // 'cellphone' => 'required',
+            // 'street'=>'required',
+            // 'housenumber' =>'required',
+            // 'postal_code_id' => 'required',
             'password' => 'required|confirmed|min:8'
         ]);
         $user = new User;

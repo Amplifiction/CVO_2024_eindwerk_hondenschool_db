@@ -25,7 +25,7 @@ export default function SingleInput ({
                 name={field}
                 id={field}
                 placeholder={placeholder}
-                className={required? 'input-required' : 'input-nullable'}
+                className={required? 'required' : 'nullable'}
             />
             {errors[field] &&
                 <div className="error">{errors[field]}</div>

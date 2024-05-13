@@ -95,7 +95,7 @@ export default function Dashboard ({dogs, memberships}) {
                             type="text"
                             value={shareModalDog.uuid}
                             readOnly
-                            className="xs-col-10 fs-90 txt-center ff-code width-350px"
+                            className="xs-col-10 fs-90 txt-center ff-code width-350p"
                         />
                         <button
                             onClick={() => copy(shareModalDog.uuid)}

@@ -20,19 +20,23 @@ return new class extends Migration
                 $table->rememberToken();
                 $table->timestamps();
             //einde standaardvelden
-            $table->string('member_number')->nullable();
+            $table->string('member_number')->nullable(); //nullable omdat dit moet worden ingevuld door admin.
             $table->string('first_name');
             $table->string('last_name');
-            $table->foreignId('sex_id')->constrained(); //constraint verhindert deleten van geslacht indien een user dat geslacht heeft.
-            $table->date('date_of_birth');
-            $table->string('cellphone');
-            $table->string('phone')->nullable();
-            $table->string('street');
-            $table->string('housenumber');
-            $table->string('housenumber_addition')->nullable();
-            $table->foreignId('postal_code_id')->constrained();
+            $table->foreignId('sex_id')
+                ->nullable() //nullable om initiële registratie te vereenvoudigen.
+                ->constrained(); //constraint verhindert deleten van geslacht indien een user dat geslacht heeft.
+            $table->date('date_of_birth')->nullable(); //nullable om initiële registratie te vereenvoudigen.
+            $table->string('cellphone')->nullable(); //nullable om initiële registratie te vereenvoudigen.
+            $table->string('phone')->nullable()->nullable(); //nullable om initiële registratie te vereenvoudigen.
+            $table->string('street')->nullable(); //nullable om initiële registratie te vereenvoudigen.
+            $table->string('housenumber')->nullable(); //nullable om initiële registratie te vereenvoudigen.
+            $table->string('housenumber_addition')->nullable(); //echt nullable: niet iedereen heeft dit.
+            $table->foreignId('postal_code_id')
+                ->nullable() //nullable om initiële registratie te vereenvoudigen.
+                ->constrained();
             $table->foreignId('role_id')->constrained();
-            $table->text('remarks')->nullable();
+            $table->text('remarks')->nullable(); //echt nullable: niet iedereen heeft dit.
         });
 
         //De volgende tabellen zijn volledig standaard.

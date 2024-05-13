@@ -12,6 +12,7 @@ export default function EigenCombobox ({
     errors,
     setData,
     setError,
+    required=true,
 }) {
     const [showUl, setShowUl] = useState(false)
     const [inputState, setInputState] = useState('') // state is nodig voor de two way binding van <input>
@@ -75,7 +76,7 @@ export default function EigenCombobox ({
         > {/* React ondersteunt geen onfocusout. */}
             <label
                 htmlFor={`${field}_input`}
-                className="fw-bold"
+                className={`fw-bold ${required? 'fc1' : 'fc2'}`}
             >{title}</label>
             <input
                 id={`${field}_input`}
@@ -84,6 +85,7 @@ export default function EigenCombobox ({
                 value={inputState}
                 onChange={e => handleChange(e) }
                 onFocus={() => setShowUl(true)}
+                className={required? 'required' : 'nullable'}
             />
             {/* TO DO: scroll knop toevoegen */}
             <input
@@ -96,14 +98,15 @@ export default function EigenCombobox ({
             }
             {showUl &&
                 <div className="comboboxDropdown">
-                    <ul style={{ listStyleType: 'none'}}>
+                    <div>
                         {filteredArray.map(item => (
-                            <li
+                            <div
                                 key={item.id}
                                 onClick={() => handleSelect(item.name, item.id)}
-                            >{item.name}</li>
+                                className="table-row"
+                            >{item.name}</div>
                         ))}
-                    </ul>
+                    </div>
                 </div>
             }
         </div>

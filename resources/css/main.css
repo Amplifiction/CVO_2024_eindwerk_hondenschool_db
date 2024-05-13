@@ -343,7 +343,7 @@ p, h1, h2, h3, h4, h5, h6 {
   }
 }
 .container {
-  margin: 2rem auto;
+  margin: 0 auto;
   max-width: 99%;
 }
 
@@ -445,11 +445,19 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 
 .tabButton {
+  font-size: 150%;
   width: 50%;
+  height: 100px;
+  border-radius: 0;
+  border: none;
+  color: rgb(175, 175, 175);
+  background-color: rgb(48, 52, 71);
 }
 
 .activeTabButton {
   font-weight: bold;
+  color: rgb(237, 237, 237);
+  background-color: rgb(88, 95, 129);
 }
 
 .comboboxDropdown {
@@ -458,13 +466,6 @@ p, h1, h2, h3, h4, h5, h6 {
   overflow-y: scroll;
   opacity: 0.9;
   border: 1px solid rgb(237, 237, 237);
-  background-color: rgb(48, 52, 71);
-}
-
-.form {
-  padding: 20px;
-  max-width: 400px;
-  background-color: rgb(33, 36, 49);
 }
 
 input, textarea, datalist {
@@ -483,11 +484,11 @@ select {
   margin: 1px 0px;
 }
 
-.input-nullable {
-  background-color: rgb(33, 36, 49);
+.nullable {
+  background-color: rgb(48, 52, 71);
 }
 
-.input-required {
+.required {
   background-color: rgb(88, 95, 129);
 }
 
@@ -550,16 +551,44 @@ img {
   object-fit: contain; /*The image keeps its aspect ratio, but is resized to fit within the given dimension*/
 }
 
+.height-100vh {
+  height: 100vh;
+}
+
 .max-height-100p {
   max-height: 100px;
 }
 
-.width-350px {
+.max-width-400p {
+  max-width: 400px;
+}
+
+.max-width-600p {
+  max-width: 600px;
+}
+
+.width-350p {
   width: 350px;
 }
 
 .border-radius-50 {
   border-radius: 50%;
+}
+
+.background-image {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.bg2 {
+  background-color: rgb(33, 36, 49);
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 .flex-col {
@@ -612,7 +641,7 @@ h6 {
 }
 
 .error {
-  color: rgb(100, 9, 9);
+  color: rgb(255, 0, 0);
   font-style: italic;
 }
 

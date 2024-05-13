@@ -6,15 +6,10 @@
     overflow-y: scroll;
     opacity: 0.9;
     border: 1px solid vars.$fc1;
-    background-color: vars.$bg3;
+    // background-color: vars.$bg3;
 }
 
 //FORM
-    .form {
-        padding: 20px;
-        max-width: 400px;
-        background-color: vars.$bg2;
-    }
     input, textarea, datalist {
         padding: 2px;
         margin: 1px -1px 3px -1px;
@@ -28,10 +23,10 @@
     select {
         margin: 1px 0px;
     }
-    .input-nullable {
-        background-color: vars.$bg2;
+    .nullable {
+        background-color: vars.$bg3;
     }
-    .input-required {
+    .required {
         background-color: vars.$bg4;
     }
 

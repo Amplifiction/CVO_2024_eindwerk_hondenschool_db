@@ -7,7 +7,7 @@ export default function Home ({postal_codes, sexes}) {
     const [activeTab, setActiveTab] = useState ('login')
 
     return (
-        <div>
+        <div className="max-width-600p">
             <TabButton
                 onClick={() => setActiveTab('login')}
                 active={activeTab === 'login'}

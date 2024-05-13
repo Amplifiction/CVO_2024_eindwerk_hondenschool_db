@@ -45,17 +45,17 @@ class ProfileController extends Controller
         $request->validate([
             'first_name' => 'required',
             'last_name' => 'required',
-            'sex_id' => ['required', Rule::notIn(['-1'])],
-            'date_of_birth' => 'required',
+            // 'sex_id' => ['required', Rule::notIn(['-1'])],
+            // 'date_of_birth' => 'required',
             'email' => [
                 'required',
                 'email:rfc,dns',
                 Rule::unique('users')->ignore($user->id) //nodig zodat user eigen (dezelfde) email opnieuw kan opslaan.
             ],
-            'cellphone' => 'required',
-            'street'=>'required',
-            'housenumber' =>'required',
-            'postal_code_id' => ['required', Rule::notIn(['-1'])],
+            // 'cellphone' => 'required',
+            // 'street'=>'required',
+            // 'housenumber' =>'required',
+            // 'postal_code_id' => ['required', Rule::notIn(['-1'])],
         ]);
         $user->first_name = $request->first_name;
         $user->last_name = $request->last_name;

@@ -34,10 +34,19 @@ img {
 //     color: vars.$fc1light;
 // }
 
+.height-100vh {
+    height: 100vh;
+}
 .max-height-100p {
     max-height: 100px;
 }
-.width-350px {
+.max-width-400p {
+    max-width: 400px;
+}
+.max-width-600p {
+    max-width: 600px;
+}
+.width-350p {
     width: 350px;
 }
 
@@ -45,6 +54,20 @@ img {
     border-radius: 50%;
 }
 
+.background-image {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.bg2 {
+    background-color: vars.$bg2;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
 
 //FLEX
 .flex-col {
@@ -74,7 +97,7 @@ img {
     }
 }
 .error {
-    color: vars.$red;
+    color: vars.$fcred;
     font-style: italic;
 }
 .fc1 {

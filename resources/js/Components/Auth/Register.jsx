@@ -44,7 +44,7 @@ export default function Register ({postal_codes, sexes}) {
                 onSubmit={handleSubmit}
             >
                 <div className="grid-row">
-                    <div className="xs-col-12 m-col-6 padding-20 flex-col just-between">
+                    <div className="xs-col-12 flex-col">
                         <div>
                             <InputsUserReq
                                 data={data}
@@ -59,35 +59,35 @@ export default function Register ({postal_codes, sexes}) {
                                 setError={setError}
                             />
                         </div>
-                        <div className="flex-col just-center align-center">
-                            <div>
-                                <button
-                                    onClick={handleToon}
-                                        className="btn-accent m-y-1"
-                                >Toon optionele velden</button>
-                            </div>
+                        <div className="flex-row just-center">
+                            <button
+                                onClick={handleToon}
+                                    className="btn-accent m-y-1"
+                            >Toon optionele velden</button>
+                        </div>
+                        {showNullables && <div className="xs-col-12">
+                            <InputsUserNullA
+                                sexes={sexes}
+                                data={data}
+                                errors={errors}
+                                setData={setData}
+                                setError={setError}
+                            />
+                            <InputsUserNullB
+                                postal_codes={postal_codes}
+                                data={data}
+                                errors={errors}
+                                setData={setData}
+                                setError={setError}
+                            />
+                        </div>}
+                        <div className="flex-row just-center">
                             <FormStandardButtons
                                 title='Bewaren'
                                 processing={processing}
                             />
                         </div>
                     </div>
-                    {showNullables && <div className="xs-col-12 m-col-6 padding-20">
-                        <InputsUserNullA
-                            sexes={sexes}
-                            data={data}
-                            errors={errors}
-                            setData={setData}
-                            setError={setError}
-                        />
-                        <InputsUserNullB
-                            postal_codes={postal_codes}
-                            data={data}
-                            errors={errors}
-                            setData={setData}
-                            setError={setError}
-                        />
-                    </div> }
                 </div>
             </Form>
         </div>

@@ -270,7 +270,8 @@ p, h1, h2, h3, h4, h5, h6 {
   }
 }
 .container {
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
   max-width: 99%;
 }
 
@@ -553,15 +554,9 @@ img {
 }
 
 .wrapper {
-  min-height: 100%;
+  min-height: 100vh;
   display: grid;
   grid-template-rows: auto 1fr auto;
-}
-
-footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
 }
 
 * {
@@ -596,8 +591,8 @@ footer {
   max-width: 400px;
 }
 
-.min-width-500p {
-  min-width: 500px;
+.min-width-450p {
+  min-width: 450px;
 }
 
 .width-100pc {
@@ -689,11 +684,6 @@ footer {
 
 .padding-20px {
   padding: 20px;
-}
-
-.p-y-3 {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -21,35 +21,12 @@ img {
 }
 
 //STICKY FOOTER
-    // https://developer.mozilla.org/en-US/docs/Web/CSS/Layout_cookbook/Sticky_footers
+    // Gebaseerd op https://developer.mozilla.org/en-US/docs/Web/CSS/Layout_cookbook/Sticky_footers
     .wrapper {
-        min-height: 100%;
+        min-height: 100vh; //Officiële oplossing wil %, maar vh lost op.
         display: grid;
         grid-template-rows: auto 1fr auto;
     }
-    // alternate method
-        // html, body {
-        //     height: 100%
-        // }
-        // .wrapper {
-        //     min-height: 100%;
-        //     display: flex;
-        //     flex-direction: column;
-        // }
-        // header, footer {
-        //     flex-grow: 0;
-        //     flex-shrink: 0;
-        // }
-        // .page-body { //klasse verwijderd van section
-        //     flex-grow: 1;
-        // }
-    //Bovenstaande werken niet. Daarom deze eigen oplossing.
-    //Nadeel: footer verspringt wanneer console onderaan wordt gesloten, wanneer register form uitklapt (view <m), ...
-        footer {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-        }
 
 //BORDER-RADIUS
     * { //kan worden overschreven door class selectors (specificiteit)
@@ -78,8 +55,8 @@ img {
     .max-width-400p {
         max-width: 400px;
     }
-    .min-width-500p {
-        min-width: 500px;
+    .min-width-450p {
+        min-width: 450px;
     }
     .width-100pc {
         width: 100%;
@@ -158,10 +135,7 @@ img {
     .padding-20px {
         padding: 20px;
     }
-    .p-y-3 {
-        padding-top: 3rem;
-        padding-bottom: 3rem;
-    }
+
 
 
 // .dark {

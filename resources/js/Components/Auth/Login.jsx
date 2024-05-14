@@ -37,10 +37,12 @@ export default function Login ({}) {
                     setData={setData}
                     setError={setError}
                 />
-                <FormStandardButtons
-                    title='Inloggen'
-                    processing={processing}
-                />
+            <input
+                disabled={processing}
+                type="submit"
+                value="Inloggen"
+                className="btn-green"
+            />
             </Form>
         </div>
     )

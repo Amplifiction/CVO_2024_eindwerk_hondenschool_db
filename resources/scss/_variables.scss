@@ -1,28 +1,41 @@
 $font-stack: Helvetica, sans-serif;
 $code-font-stack: Consolas, monaco, monospace;
 
-$bg1: rgb(18, 20, 27);
-$bg2: rgb(33, 36, 49);
-$bg3: rgb(48, 52, 71);
-$bg4: rgb(74, 80, 109);
-$bg5: rgb(123, 128, 151);
-$bgred: rgb(100, 9, 9);
+//TO DO, eventueel: alles van kleuren bundelen in één scss.
+
+//SCHEMA 1
+$clr1: rgb(18, 20, 27);
+$clr2: rgb(33, 36, 49);
+$clr3: rgb(48, 52, 71);
+$clr4: rgb(74, 80, 109);
+$clr5: rgb(123, 128, 151);
 
 $fc1: rgb(237, 237, 237);
 $fc2: rgb(199, 199, 199);
 $fcred: rgb(255, 0, 0);
-
+$bgred: rgb(100, 9, 9);
 $black: rgb(0, 0, 0);
 $accent: rgb(5, 5, 128);
 $green: rgb(0, 128, 0);
 
+//SCHEMA 2
+$clr6a: #3a482a; //zelf ingevoegd
+$clr6: #485935;
+$clr7: #7d9266; //zelf ingevoegd
+$clr8: #9aa96d;
+$clr9: #b5c093; //zelf ingevoegd
+$clr10: #CADBB7;
+$clr11: #FBFBFB;
+
 $box-shadow: 2px 1px 29px 2px $black;
+
 
 // $fc-light: #000000;
 // $bg-light: #ffffff;
 
-// $bg1: rgb(18, 20, 27);
-// $bg2: rgb(38, 40, 47);
-// $bg3: rgb(58, 60, 67);
-// $bg4: rgb(78, 80, 87);
-// $bg5: rgb(97, 100, 187);
+//SCHEMA 1b (Nauwelijks gebruikt, te tweaken)
+// $clr1: rgb(18, 20, 27);
+// $clr2: rgb(38, 40, 47);
+// $clr3: rgb(58, 60, 67);
+// $clr4: rgb(78, 80, 87);
+// $clr5: rgb(97, 100, 187);

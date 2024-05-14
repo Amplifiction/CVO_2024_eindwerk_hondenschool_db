@@ -8,8 +8,12 @@
 
 body {
     font-family: vars.$font-stack;
-    color: vars.$fc1;
-    background-color: vars.$bg1;
+    color: vars.$clr6a;
+    background-color: vars.$clr10;
+}
+footer {
+    background-color: vars.$clr6;
+    color: vars.$clr11;
 }
 a {
     color: inherit;
@@ -72,13 +76,16 @@ img {
         background-repeat: no-repeat;
     }
     .bg2 {
-        background-color: vars.$bg2;
+        background-color: vars.$clr2;
     }
     .bg4 {
-        background-color: vars.$bg4;
+        background-color: vars.$clr4;
     }
     .bg5 {
-        background-color: vars.$bg5;
+        background-color: vars.$clr5;
+    }
+    .bg8 {
+        background-color: vars.$clr8
     }
 
 //FLEX
@@ -139,7 +146,7 @@ img {
 
 
 // .dark {
-//     background-color: vars.$bg1;
+//     background-color: vars.$clr1;
 //     color: vars.$fc1;
 // }
 // .light {

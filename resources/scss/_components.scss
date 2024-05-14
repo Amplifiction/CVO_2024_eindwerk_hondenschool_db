@@ -6,28 +6,28 @@
     overflow-y: scroll;
     opacity: 0.9;
     border: 1px solid vars.$fc1;
-    // background-color: vars.$bg3;
+    // background-color: vars.$clr3;
 }
 
 //FORM
     input, textarea, datalist {
         padding: 2px;
         margin: 1px -1px 3px -1px;
-        background-color: vars.$bg4;
         border: 1px solid vars.$fc1;
         color: vars.$fc1;
     }
     ::placeholder {
-        color: vars.$fc2;
+        color: vars.$fc1;
+        font-style: italic;
     }
     select {
         margin: 1px 0px;
     }
     .nullable {
-        background-color: vars.$bg4;
+        background-color: vars.$clr7;
     }
     .required {
-        background-color: vars.$bg3;
+        background-color: vars.$clr6;
     }
 
 
@@ -52,18 +52,20 @@
     }
     .modal-content {
         position: relative;
-        background-color: vars.$bg3;
+        color: vars.$fc1;
+        background-color: vars.$clr2;
         padding: 20px;
     }
 
 //TABLE
     .table-header {
         border-bottom: 1px solid vars.$fc1;
-        background-color: vars.$bg4;
+        background-color: vars.$clr11;
+        color: vars.$clr6;
     }
     .table-row:nth-child(even) {
-        background-color: vars.$bg2;
+        background-color: vars.$clr8;
     }
     .table-row:nth-child(odd) {
-        background-color: vars.$bg3;
+        background-color: vars.$clr9;
     }

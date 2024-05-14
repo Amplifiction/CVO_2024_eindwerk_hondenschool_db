@@ -7,8 +7,8 @@ export default function Form ({
     return (
 
         <div>
-            <h1 className="txt-center">{header}</h1>
-            <div className="txt-center">{subheader}</div>
+            <h1 className="txt-center fc1">{header}</h1>
+            <div className="txt-center fc1">{subheader}</div>
             <form onSubmit={onSubmit}>
                 {children}
             </form>

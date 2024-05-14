@@ -5,7 +5,7 @@ import FooterContent from "./FooterContent";
 
 
 export function DefaultLayout({children}) {
-    const backgrounds = ['bg-rect-1', 'bg-rect-2', 'bg-rect-3', 'bg-rect-4']
+    const backgrounds = ['bg-rect-1', 'bg-rect-2', 'bg-rect-3']
     const randomBackground = backgrounds[Math.floor(Math.random() * backgrounds.length)];
 
     return (
@@ -38,7 +38,7 @@ export function DefaultLayout({children}) {
                             {children}
                         </div>
                 </section>
-                <footer className= "bg2 border-radius-top padding-20px">
+                <footer className= "border-radius-top padding-20px">
                     <div className="container">
                         <FooterContent/>
                     </div>

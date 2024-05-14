@@ -15,7 +15,7 @@ export default function IndexMemberships ({memberships, msDeleteEvent}) {
                     <Link
                         href="/memberships/create"
                         as="button"
-                        className="btn-green m-y-1"
+                        className="btn-accent m-y-1"
                     ><i className="fa-regular fa-square-plus"></i> Lidmaatschap aanvragen</Link>
                 </div>
             </div>

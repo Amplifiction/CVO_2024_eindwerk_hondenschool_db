@@ -32,7 +32,7 @@ export default function EditStatus ({membership, statuses}) {
                     )}
                 </select>
                 <button
-                    className="btn-green"
+                    className="btn-accent"
                     onClick={() => handleSubmit(membership.id)}
                     disabled={processing}
                 ><i className="fa-regular fa-floppy-disk"></i></button>

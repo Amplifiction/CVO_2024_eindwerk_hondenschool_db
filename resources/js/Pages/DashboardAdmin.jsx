@@ -27,7 +27,7 @@ export default function DashboardAdmin ({requestedMs, statuses}) {
                     >Persoonlijk dashboard</Link>
                 </div>
             </div>
-            <div className="m-y-1">{`Welkom, ${auth.user.first_name}!`}</div>
+            <div className="m-y-1 fc6">{`Welkom, ${auth.user.first_name}!`}</div>
             <IndexRequestedMs
                 requestedMs={requestedMs}
                 statuses={statuses}

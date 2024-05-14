@@ -34,7 +34,7 @@ export default function EditProfile ({postal_codes, sexes}) {
     }
 
     return (
-        <div className="bg5 padding-20px m-y-3 min-width-450p">
+        <div className="bg8 padding-20px m-y-3 min-width-450p">
             <Form
                 onSubmit={handleSubmit}
                 header='Mijn profiel'

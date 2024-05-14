@@ -16,8 +16,30 @@
     color: vars.$fc2;
 }
 .fc3 {
-    color: vars.$bg3;
+    color: vars.$clr3;
 }
+.fc6, .fc-required {
+    color: vars.$clr6;
+}
+.fc7 {
+    color: vars.$clr7;
+}
+.fc8 {
+    color: vars.$clr8;
+}
+.fc9 {
+    color: vars.$clr9;
+}
+.fc10 {
+    color: vars.$clr10;
+}
+.fc11, .fc-nullable {
+    color: vars.$clr11;
+}
+.fc-accent {
+    color: vars.$accent;
+}
+
 .ff-code {
     font-family: vars.$code-font-stack;
 }

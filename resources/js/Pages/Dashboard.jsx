@@ -68,7 +68,7 @@ export default function Dashboard ({dogs, memberships}) {
                         </div>
                     }
                 </div>
-                <div className="m-y-1">{`Welkom, ${auth.user.first_name}!`}</div>
+                <div className="m-y-1 fc6">{`Welkom, ${auth.user.first_name}!`}</div>
                 <div>
                     <Link
                         href="/editProfile"
@@ -130,7 +130,7 @@ export default function Dashboard ({dogs, memberships}) {
                             type="text"
                             value={shareModalDog.uuid}
                             readOnly
-                            className="xs-col-10 fs-90 txt-center ff-code width-350px"
+                            className="xs-col-10 fs-90 txt-center ff-code fc6 width-350px"
                         />
                         <button
                             onClick={() => copy(shareModalDog.uuid)}

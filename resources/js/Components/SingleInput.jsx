@@ -13,7 +13,7 @@ export default function SingleInput ({
         <div className="flex-col m-y-1">
             <label
                 htmlFor={field}
-                className={`fw-bold ${required? 'fc1' : 'fc2'}`}
+                className={`fw-bold ${required? 'fc-required' : 'fc-nullable'}`}
             >{title}</label>
             <input
                 value={data[field]}

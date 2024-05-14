@@ -39,7 +39,7 @@ export default function Register ({postal_codes, sexes}) {
     //form repopulation gebeurt automatisch in Inertia.
 
     return (
-        <div className="bg5 padding-20px border-radius-bottom">
+        <div className="bg8 padding-20px border-radius-bottom">
             <Form
                 onSubmit={handleSubmit}
             >

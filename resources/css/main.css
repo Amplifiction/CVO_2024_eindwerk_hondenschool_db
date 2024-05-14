@@ -299,7 +299,7 @@ p, h1, h2, h3, h4, h5, h6 {
   text-align: center;
   padding: 3px 5px;
   margin: 2px;
-  color: white;
+  color: #FBFBFB;
   background-color: rgb(100, 9, 9);
   transition: background-color 0.3s;
   border: none;
@@ -317,7 +317,7 @@ p, h1, h2, h3, h4, h5, h6 {
   text-align: center;
   padding: 3px 5px;
   margin: 2px;
-  color: white;
+  color: #FBFBFB;
   background-color: rgb(0, 128, 0);
   transition: background-color 0.3s;
   border: none;
@@ -335,7 +335,7 @@ p, h1, h2, h3, h4, h5, h6 {
   text-align: center;
   padding: 3px 5px;
   margin: 2px;
-  color: white;
+  color: #FBFBFB;
   background-color: rgb(5, 5, 128);
   transition: background-color 0.3s;
   border: none;
@@ -353,7 +353,7 @@ p, h1, h2, h3, h4, h5, h6 {
   text-align: center;
   padding: 3px 5px;
   margin: 2px;
-  color: white;
+  color: #FBFBFB;
   background-color: rgb(117, 117, 117);
   transition: background-color 0.3s;
   border: none;
@@ -369,8 +369,8 @@ p, h1, h2, h3, h4, h5, h6 {
 
 .btn-as-link {
   background-color: transparent;
-  color: rgb(237, 237, 237);
   border: none;
+  color: #485935;
   text-decoration: underline;
 }
 .btn-as-link:hover {
@@ -384,13 +384,13 @@ p, h1, h2, h3, h4, h5, h6 {
   border-radius: 5px 5px 0 0;
   border: none;
   color: rgb(199, 199, 199);
-  background-color: rgb(74, 80, 109);
+  background-color: #485935;
 }
 
 .activeTabButton {
   font-weight: bold;
   color: rgb(237, 237, 237);
-  background-color: rgb(123, 128, 151);
+  background-color: #9aa96d;
 }
 
 .comboboxDropdown {
@@ -404,13 +404,13 @@ p, h1, h2, h3, h4, h5, h6 {
 input, textarea, datalist {
   padding: 2px;
   margin: 1px -1px 3px -1px;
-  background-color: rgb(74, 80, 109);
   border: 1px solid rgb(237, 237, 237);
   color: rgb(237, 237, 237);
 }
 
 ::placeholder {
-  color: rgb(199, 199, 199);
+  color: rgb(237, 237, 237);
+  font-style: italic;
 }
 
 select {
@@ -418,11 +418,11 @@ select {
 }
 
 .nullable {
-  background-color: rgb(74, 80, 109);
+  background-color: #7d9266;
 }
 
 .required {
-  background-color: rgb(48, 52, 71);
+  background-color: #485935;
 }
 
 .modal {
@@ -447,21 +447,23 @@ select {
 
 .modal-content {
   position: relative;
-  background-color: rgb(48, 52, 71);
+  color: rgb(237, 237, 237);
+  background-color: rgb(33, 36, 49);
   padding: 20px;
 }
 
 .table-header {
   border-bottom: 1px solid rgb(237, 237, 237);
-  background-color: rgb(74, 80, 109);
+  background-color: #FBFBFB;
+  color: #485935;
 }
 
 .table-row:nth-child(even) {
-  background-color: rgb(33, 36, 49);
+  background-color: #9aa96d;
 }
 
 .table-row:nth-child(odd) {
-  background-color: rgb(48, 52, 71);
+  background-color: #b5c093;
 }
 
 h1 {
@@ -505,6 +507,34 @@ h6 {
   color: rgb(48, 52, 71);
 }
 
+.fc6, .fc-required {
+  color: #485935;
+}
+
+.fc7 {
+  color: #7d9266;
+}
+
+.fc8 {
+  color: #9aa96d;
+}
+
+.fc9 {
+  color: #b5c093;
+}
+
+.fc10 {
+  color: #CADBB7;
+}
+
+.fc11, .fc-nullable {
+  color: #FBFBFB;
+}
+
+.fc-accent {
+  color: rgb(5, 5, 128);
+}
+
 .ff-code {
   font-family: Consolas, monaco, monospace;
 }
@@ -535,8 +565,13 @@ h6 {
 
 body {
   font-family: Helvetica, sans-serif;
-  color: rgb(237, 237, 237);
-  background-color: rgb(18, 20, 27);
+  color: #3a482a;
+  background-color: #CADBB7;
+}
+
+footer {
+  background-color: #485935;
+  color: #FBFBFB;
 }
 
 a {
@@ -615,6 +650,10 @@ img {
 
 .bg5 {
   background-color: rgb(123, 128, 151);
+}
+
+.bg8 {
+  background-color: #9aa96d;
 }
 
 .flex-col {

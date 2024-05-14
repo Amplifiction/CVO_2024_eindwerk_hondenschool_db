@@ -5,14 +5,14 @@ export default function FooterContent ({}) {
 
     return (
         <div className="grid-row just-between fs-90">
-            <div className="xs-col-5 flex-col just-center">
+            <div className="xs-col-5 flex-col just-center fc8">
                 <a
                     href={website}
                     target="_blank"
                 >De Roedel vzw</a>
                 <p>&copy; 2024 Bart Stevens</p>
             </div>
-            <div className="xs-col-2 flex-row align-center just-center fs-300 fc3">
+            <div className="xs-col-2 flex-row align-center just-center fs-300 fc8">
                 <i className="fa-solid fa-paw"></i>
             </div>
             <div className="xs-col-5 flex-row align-center just-end">

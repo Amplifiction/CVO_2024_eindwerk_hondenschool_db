@@ -81,7 +81,7 @@ export default function EigenCombobox ({
         > {/* React ondersteunt geen onfocusout. */}
             <label
                 htmlFor={`${field}_input`}
-                className={`fw-bold ${required? 'fc1' : 'fc2'}`}
+                className={`fw-bold ${required? 'fc-required' : 'fc-nullable'}`}
             >{title}</label>
             <div className="flex-row">
                 <input

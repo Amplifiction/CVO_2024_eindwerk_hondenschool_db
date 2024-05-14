@@ -14,7 +14,7 @@ export default function IndexDogs ({dogs, dogDeleteEvent, shareEvent, contactMod
                     <Link
                         href="/dogs/add"
                         as="button"
-                        className="btn-green m-y-1"
+                        className="btn-accent m-y-1"
                     ><i className="fa-regular fa-square-plus"></i> Hond toevoegen</Link>
                 </div>
             </div>

@@ -1,15 +1,15 @@
 @use 'variables' as vars;
 
-@mixin button($bgcolor, $fc) {
+@mixin button($_bgcolor, $_fc) {
     text-align: center;
     padding: 3px 5px;
     margin: 2px;
-    color: $fc;
-    background-color: $bgcolor;
+    color: $_fc;
+    background-color: $_bgcolor;
     transition: background-color 0.3s;
     border: none;
     &:enabled:hover {
-        background-color: lighten($bgcolor, 20%);
+        background-color: lighten($_bgcolor, 20%);
         cursor: pointer;
     }
     &:disabled {
@@ -19,25 +19,25 @@
 }
 
 .btn-red {
-    @include button(vars.$bgred, white);
+    @include button(vars.$bgred, vars.$clr11);
 }
 
 .btn-green {
-    @include button(vars.$green, white);
+    @include button(vars.$green, vars.$clr11);
 }
 
 .btn-accent {
-    @include button(vars.$accent, white);
+    @include button(vars.$accent, vars.$clr11);
 }
 
 .btn-gray {
-    @include button(rgb(117, 117, 117), white);
+    @include button(rgb(117, 117, 117), vars.$clr11);
 }
 
 .btn-as-link {
     background-color: transparent;
-    color: vars.$fc1;
     border: none;
+    color: vars.$clr6;
     text-decoration: underline;
     &:hover {
         cursor: pointer;
@@ -52,10 +52,10 @@
         border-radius: 5px 5px 0 0;
         border: none;
         color: vars.$fc2;
-        background-color: vars.$bg4;
+        background-color: vars.$clr6;
     }
     .activeTabButton {
         font-weight: bold;
         color: vars.$fc1;
-        background-color: vars.$bg5;
+        background-color: vars.$clr8;
     }

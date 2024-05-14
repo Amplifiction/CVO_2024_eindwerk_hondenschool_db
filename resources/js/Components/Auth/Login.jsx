@@ -1,3 +1,4 @@
+
 import { useForm } from "@inertiajs/react"
 import SingleInput from "../SingleInput"
 import FormStandardButtons from "../FormStandardButtons"
@@ -15,7 +16,7 @@ export default function Login ({}) {
     }
 
     return (
-        <div className="bg5 padding-20px border-radius-bottom">
+        <div className="bg8 padding-20px border-radius-bottom">
             <Form
                 onSubmit={handleSubmit}
             >

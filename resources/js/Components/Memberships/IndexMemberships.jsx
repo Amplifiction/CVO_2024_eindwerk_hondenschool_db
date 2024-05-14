@@ -1,8 +1,10 @@
-import { Link } from "@inertiajs/react";
+import { Link, usePage } from "@inertiajs/react";
 import TableRow from "../TableRow";
 import TableHeader from "../TableHeader";
 
 export default function IndexMemberships ({memberships, msDeleteEvent}) {
+    const { website } = usePage().props
+
     return (
         <div className="m-y-3">
             <div className="grid-row">
@@ -34,7 +36,9 @@ export default function IndexMemberships ({memberships, msDeleteEvent}) {
                         >
                             <div className="xs-col-3">{ms.dog_name}</div>
                             <div className="xs-col-3">{ms.start_date}</div>
-                            <div className="xs-col-3">{ms.disc_name}</div>
+                            <div className="xs-col-3">
+                                <a href= {`${website}${ms.disc_url}`} target="_blank">{ms.disc_name}</a>
+                            </div>
                             <div className="xs-col-2">{ms.status_name}</div>
                             <div className="xs-col-1">
                                 <button

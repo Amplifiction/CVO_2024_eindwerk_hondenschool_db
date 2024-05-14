@@ -42,6 +42,8 @@ class HandleInertiaRequests extends Middleware
             'flash' => [
                 'message' => fn () => $request->session()->get('message')
             ],
+            'website' => [ 'https://deroedel.bart-stevens.be/'],
+            'facebook' => [ 'https://www.facebook.com/hondenschoolderoedelhelchteren/'],
         ]);
     }
 }

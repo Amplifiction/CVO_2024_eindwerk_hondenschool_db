@@ -1,5 +1,4 @@
 import { useForm } from "@inertiajs/react"
-import Form from "../Form";
 
 export default function EditStatus ({membership, statuses}) {
 
@@ -15,7 +14,7 @@ export default function EditStatus ({membership, statuses}) {
     return (
         <div>
             <div className="flex-row">
-                {/* TO DO: select converteren naar compo. Zie Select.jsx */}
+                {/* TO DO, eventueel: select converteren naar compo. Zie Select.jsx */}
                 <select
                     id="status_id"
                     name="status_id"

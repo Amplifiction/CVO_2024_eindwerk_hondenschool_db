@@ -30,6 +30,7 @@ class DashboardController extends Controller
         foreach ($memberships as $ms) { // toevoegen extra velden om aan compo door te geven als één array. Kan simpeler: zie other_owners hierboven.
             $ms->dog_name = Dog::where('id', $ms->dog_id)->first()->name;
             $ms->disc_name = Discipline::where('id', $ms->discipline_id)->first()->name;
+            $ms->disc_url = Discipline::where('id', $ms->discipline_id)->first()->url_name;
             $ms->status_name = Status::where('id', $ms->status_id)->first()->name;
         }
 

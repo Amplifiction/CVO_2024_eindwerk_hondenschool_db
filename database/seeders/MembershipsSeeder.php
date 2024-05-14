@@ -17,10 +17,11 @@ class MembershipsSeeder extends Seeder
             ['user_id' => 1, 'dog_id' => 1, 'discipline_id' => 1, 'start_date' => '2024-05-10', 'status_id'=> 1],
             ['user_id' => 1, 'dog_id' => 2, 'discipline_id' => 2, 'start_date' => '2024-05-10', 'status_id'=> 1],
             ['user_id' => 2, 'dog_id' => 2, 'discipline_id' => 3, 'start_date' => '2024-05-10', 'status_id'=> 1],
-            ['user_id' => 3, 'dog_id' => 3, 'discipline_id' => 3, 'start_date' => '2024-05-11', 'status_id'=> 2],
-            ['user_id' => 3, 'dog_id' => 3, 'discipline_id' => 4, 'start_date' => '2024-05-11', 'status_id'=> 2],
-            ['user_id' => 3, 'dog_id' => 4, 'discipline_id' => 3, 'start_date' => '2024-05-11', 'status_id'=> 2],
-            ['user_id' => 3, 'dog_id' => 4, 'discipline_id' => 4, 'start_date' => '2024-05-11', 'status_id'=> 2],
+            ['user_id' => 3, 'dog_id' => 3, 'discipline_id' => 3, 'start_date' => '2024-05-11', 'status_id'=> 3],
+            ['user_id' => 3, 'dog_id' => 3, 'discipline_id' => 4, 'start_date' => '2024-05-11', 'status_id'=> 3],
+            ['user_id' => 3, 'dog_id' => 4, 'discipline_id' => 3, 'start_date' => '2024-05-11', 'status_id'=> 3],
+            ['user_id' => 3, 'dog_id' => 4, 'discipline_id' => 4, 'start_date' => '2024-05-11', 'status_id'=> 3],
+            ['user_id' => 3, 'dog_id' => 1, 'discipline_id' => 3, 'start_date' => '2024-05-14', 'status_id'=> 1],
         ]);
     }
 }

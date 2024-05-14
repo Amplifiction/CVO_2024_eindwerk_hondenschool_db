@@ -1,8 +1,10 @@
+import { usePage } from "@inertiajs/react";
 import TableHeader from "../TableHeader";
 import TableRow from "../TableRow";
 import EditStatus from "./EditStatus";
 
-export default function IndexRequestedMs ({requestedMs, statuses}) {
+export default function IndexRequestedMs ({requestedMs, statuses, contactModalEvent}) {
+    const { website } = usePage().props
 
     return (
         <div className="m-y-3">
@@ -27,11 +29,14 @@ export default function IndexRequestedMs ({requestedMs, statuses}) {
                             key={ms.id}
                         >
                             <div className="xs-col-4">
-                                {`${ms.user.first_name} ${ms.user.last_name}`}<br/>
+                                <button
+                                    onClick={() => contactModalEvent(ms.user)}
+                                    className="btn-as-link"
+                                >{`${ms.user.first_name} ${ms.user.last_name}`}</button><br/>
                                 {ms.dog.name}
                             </div>
                             <div className="xs-col-4">
-                                {ms.discipline.name}<br/>
+                                <a href= {`${website}${ms.discipline.url_name}`} target="_blank">{ms.discipline.name}</a><br/>
                                 {ms.start_date}
                             </div>
                             <div className="xs-col-4">

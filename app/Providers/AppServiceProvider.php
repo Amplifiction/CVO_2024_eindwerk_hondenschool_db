@@ -8,6 +8,7 @@ use App\Models\Ownership;
 use App\Models\Discipline;
 use App\Models\Membership;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -47,9 +48,9 @@ class AppServiceProvider extends ServiceProvider
             return $user->role_id>1;
         });
 
-        Gate::define('editOwnMs', function (User $user, Membership $membership) {
+        Gate::define('editOwnData', function (User $user, Model $model) { //Model maakt universeel voor memberships/... (Is niveau hoger dan concrete Models.)
             $returnValue = false;
-            if ($user->role_id===2 && $user->id !== $membership->user_id) {
+            if ($user->role_id===2 && $user->id !== $model->user_id) {
                 $returnValue = true;
             }
             if ($user->role_id>2) {

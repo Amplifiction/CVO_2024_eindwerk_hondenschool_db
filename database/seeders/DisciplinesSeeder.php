@@ -14,11 +14,11 @@ class DisciplinesSeeder extends Seeder
     public function run(): void
     {
         DB::table('disciplines')->insert([
-            ['name'=>'agility'],
-            ['name'=>'dog dance'],
-            ['name'=>'gehoorzaamheid'],
-            ['name'=>'hoopers'],
-            ['name'=>'search and rescue'],
+            ['name'=>'agility', 'url_name'=>'agility'],
+            ['name'=>'dog dance', 'url_name'=>'dog-dance'],
+            ['name'=>'gehoorzaamheid', 'url_name'=>'gehoorzaamheid'],
+            ['name'=>'hoopers', 'url_name'=>'hoopers'],
+            ['name'=>'search and rescue', 'url_name'=>'rescue'],
         ]);
 
     }

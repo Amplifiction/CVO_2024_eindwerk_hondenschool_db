@@ -3,7 +3,7 @@ import ActionButtonsDog from "./ActionButtonsDog";
 import TableRow from "../TableRow";
 import TableHeader from "../TableHeader";
 
-export default function IndexDogs ({dogs, dogDeleteEvent, shareEvent}) {
+export default function IndexDogs ({dogs, dogDeleteEvent, shareEvent, contactModalEvent}) {
     return (
         <div className="m-y-3">
             <div className="grid-row">
@@ -48,7 +48,10 @@ export default function IndexDogs ({dogs, dogDeleteEvent, shareEvent}) {
                             ? <div className="xs-col-5">
                                 {dog.other_owners.map((oo, index) =>
                                     <span key={oo.id}>
-                                        {`${oo.first_name} ${oo.last_name}`}
+                                        <button
+                                            onClick={() => contactModalEvent(oo)}
+                                            className="btn-as-link"
+                                        >{`${oo.first_name} ${oo.last_name}`}</button>
                                         {index < dog.other_owners.length - 1 ? ', ' : ''}
                                     </span>
                                 )}

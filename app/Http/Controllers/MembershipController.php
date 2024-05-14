@@ -71,12 +71,11 @@ class MembershipController extends Controller
     }
 
     public function setStatus (Request $request, Membership $membership) {
-        if (!Gate::allows('editOwnMs', $membership)) {abort(403);}
+        if (!Gate::allows('editOwnData', $membership)) {abort(403);}
 
         $request->validate([
             'status_id' => ['required', Rule::notIn(['-1'])]
         ]);
-        // $membership->update(['status_id' => $request->status_id]);
         $membership->status_id = $request->status_id;
         $membership->save();
 
@@ -87,7 +86,7 @@ class MembershipController extends Controller
         $notiData['discipline_name']=$membership->discipline->name;
         Notification::send($user, new StatusChangeNoti($notiData));
 
-        return redirect()->route('dashboard-admin'); //overbodig?
+        //return redirect()->route('dashboard-admin'); //overbodig: is zelfde pg; React rendert opnieuw.
     }
 
     public function destroy (Request $request, Membership $membership) {

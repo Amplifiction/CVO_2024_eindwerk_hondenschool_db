@@ -4,6 +4,8 @@ import Modal from "../Components/Modal"
 import { useState } from "react"
 import IndexMemberships from "../Components/Memberships/IndexMemberships"
 import copy from "copy-to-clipboard";
+import ModalContact from "../Components/ModalContact"
+
 export default function Dashboard ({dogs, memberships}) {
     const { flash, auth } = usePage().props
 
@@ -34,6 +36,13 @@ export default function Dashboard ({dogs, memberships}) {
     const handleMsDelete = (id) => {
         router.delete(`/memberships/${id}`, {})
         setShowMsDeleteModal(false)
+    }
+
+    const [showContactModal, setShowContactModal] = useState(false)
+    const [contactModalUser, setContactModalUser] = useState({})
+    const handleShowContactModal = (user) => {
+        setShowContactModal(true)
+        setContactModalUser(user)
     }
 
     return (
@@ -77,6 +86,7 @@ export default function Dashboard ({dogs, memberships}) {
                 dogs={dogs}
                 dogDeleteEvent={handledogDeleteEvent}
                 shareEvent={handleShareEvent}
+                contactModalEvent={handleShowContactModal}
             />
             <IndexMemberships
                 memberships={memberships}
@@ -151,6 +161,12 @@ export default function Dashboard ({dogs, memberships}) {
                         >Annuleren</button>
                     </div>
                 </Modal>
+            }
+            {showContactModal &&
+                <ModalContact
+                    user={contactModalUser}
+                    close={() => setShowContactModal(false)}
+                />
             }
         </div>
     )

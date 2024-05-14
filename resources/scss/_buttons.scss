@@ -34,6 +34,16 @@
     @include button(rgb(117, 117, 117), white);
 }
 
+.btn-as-link {
+    background-color: transparent;
+    color: vars.$fc1;
+    border: none;
+    text-decoration: underline;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
 //TABBUTTON
     .tabButton {
         font-size: 150%;

@@ -45,7 +45,20 @@ export default function Dashboard ({dogs, memberships}) {
                         <p className="fs-ita">{flash.message}</p>
                     </div>
                 }
-                <h1>Mijn dashboard</h1>
+                <div className="grid-row">
+                    <div className="xs-col-12 m-col-6">
+                        <h1>Mijn dashboard</h1>
+                    </div>
+                    {auth.user.role_id > 1 &&
+                        <div className="xs-col-12 m-col-6 flex-row just-end-m">
+                            <Link
+                                href="/dashboardadmin"
+                                as="button"
+                                className="btn-accent"
+                            >Admin dashboard</Link>
+                        </div>
+                    }
+                </div>
                 <div className="m-y-1">{`Welkom, ${auth.user.first_name}.`}</div>
                 <div>
                     <Link

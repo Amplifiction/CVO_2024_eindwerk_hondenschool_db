@@ -8,8 +8,9 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MembershipController;
 
-Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard'); //->middleware('auth') //middleware vervangen door handmatige redirect. Zie Zie "eigen logboek.docx", 9/5/2024 voor details.
 Route::get('/', [DashboardController::class, 'home'])->name('home')->middleware('guest');
+Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard'); //->middleware('auth') //middleware vervangen door handmatige redirect. Zie Zie "eigen logboek.docx", 9/5/2024 voor details.
+Route::get('/dashboardadmin', [DashboardController::class, 'dashboardAdmin'])->name('dashboard-admin');
 
 //Route::get('/register', [AuthController::class, 'register'])->name('register.get')->middleware('guest');
 Route::post('/register', [AuthController::class, 'handleRegister'])->name('register.post')->middleware('guest');
@@ -32,4 +33,5 @@ Route::delete('/dogs/{dog}', [DogController::class, 'destroy'])->name('dogs.dest
 
 Route::get('/memberships/create', [MembershipController::class, 'create'])->name('memberships.create')->middleware('auth');
 Route::post('/memberships/store', [MembershipController::class, 'store'])->name('memberships.store')->middleware('auth');
+Route::put('/memberships/{membership}', [MembershipController::class, 'setStatus'])->name('membership.setstatus')->middleware('auth');
 Route::delete('memberships/{membership}', [MembershipController::class, 'destroy'])->name('memberships.destroy')->middleware('auth');

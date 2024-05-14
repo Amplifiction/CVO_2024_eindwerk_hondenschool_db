@@ -1,6 +1,6 @@
 export default function SingleInput ({
     field,
-    title,
+    title='',
     type,
     data,
     errors,

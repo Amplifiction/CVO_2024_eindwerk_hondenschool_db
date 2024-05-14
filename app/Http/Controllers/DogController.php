@@ -127,8 +127,8 @@ class DogController extends Controller
             $request->session()->flash('message', 'De hond werd verwijderd uit de database.');
         }
         return redirect()->route('dashboard');
+        //Membership zonder ownership is niet mogelijk. Dus moet/mag het verwijderen van memberships van andere users niet worden voorzien.
+            //(Dog wordt niet deleted indien ownCount > 1)
+        //Geen flash message nodig over deletion membership: gebruiker wordt gewaarschuwd dat dog deleten = ms deleten.
     }
-    //Membership zonder ownership is niet mogelijk. Dus moet/mag het verwijderen van memberships van andere users niet worden voorzien.
-        //(Dog wordt niet deleted indien ownCount > 1)
-    //Geen flash message nodig over deletion membership: gebruiker wordt gewaarschuwd dat dog deleten = ms deleten.
 }

@@ -55,7 +55,7 @@ class UsersSeeder extends Seeder
                 'street' => 'Dorpsplein',
                 'housenumber'  => 23,
                 'postal_code_id' => 4,
-                'role_id' => 1
+                'role_id' => 3
             ]
             ]);
     }

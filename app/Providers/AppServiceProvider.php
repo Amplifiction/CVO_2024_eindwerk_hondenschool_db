@@ -42,5 +42,20 @@ class AppServiceProvider extends ServiceProvider
                 ->first();
             return $memberships!=null;
         });
+
+        Gate::define('isAdmin', function (User $user) {
+            return $user->role_id>1;
+        });
+
+        Gate::define('editOwnMs', function (User $user, Membership $membership) {
+            $returnValue = false;
+            if ($user->role_id===2 && $user->id !== $membership->user_id) {
+                $returnValue = true;
+            }
+            if ($user->role_id>2) {
+                $returnValue = true;
+            }
+            return $returnValue;
+        });
     }
 }

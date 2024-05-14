@@ -6,6 +6,7 @@ export default function HeaderContent ({}) {
     return (
         <div className="grid-row just-between">
             <div className="xs-col-6 max-height-100p">
+                {/* TO DO: link wordt op volledige div gezet. Waarom=?? */}
                 <Link
                     href="/dashboard"
                 >

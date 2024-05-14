@@ -13,6 +13,7 @@ use App\Models\Membership;
 use App\Models\Postal_Code;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class DashboardController extends Controller
 {
@@ -51,4 +52,23 @@ class DashboardController extends Controller
         ]);
     }
 
+    public function dashboardAdmin() {
+        if (!Auth::user()) return redirect()->route('home');
+        $user=Auth::user();
+        if(!Gate::allows('isAdmin', $user)) {abort(403);}
+
+        $requestedMs = Membership::where('status_id', 1)->get();
+        foreach ($requestedMs as $rms) {
+            $rms->user=User::where('id', $rms->user_id)->first();
+            $rms->dog=Dog::where('id', $rms->dog_id)->first();
+            $rms->discipline=Discipline::where('id', $rms->discipline_id)->first();
+        }
+
+        $statuses=Status::all();
+
+        return Inertia::render('DashboardAdmin', [
+            'requestedMs' => $requestedMs,
+            'statuses' => $statuses
+        ]);
+    }
 }

@@ -23,6 +23,8 @@ img {
     object-fit: contain; /*The image keeps its aspect ratio, but is resized to fit within the given dimension*/
 }
 footer {
+    // TO DO: footer verspringt wanneer body groter wordt (bv register > toon optionele velden in mobile)
+    // of wanneer console (onderaan) wordt geopend en gesloten.
     position: absolute;
     bottom: 0;
     width: 100%;

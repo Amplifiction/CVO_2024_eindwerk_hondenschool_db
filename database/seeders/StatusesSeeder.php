@@ -15,6 +15,7 @@ class StatusesSeeder extends Seeder
     {
         DB::table('statuses')->insert([
             ['name'=>'in aanvraag'],
+            ['name'=>'afgekeurd'], //overbodig?
             ['name'=>'goedgekeurd'],
             ['name'=>'geschorst'],
 

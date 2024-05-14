@@ -5,8 +5,7 @@ import FooterContent from "./FooterContent";
 
 
 export function DefaultLayout({children}) {
-    const backgrounds = ['bg-rect-1', 'bg-rect-2', 'bg-rect-3']
-    //TO DO: overbodige backgrounds verwijderen
+    const backgrounds = ['bg-rect-1', 'bg-rect-2', 'bg-rect-3', 'bg-rect-4']
     const randomBackground = backgrounds[Math.floor(Math.random() * backgrounds.length)];
 
     return (

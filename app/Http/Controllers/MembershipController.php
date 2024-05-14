@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Dog;
+use App\Models\User;
 use Inertia\Inertia;
 use App\Models\Status;
 use App\Models\Discipline;
@@ -10,6 +12,8 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use App\Notifications\StatusChangeNoti;
+use Illuminate\Support\Facades\Notification;
 
 class MembershipController extends Controller
 {
@@ -66,10 +70,28 @@ class MembershipController extends Controller
         return redirect()->route('dashboard');
     }
 
+    public function setStatus (Request $request, Membership $membership) {
+        if (!Gate::allows('editOwnMs', $membership)) {abort(403);}
+
+        $request->validate([
+            'status_id' => ['required', Rule::notIn(['-1'])]
+        ]);
+        // $membership->update(['status_id' => $request->status_id]);
+        $membership->status_id = $request->status_id;
+        $membership->save();
+
+        $user=User::where('id', $membership->user_id)->first();
+        $notiData['dog_name']=Dog::where('id', $membership->dog_id)->first()->name;
+        $notiData['user_firstname']=$user->first_name;
+        $notiData['status_name']=$membership->status->name;
+        $notiData['discipline_name']=$membership->discipline->name;
+        Notification::send($user, new StatusChangeNoti($notiData));
+
+        return redirect()->route('dashboard-admin'); //overbodig?
+    }
+
     public function destroy (Request $request, Membership $membership) {
-        if (! Gate::allows('membership', $membership)) {
-            abort(403);
-        }
+        if (!Gate::allows('membership', $membership)) {abort(403);}
         $membership->delete();
         $request->session()->flash('message', 'Lidmaatschap verwijderd.');
         return redirect()->route('dashboard');

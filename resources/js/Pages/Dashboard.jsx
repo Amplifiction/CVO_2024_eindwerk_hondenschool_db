@@ -63,12 +63,12 @@ export default function Dashboard ({dogs, memberships}) {
                             <Link
                                 href="/dashboardadmin"
                                 as="button"
-                                className="btn-accent"
+                                className="btn-accent m-y-1"
                             >Admin dashboard</Link>
                         </div>
                     }
                 </div>
-                <div className="m-y-1">{`Welkom, ${auth.user.first_name}.`}</div>
+                <div className="m-y-1">{`Welkom, ${auth.user.first_name}!`}</div>
                 <div>
                     <Link
                         href="/editProfile"

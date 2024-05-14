@@ -16,18 +16,18 @@ export default function DashboardAdmin ({requestedMs, statuses}) {
     return (
         <div className="m-y-3">
             <div className="grid-row">
-                <div className="xs-col-12 m-col-6">
+                <div className="xs-col-12 m-col-9">
                     <h1>Admin dashboard</h1>
                 </div>
-                <div className="xs-col-12 m-col-6 flex-row just-end-m">
+                <div className="xs-col-12 m-col-3 flex-row just-end-m">
                     <Link
                         href="/dashboard"
                         as="button"
-                        className="btn-accent"
+                        className="btn-accent m-y-1"
                     >Persoonlijk dashboard</Link>
                 </div>
             </div>
-            <div className="m-y-1">{`Welkom, ${auth.user.first_name}.`}</div>
+            <div className="m-y-1">{`Welkom, ${auth.user.first_name}!`}</div>
             <IndexRequestedMs
                 requestedMs={requestedMs}
                 statuses={statuses}

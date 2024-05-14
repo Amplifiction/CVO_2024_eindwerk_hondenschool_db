@@ -34,7 +34,7 @@ class UsersSeeder extends Seeder
                 'email' => 'josefien@gmail.com',
                 'password' => Hash::make('123456789'),
                 'first_name' => 'Josefien',
-                'last_name' => 'Meyers',
+                'last_name' => 'Broeckx',
                 'sex_id' => 2,
                 'date_of_birth' => '1993-01-01',
                 'cellphone' => '06-12345678',

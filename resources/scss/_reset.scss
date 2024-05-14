@@ -21,8 +21,8 @@ body {
 
 //5. Improve media defaults
 img, picture, video, canvas, svg {
-    display: block;
-    max-width: 100%;
+    // display: block; //Zorgde ervoor bij div>a>img dat heel de div aanklikbaar was.
+    //max-width: 100%; //Zie eigen CSS.
 }
 
 //6. Remove built-in form typography styles

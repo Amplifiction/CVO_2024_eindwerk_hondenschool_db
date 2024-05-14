@@ -29,7 +29,6 @@ p, h1, h2, h3, h4, h5, h6 {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: 8px;
-  padding: 8px;
 }
 
 .xs-col-1 {
@@ -540,28 +539,33 @@ h6 {
 
 body {
   font-family: Helvetica, sans-serif;
-  background-color: rgb(18, 20, 27);
   color: rgb(237, 237, 237);
+  background-color: rgb(18, 20, 27);
 }
 
 a {
-  color: rgb(237, 237, 237);
-}
-
-* {
-  border-radius: 5px;
+  color: inherit;
 }
 
 img {
-  max-width: 100%;
   max-height: 100%;
-  object-fit: contain; /*The image keeps its aspect ratio, but is resized to fit within the given dimension*/
+  object-fit: contain;
+}
+
+.wrapper {
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
 }
 
 footer {
   position: absolute;
   bottom: 0;
   width: 100%;
+}
+
+* {
+  border-radius: 5px;
 }
 
 .border-radius-50 {
@@ -679,12 +683,12 @@ footer {
   margin: 0.5rem;
 }
 
-.padding-20px {
-  padding: 20px;
+.padding-8px {
+  padding: 8px;
 }
 
-.m-t-3 {
-  margin-top: 3rem;
+.padding-20px {
+  padding: 20px;
 }
 
 .p-y-3 {

@@ -15,7 +15,7 @@
     grid-template-columns: repeat(12, 1fr);
     // outline: 1px solid blue;
     gap: 8px;
-    @include padding;
+    //@include padding;
 }
 
 @for $i from 1 through 12 {

@@ -13,6 +13,6 @@ export default function Form ({
                 {children}
             </form>
         </div>
-        //TO DO, eventueel: FormStandardButtons integreren.
+        //FormStandardButtons integreren is geen optie. (Varieert te fel per form.)
     )
 }

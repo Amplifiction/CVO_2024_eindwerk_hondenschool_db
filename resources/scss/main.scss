@@ -8,40 +8,65 @@
 
 body {
     font-family: vars.$font-stack;
-    background-color: vars.$bg1;
     color: vars.$fc1;
+    background-color: vars.$bg1;
 }
 a {
-    color: vars.$fc1;
-}
-* { //kan worden overschreven door class selectors (specificiteit)
-    border-radius: 5px;
+    color: inherit;
 }
 img {
-    max-width: 100%;
+    // max-width: 100%; //zie ook reset.scss
     max-height: 100%;
-    object-fit: contain; /*The image keeps its aspect ratio, but is resized to fit within the given dimension*/
-}
-footer {
-    // TO DO: footer verspringt wanneer body groter wordt (bv register > toon optionele velden in mobile)
-    // of wanneer console (onderaan) wordt geopend en gesloten.
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+    object-fit: contain; //The image keeps its aspect ratio, but is resized to fit within the given dimension
 }
 
-.border-radius-50 {
-    border-radius: 50%; //TO DO: is ei ipv cirkel: width en height van elementen gelijk maken. Idem voor margin en padding.
-}
-.border-radius-bottom {
-    border-radius: 0 0 5px 5px;
-}
-.border-radius-top {
-    border-radius: 5px 5px 0 0;
-}
-.border-radius-none {
-    border-radius: 0;
-}
+//STICKY FOOTER
+    // https://developer.mozilla.org/en-US/docs/Web/CSS/Layout_cookbook/Sticky_footers
+    .wrapper {
+        min-height: 100%;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+    }
+    // alternate method
+        // html, body {
+        //     height: 100%
+        // }
+        // .wrapper {
+        //     min-height: 100%;
+        //     display: flex;
+        //     flex-direction: column;
+        // }
+        // header, footer {
+        //     flex-grow: 0;
+        //     flex-shrink: 0;
+        // }
+        // .page-body { //klasse verwijderd van section
+        //     flex-grow: 1;
+        // }
+    //Bovenstaande werken niet. Daarom deze eigen oplossing.
+    //Nadeel: footer verspringt wanneer console onderaan wordt gesloten, wanneer register form uitklapt (view <m), ...
+        footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+//BORDER-RADIUS
+    * { //kan worden overschreven door class selectors (specificiteit)
+        border-radius: 5px;
+    }
+    .border-radius-50 {
+        border-radius: 50%; //TO DO: is ei ipv cirkel: width en height van elementen gelijk maken. Idem voor margin en padding.
+    }
+    .border-radius-bottom {
+        border-radius: 0 0 5px 5px;
+    }
+    .border-radius-top {
+        border-radius: 5px 5px 0 0;
+    }
+    .border-radius-none {
+        border-radius: 0;
+    }
 
 //DIMENSIONS
     .height-100vh {
@@ -127,11 +152,11 @@ footer {
     .m-xy-1 {
         margin: 0.5rem;
     }
+    .padding-8px {
+        padding: 8px;
+    }
     .padding-20px {
         padding: 20px;
-    }
-    .m-t-3 {
-        margin-top: 3rem;
     }
     .p-y-3 {
         padding-top: 3rem;

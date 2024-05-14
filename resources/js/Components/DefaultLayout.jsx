@@ -11,15 +11,21 @@ export function DefaultLayout({children}) {
     return (
         <>
             <Head>
+                {/* TO DO, eventueel: hoe language instellen? (Normaal gezien <html lang="en">) */}
                 <title>Hondenschool DB</title>
                 <meta charset="UTF-8"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
                 <meta name="description" content="Een beheersysteem voor hondenscholen."/>
-                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+                <link rel="icon" type="image/x-icon" href="/images/logo-nobg-white.png"></link>
+                <link
+                    rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+                    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+                    crossorigin="anonymous" referrerpolicy="no-referrer"
+                />
             </Head>
-            <main>
+            <main className="wrapper">
                 <header
-                    className= "background-image border-radius-bottom"
+                    className= "background-image border-radius-bottom padding-20px"
                     style={{backgroundImage: `url('/images/${randomBackground}.jpg')`}}
                 >
                     <div className="container">
@@ -32,7 +38,7 @@ export function DefaultLayout({children}) {
                             {children}
                         </div>
                 </section>
-                <footer className= "bg2 border-radius-top">
+                <footer className= "bg2 border-radius-top padding-20px">
                     <div className="container">
                         <FooterContent/>
                     </div>

@@ -55,7 +55,7 @@ export default function IndexAllMs ({allMs, contactModalEvent}) {
     return (
         <div className="m-y-3">
             <h2>Alle lidmaatschappen</h2>
-            <p className="m-y-1">(Typ in een veld om te filteren.)</p>
+            <p className="m-y-1">(Typ in een veld om te filteren. Datumformaat: jjjj-(m)m-dd.)</p>
             <div>
                 {/* <TableHeader>
                     <div className="xs-col-3">
@@ -112,7 +112,7 @@ export default function IndexAllMs ({allMs, contactModalEvent}) {
                         />
                     </div>
                     <div className="xs-col-6 l-col-3">
-                        <div className="fs-90 flex-row just-center align-center m-xy-1">datumformaat jjjj-(m)m-dd</div>
+                        {/* <div className="fs-90 flex-row just-center align-center m-xy-1">datumformaat jjjj-(m)m-dd</div> */}
                         <FilterInput
                             value={statusFilter}
                             onChange={(e) => setStatusFilter(e.target.value)}

@@ -71,9 +71,13 @@ export default function EditProfile ({postal_codes, sexes}) {
                 <div className="grid-row">
                     <div className="xs-col-12 flex-row just-center">
                         <button
-                            className="btn-accent"
+                            className="btn-accent m-y-1"
                             onClick={handleVeriClick}
                         >Verificatie-email opnieuw versturen</button>
+                    </div>
+                </div>
+                <div className="grid-row">
+                    <div className="xs-col-12 flex-row just-center">
                         <FormStandardButtons
                             title='Bewaren'
                             processing={processing}

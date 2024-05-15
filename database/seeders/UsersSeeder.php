@@ -17,7 +17,7 @@ class UsersSeeder extends Seeder
         DB::table('users')->insert([
             [
                 'id' => 1,
-                'email' => 'jerom@test.be',
+                'email' => 'bart-stevens@outlook.com',
                 'email_verified_at' => now(),
                 'password' => Hash::make('123456789'),
                 'first_name' => 'Jerom',
@@ -33,7 +33,7 @@ class UsersSeeder extends Seeder
             ],
             [
                 'id' => 2,
-                'email' => 'josefien@test.be',
+                'email' => 'bart_stevens9@hotmail.com',
                 'email_verified_at' => now(),
                 'password' => Hash::make('123456789'),
                 'first_name' => 'Josefien',
@@ -49,7 +49,7 @@ class UsersSeeder extends Seeder
             ],
             [
                 'id' => 3,
-                'email' => 'bart.stevens@test.be',
+                'email' => 'bart.stevens9@gmail.com',
                 'email_verified_at' => now(),
                 'password' => Hash::make('123456789'),
                 'first_name' => 'Bart',
@@ -65,7 +65,7 @@ class UsersSeeder extends Seeder
             ],
             [
                 'id' => 4,
-                'email' => 'superadmin@test.be',
+                'email' => 'superadmin@test.be', //triggert fout bij verzenden van "echte" mails (dus niet naar Mailtrap)
                 'email_verified_at' => now(),
                 'password' => Hash::make('123456789'),
                 'first_name' => 'Jean',

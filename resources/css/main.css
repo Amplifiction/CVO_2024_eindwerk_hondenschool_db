@@ -425,6 +425,18 @@ select {
   background-color: #485935;
 }
 
+.filter-input {
+  border: 1px solid #485935;
+  margin: 4px 2px;
+  padding: 5px;
+}
+
+.filter-input::placeholder {
+  font-style: normal;
+  color: #485935;
+  opacity: 0.5;
+}
+
 .modal {
   position: fixed;
   top: 0;
@@ -652,6 +664,14 @@ img {
   background-color: rgb(123, 128, 151);
 }
 
+.bg6 {
+  background-color: #485935;
+}
+
+.bg7 {
+  background-color: #7d9266;
+}
+
 .bg8 {
   background-color: #9aa96d;
 }
@@ -667,6 +687,10 @@ img {
 
 .align-center {
   align-items: center;
+}
+
+.align-end {
+  align-items: end;
 }
 
 .just-between {
@@ -711,6 +735,10 @@ img {
 
 .m-xy-1 {
   margin: 0.5rem;
+}
+
+.m-xy-2 {
+  margin: 2rem;
 }
 
 .padding-8px {

@@ -24,6 +24,7 @@ class UsersSeeder extends Seeder
                 'sex_id' => 1,
                 'date_of_birth' => '1993-01-01',
                 'cellphone' => '06-12345678',
+                'phone' => '011 64 61 48',
                 'street' => 'Dorpsplein',
                 'housenumber'  => 23,
                 'postal_code_id' => 4,
@@ -38,6 +39,7 @@ class UsersSeeder extends Seeder
                 'sex_id' => 2,
                 'date_of_birth' => '1993-01-01',
                 'cellphone' => '06-12345678',
+                'phone' => '011 64 61 48',
                 'street' => 'Dorpsplein',
                 'housenumber'  => 23,
                 'postal_code_id' => 4,
@@ -52,11 +54,27 @@ class UsersSeeder extends Seeder
                 'sex_id' => 1,
                 'date_of_birth' => '1983-12-01',
                 'cellphone' => '0496 98 40 31',
+                'phone' => '011 64 61 48',
                 'street' => 'Dorpsplein',
                 'housenumber'  => 23,
                 'postal_code_id' => 4,
                 'role_id' => 2
-            ]
+            ],
+            [
+                'id' => 4,
+                'email' => 'superadmin@outlook.com',
+                'password' => Hash::make('123456789'),
+                'first_name' => 'Jean',
+                'last_name' => 'Claude',
+                'sex_id' => 1,
+                'date_of_birth' => '1983-12-01',
+                'cellphone' => '0496 98 40 31',
+                'phone' => '011 64 61 48',
+                'street' => 'Dorpsplein',
+                'housenumber'  => 23,
+                'postal_code_id' => 4,
+                'role_id' => 3
+            ],
             ]);
     }
 }

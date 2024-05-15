@@ -84,6 +84,12 @@ img {
     .bg5 {
         background-color: vars.$clr5;
     }
+    .bg6 {
+        background-color: vars.$clr6;
+    }
+    .bg7 {
+        background-color: vars.$clr7
+    }
     .bg8 {
         background-color: vars.$clr8
     }
@@ -98,6 +104,9 @@ img {
     }
     .align-center {
         align-items: center;
+    }
+    .align-end {
+        align-items: end;
     }
     .just-between {
         justify-content: space-between;
@@ -135,6 +144,9 @@ img {
     }
     .m-xy-1 {
         margin: 0.5rem;
+    }
+    .m-xy-2 {
+        margin: 2rem;
     }
     .padding-8px {
         padding: 8px;

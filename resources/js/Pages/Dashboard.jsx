@@ -9,6 +9,13 @@ import ModalContact from "../Components/ModalContact"
 export default function Dashboard ({dogs, memberships}) {
     const { flash, auth } = usePage().props
 
+    let role = '';
+    switch(auth.user.role_id) {
+        case 2: role='(beheerder)'; break;
+        case 3: role='(super-beheerder)'; break;
+        // default: role='';
+    }
+
     const [showShareModal, setShowShareModal] = useState(false)
     const [shareModalDog, setShareModalDog] = useState({})
     const handleShareEvent = (dog) => {
@@ -68,7 +75,7 @@ export default function Dashboard ({dogs, memberships}) {
                         </div>
                     }
                 </div>
-                <div className="m-y-1 fc6">{`Welkom, ${auth.user.first_name}!`}</div>
+                <div className="m-y-1 fc6">{`Welkom, ${auth.user.first_name}! ${role}`}</div>
                 <div>
                     <Link
                         href="/editProfile"

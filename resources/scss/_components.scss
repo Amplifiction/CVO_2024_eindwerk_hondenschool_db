@@ -29,6 +29,17 @@
     .required {
         background-color: vars.$clr6;
     }
+    .filter-input {
+        // background-color: vars.$clr10;
+        border: 1px solid vars.$clr6;
+        margin: 4px 2px;
+        padding: 5px;
+    }
+    .filter-input::placeholder {
+        font-style: normal;
+        color: vars.$clr6;
+        opacity: 0.5;
+    }
 
 
 //MODAL

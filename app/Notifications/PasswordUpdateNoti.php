@@ -39,7 +39,7 @@ class PasswordUpdateNoti extends Notification
                     ->line('Het wachtwoord voor je account met het mailadres '.$this->user['email'].' werd zonet gewijzigd.')
                     // ->action('Notification Action', url('/'))
                     // ->line('Thank you for using our application!')
-                    ->line('(Do not reply: mails gericht aan deze mailbox worden niet gelezen.')
+                    ->line('(Do not reply: mails gericht aan deze mailbox worden niet gelezen.)')
                     ->salutation('Tot in de wei, of de kantine!');
     }
 

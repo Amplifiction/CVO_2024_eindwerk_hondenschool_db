@@ -40,7 +40,7 @@ class StatusChangeNoti extends Notification
                     ->line('De nieuwe status is: '.$this->notiData['status_name'].'.')
                     // ->action('Notification Action', url('/'))
                     // ->line('Thank you for using our application!')
-                    ->line('(Do not reply: mails gericht aan deze mailbox worden niet gelezen.')
+                    ->line('(Do not reply: mails gericht aan deze mailbox worden niet gelezen.)')
                     ;
     }
 

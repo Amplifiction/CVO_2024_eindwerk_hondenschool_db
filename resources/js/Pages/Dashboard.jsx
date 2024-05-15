@@ -56,7 +56,7 @@ export default function Dashboard ({dogs, memberships}) {
         <div>
             <div className="m-y-3">
                 {flash.message &&
-                    <div className="bg4 padding-20px m-y-1">
+                    <div className="bg6 fc11 padding-20px m-y-1">
                         <i className="fa-solid fa-circle-info fs-150 fc3"></i>
                         <p className="fs-ita">{flash.message}</p>
                     </div>

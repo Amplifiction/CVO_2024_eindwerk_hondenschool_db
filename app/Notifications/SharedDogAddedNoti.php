@@ -40,6 +40,7 @@ class SharedDogAddedNoti extends Notification
                     ->line('Dat wordt fijn trainen samen!')
                     // ->action('Notification Action', url('/'))
                     // ->line('Thank you for using our application!')
+                    ->line('(Do not reply: mails gericht aan deze mailbox worden niet gelezen.')
                     ->salutation('Tot in de wei, of de kantine!');
                     ;
     }

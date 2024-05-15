@@ -11,6 +11,7 @@ use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Notifications\RegistrationNoti;
+use Illuminate\Validation\Rules\Password;
 
 class AuthController extends Controller
 {
@@ -44,7 +45,7 @@ class AuthController extends Controller
             // 'street'=>'required',
             // 'housenumber' =>'required',
             // 'postal_code_id' => 'required',
-            'password' => 'required|confirmed|min:8'
+            'password' => ['required', 'confirmed', Password::min(8)->mixedCase()->numbers()],
         ]);
         $user = new User;
         $user->first_name = $request->first_name;

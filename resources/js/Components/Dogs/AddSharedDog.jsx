@@ -14,21 +14,23 @@ export default function AddSharedDog ({}) {
     }
 
     return (
-        <Form onSubmit={handleSubmit}>
-            <SingleInput
-                field='uuid'
-                title='Code'
-                type='text'
-                data={data}
-                errors={errors}
-                setData={setData}
-                setError={setError}
-            />
-            <FormStandardButtons
-                title='Toevoegen'
-                processing={processing}
-            />
-            <p>Voer hier de code in die u heeft gekregen van de eigenaar van de hond waarmee u wil trainen.</p>
-        </Form>
+        <div className="bg8 padding-20px border-radius-bottom">
+            <Form onSubmit={handleSubmit}>
+                <SingleInput
+                    field='uuid'
+                    title='Code'
+                    type='text'
+                    data={data}
+                    errors={errors}
+                    setData={setData}
+                    setError={setError}
+                />
+                <FormStandardButtons
+                    title='Toevoegen'
+                    processing={processing}
+                />
+                <p className="max-width-400p">Voer hier de code in die u heeft gekregen van de eigenaar van de hond waarmee u wil trainen.</p>
+            </Form>
+        </div>
     )
 }

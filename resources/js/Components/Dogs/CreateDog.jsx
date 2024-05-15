@@ -17,18 +17,20 @@ export default function CreateDog ({breeds}) {
     }
 
     return (
-        <Form onSubmit={handleSubmit}>
-            <InputsDog
-                breeds={breeds}
-                data={data}
-                errors={errors}
-                setData={setData}
-                setError={setError}
-            />
-            <FormStandardButtons
-                title='Bewaren'
-                processing={processing}
-            />
-        </Form>
+        <div className="bg8 padding-20px border-radius-bottom">
+            <Form onSubmit={handleSubmit}>
+                <InputsDog
+                    breeds={breeds}
+                    data={data}
+                    errors={errors}
+                    setData={setData}
+                    setError={setError}
+                />
+                <FormStandardButtons
+                    title='Bewaren'
+                    processing={processing}
+                />
+            </Form>
+        </div>
     )
 }

@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Auth\Events\Registered;
 use App\Notifications\RegistrationNoti;
 use Illuminate\Validation\Rules\Password;
 
@@ -22,7 +23,7 @@ class AuthController extends Controller
         ]);
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             //$request->session()->flash('message', 'Login succesvol');
-            return redirect()->route('home');
+            return redirect()->intended(route('home')); // intended zorgt ervoor dat je na login naar de intended pg gaat, met als fallback home. Nodig voor verify route, die ingelogde gebruiker nodig heeft. Dus inlogt en vervolgens terug doorstuurt naar intended verify.
         }
         return back()->withErrors([
             'email' => 'Wij kunnen u niet aanmelden met de door u verstrekte gegevens.'
@@ -64,10 +65,12 @@ class AuthController extends Controller
         $user->save();
 
         Auth::login($user);
-        $request->session()->flash('message', 'Registratie succesvol! U werd automatisch ingelogd.');
+        $request->session()
+            ->flash('message', 'Registratie succesvol! U werd automatisch ingelogd. Check uw e-mail voor een link om uw account te activeren. Zonder activatie kan u de meeste bewerkingen niet uitvoeren.');
         //PHP Intelephense plugin: method 'flash' is zogezegd unidentified, maar werkt.
 
-        $user->notify(new RegistrationNoti($user));
+        event(new Registered($user));
+        //$user->notify(new RegistrationNoti($user));
 
         return redirect()->route('dashboard');
     }

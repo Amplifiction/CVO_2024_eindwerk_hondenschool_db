@@ -33,6 +33,11 @@ export default function EditProfile ({postal_codes, sexes}) {
         post('/editProfile')
     }
 
+    function handleVeriClick(e) {
+        e.preventDefault()
+        post('/email/verification-notification')
+    }
+
     return (
         <div className="bg8 padding-20px m-y-3 min-width-450p">
             <Form
@@ -65,6 +70,10 @@ export default function EditProfile ({postal_codes, sexes}) {
                 </div>
                 <div className="grid-row">
                     <div className="xs-col-12 flex-row just-center">
+                        <button
+                            className="btn-accent"
+                            onClick={handleVeriClick}
+                        >Verificatie-email opnieuw versturen</button>
                         <FormStandardButtons
                             title='Bewaren'
                             processing={processing}

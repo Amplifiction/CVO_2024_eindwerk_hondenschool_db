@@ -18,6 +18,7 @@ class UsersSeeder extends Seeder
             [
                 'id' => 1,
                 'email' => 'jerom@gmail.com',
+                'email_verified_at' => now(),
                 'password' => Hash::make('123456789'),
                 'first_name' => 'Jerom',
                 'last_name' => 'Van der Waal',
@@ -33,6 +34,7 @@ class UsersSeeder extends Seeder
             [
                 'id' => 2,
                 'email' => 'josefien@gmail.com',
+                'email_verified_at' => now(),
                 'password' => Hash::make('123456789'),
                 'first_name' => 'Josefien',
                 'last_name' => 'Broeckx',
@@ -48,6 +50,7 @@ class UsersSeeder extends Seeder
             [
                 'id' => 3,
                 'email' => 'bart.stevens9@gmail.com',
+                'email_verified_at' => now(),
                 'password' => Hash::make('123456789'),
                 'first_name' => 'Bart',
                 'last_name' => 'Stevens',
@@ -63,6 +66,7 @@ class UsersSeeder extends Seeder
             [
                 'id' => 4,
                 'email' => 'superadmin@outlook.com',
+                'email_verified_at' => now(),
                 'password' => Hash::make('123456789'),
                 'first_name' => 'Jean',
                 'last_name' => 'Claude',

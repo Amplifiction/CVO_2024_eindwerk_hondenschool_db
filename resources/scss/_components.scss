@@ -1,13 +1,20 @@
 @use 'variables' as vars;
 
-.comboboxDropdown {
-    padding: 2px;
-    max-height: 300px;
-    overflow-y: scroll;
-    opacity: 0.9;
-    border: 1px solid vars.$fc1;
-    // background-color: vars.$clr3;
-}
+//COMBOBOX
+    .comboboxDropdown {
+        padding: 2px;
+        max-height: 300px;
+        overflow-y: scroll;
+        opacity: 0.9;
+        border: 1px solid vars.$fc1;
+        // background-color: vars.$clr3;
+    }
+    .cobo-row:nth-child(even) {
+        background-color: vars.$clr9;
+    }
+    .cobo-row:nth-child(odd) {
+        background-color: vars.$clr10;
+    }
 
 //FORM
     input, textarea, datalist {

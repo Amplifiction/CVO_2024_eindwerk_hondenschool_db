@@ -25,7 +25,8 @@ class AuthController extends Controller
             //$request->session()->flash('message', 'Login succesvol');
             return redirect()->intended(route('home'));
             // intended zorgt ervoor dat je na login naar de intended pg gaat, met als fallback home.
-            // Nodig voor verify route, die ingelogde gebruiker nodig heeft. Dus inlogt en vervolgens terug doorstuurt naar intended verify.
+            // Volgens Bert nodig voor verify get-route, die ingelogde gebruiker nodig heeft. Dus inlogt en vervolgens terug doorstuurt naar intended verify.
+            // Gezien ik deze route niet aanspreek, werkt dit voor mij echter niet.
         }
         return back()->withErrors([
             'email' => 'Wij kunnen u niet aanmelden met de door u verstrekte gegevens.'
@@ -68,11 +69,18 @@ class AuthController extends Controller
 
         Auth::login($user);
         $request->session()
-            ->flash('message', 'Registratie succesvol! U werd automatisch ingelogd. Check uw e-mail voor een link om uw account te activeren. Zonder activatie kan u de meeste bewerkingen niet uitvoeren. U moet ingelogd zijn in de browser die wordt geopend door de verificatielink!');
+            ->flash('message',
+            'Registratie succesvol! U werd automatisch ingelogd.
+            Check uw e-mail voor een link om uw account te activeren.
+            Je moet ingelogd zijn in de browser die wordt geopend door de verificatielink!
+            Onder "profiel bewerken" vind je een knop waarmee je deze verificatiemail opnieuw kan verzenden.
+            In het kader van deze demoversie werden alle restricties mbt email verificatie opgeheven.
+            En ja, in een productie-app zal deze boodschap korter zijn ;)');
+            //Zonder activatie kan u de meeste bewerkingen niet uitvoeren.
         //PHP Intelephense plugin: method 'flash' is zogezegd unidentified, maar werkt.
 
         event(new Registered($user));
-        //$user->notify(new RegistrationNoti($user));
+        $user->notify(new RegistrationNoti($user));
 
         return redirect()->route('dashboard');
     }

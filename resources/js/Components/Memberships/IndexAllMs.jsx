@@ -55,7 +55,7 @@ export default function IndexAllMs ({allMs, contactModalEvent}) {
     return (
         <div className="m-y-3">
             <h2>Alle lidmaatschappen</h2>
-            <p className="m-y-1">(Typ in een veld om te filteren. Datumformaat: jjjj-(m)m-dd.)</p>
+            <p className="m-y-1 fs-90">(Typ in een veld om te filteren. Datumformaat: jjjj-(m)m-dd.)</p>
             <div>
                 {/* <TableHeader>
                     <div className="xs-col-3">

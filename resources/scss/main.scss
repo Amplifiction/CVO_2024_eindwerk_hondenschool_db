@@ -6,6 +6,8 @@
 @use 'components';
 @use 'typography';
 
+// TO DO: autofillfunctie van browser Edge vult zwarte letters in inputvelden. (Hoewel wit staat ingesteld als color.)
+
 body {
     font-family: vars.$font-stack;
     color: vars.$clr6a;

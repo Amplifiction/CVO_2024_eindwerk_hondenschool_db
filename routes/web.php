@@ -12,7 +12,7 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 Route::get('/', [DashboardController::class, 'home'])->name('home')->middleware('guest');
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard'); //->middleware('auth') //middleware vervangen door handmatige redirect. Zie Zie "eigen logboek.docx", 9/5/2024 voor details.
-Route::get('/dashboardadmin', [DashboardController::class, 'dashboardAdmin'])->name('dashboard-admin')->middleware('auth', 'verified');
+Route::get('/dashboardadmin', [DashboardController::class, 'dashboardAdmin'])->name('dashboard-admin')->middleware('auth'); //, 'verified'
 
 //Route::get('/register', [AuthController::class, 'register'])->name('register.get')->middleware('guest');
 Route::post('/register', [AuthController::class, 'handleRegister'])->name('register.post')->middleware('guest');
@@ -26,23 +26,24 @@ Route::get('/editPassword', [ProfileController::class, 'editPassword'])->name('e
 Route::post('/editPassword', [ProfileController::class, 'handleEditPassword'])->name('editPassword.post')->middleware('auth',);
 
 Route::get('/dogs/add', [DogController::class, 'add'])->name('dogs.add')->middleware('auth'); // view voor zowel store als addshared
-Route::post('/dogs/store', [DogController::class, 'store'])->name('dogs.store')->middleware('auth', 'verified');
-Route::post('/dogs/addshared', [DogController::class, 'addShared'])->name('dogs.addshared')->middleware('auth', 'verified');
+Route::post('/dogs/store', [DogController::class, 'store'])->name('dogs.store')->middleware('auth'); //, 'verified'
+Route::post('/dogs/addshared', [DogController::class, 'addShared'])->name('dogs.addshared')->middleware('auth'); //, 'verified'
 //Route::get('/dogs', [DogController::class, 'index'])->name('dogs.index')->middleware('auth');
 Route::get('/dogs/{dog}', [DogController::class, 'edit'])->name('dogs.edit')->middleware('auth');
-Route::put('dogs/{dog}', [DogController::class, 'update'])->name('dogs.update')->middleware('auth', 'verified');
-Route::delete('/dogs/{dog}', [DogController::class, 'destroy'])->name('dogs.destroy')->middleware('auth', 'verified');
+Route::put('dogs/{dog}', [DogController::class, 'update'])->name('dogs.update')->middleware('auth'); //, 'verified'
+Route::delete('/dogs/{dog}', [DogController::class, 'destroy'])->name('dogs.destroy')->middleware('auth'); //, 'verified'
 
 Route::get('/memberships/create', [MembershipController::class, 'create'])->name('memberships.create')->middleware('auth');
-Route::post('/memberships/store', [MembershipController::class, 'store'])->name('memberships.store')->middleware('auth', 'verified');
-Route::put('/memberships/{membership}', [MembershipController::class, 'setStatus'])->name('membership.setstatus')->middleware('auth', 'verified');
-Route::delete('memberships/{membership}', [MembershipController::class, 'destroy'])->name('memberships.destroy')->middleware('auth', 'verified');
+Route::post('/memberships/store', [MembershipController::class, 'store'])->name('memberships.store')->middleware('auth'); //, 'verified'
+Route::put('/memberships/{membership}', [MembershipController::class, 'setStatus'])->name('membership.setstatus')->middleware('auth'); //, 'verified'
+Route::delete('memberships/{membership}', [MembershipController::class, 'destroy'])->name('memberships.destroy')->middleware('auth'); //, 'verified'
 
+//Werkt niet naar behoren. Zie eigen logboek.docx voor volledig verhaal.
 Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
-        Auth::login($request->user());
+        Auth::login($request->user()); //werkt niet vanwege auth middleware (?)
         $request->fulfill(); // email_verified_at bij user invullen. User moet ingelogd zijn op moment dat dit triggert.
-        return redirect()->route('dashboard');
-    })->middleware(['auth', 'signed'])->name('verification.verify');
+        return redirect()->route('dashboard'); //hier intended op zetten, geeft 403 na klikken veri link in email.
+    })->middleware(['auth', 'signed'])->name('verification.verify'); //auth middleware verwijderen geeft andere fout.
 
 Route::post('/email/verification-notification', function (Request $request) {
         $request->user()->sendEmailVerificationNotification();

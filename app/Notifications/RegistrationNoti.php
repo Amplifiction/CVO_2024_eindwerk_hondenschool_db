@@ -36,13 +36,17 @@ class RegistrationNoti extends Notification
     {
         return (new MailMessage)
                     ->subject('Welkom bij hondenschool De Roedel!')
-                    ->line('Je bent succesvol bij ons geregistreerd, '.$this->user['first_name'].'.')
-                    ->line('Je kan je voortaan aanmelden met je mailadres '.$this->user['email'].' en het door jou gekozen wachtwoord.')
-                    ->line('Wij wensen je veel plezier met je viervoeter(s).')
-                    // ->action('Notification Action', url('/'))
-                    // ->line('Thank you for using our application!')
+                    ->line('Je bent succesvol bij ons geregistreerd, '.$this->user['first_name'].'.
+                         Je kan je voortaan aanmelden met je mailadres '.$this->user['email'].' en het door jou gekozen wachtwoord.
+                         Wij wensen je veel plezier met je viervoeter(s).')
+                    ->line('Je ontvangt ook een mail ter verificatie van je emailadres.
+                         Je moet ingelogd zijn in de browser die wordt geopend door de verificatielink!
+                         Onder "profiel bewerken" vind je een knop waarmee je deze verificatiemail opnieuw kan verzenden.
+                         In het kader van deze demoversie werden alle restricties mbt email verificatie opgeheven.')
                     ->line('(Do not reply: mails gericht aan deze mailbox worden niet gelezen.)')
                     ->salutation('Tot in de wei, of de kantine!');
+                    // ->action('Notification Action', url('/'))
+                    // ->line('Thank you for using our application!')
     }
 
     /**

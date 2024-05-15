@@ -461,7 +461,8 @@ select {
 .modal-content {
   position: relative;
   color: rgb(237, 237, 237);
-  background-color: rgb(33, 36, 49);
+  background-color: #485935;
+  border: 1px solid rgb(18, 20, 27);
   padding: 20px;
 }
 

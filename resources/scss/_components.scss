@@ -65,7 +65,8 @@
     .modal-content {
         position: relative;
         color: vars.$fc1;
-        background-color: vars.$clr2;
+        background-color: vars.$clr6;
+        border: 1px solid vars.$clr1;
         padding: 20px;
     }
 

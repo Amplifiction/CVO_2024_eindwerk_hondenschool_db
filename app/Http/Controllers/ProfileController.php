@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Notifications\ProfileUpdateNoti;
 use App\Notifications\PasswordUpdateNoti;
+use Illuminate\Validation\Rules\Password;
 
 class ProfileController extends Controller
 {
@@ -31,7 +32,7 @@ class ProfileController extends Controller
     public function handleEditPassword (Request $request) {
         $user = Auth::user();
         $request->validate([
-            'password' => 'required|confirmed|min:8'
+            'password' => ['required', 'confirmed', Password::min(8)->mixedCase()->numbers()]
         ]);
         $user->password = Hash::make($request->password);
         $user->save();

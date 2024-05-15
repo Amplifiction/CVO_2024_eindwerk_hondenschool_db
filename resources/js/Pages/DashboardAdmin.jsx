@@ -34,10 +34,10 @@ export default function DashboardAdmin ({requestedMs, allMs, statuses}) {
                 statuses={statuses}
                 contactModalEvent={handleShowContactModal}
             />
-            {/* <IndexAllMs
+            <IndexAllMs
                 allMs={allMs}
                 contactModalEvent={handleShowContactModal}
-            /> */}
+            />
             {showContactModal &&
                 <ModalContact
                     user={contactModalUser}

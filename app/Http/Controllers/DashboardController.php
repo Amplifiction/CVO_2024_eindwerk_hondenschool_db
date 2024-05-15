@@ -70,13 +70,15 @@ class DashboardController extends Controller
             $ms->user=User::where('id', $ms->user_id)->first();
             $ms->dog=Dog::where('id', $ms->dog_id)->first();
             $ms->discipline=Discipline::where('id', $ms->discipline_id)->first();
+            $ms->status=Status::where('id', $ms->status_id)->first();
         }
 
         $statuses = Status::all();
 
         return Inertia::render('DashboardAdmin', [
             'requestedMs' => $requestedMs,
-            'statuses' => $statuses
+            'statuses' => $statuses,
+            'allMs' => $allMs
         ]);
     }
 }

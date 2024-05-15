@@ -23,7 +23,9 @@ class AuthController extends Controller
         ]);
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             //$request->session()->flash('message', 'Login succesvol');
-            return redirect()->intended(route('home')); // intended zorgt ervoor dat je na login naar de intended pg gaat, met als fallback home. Nodig voor verify route, die ingelogde gebruiker nodig heeft. Dus inlogt en vervolgens terug doorstuurt naar intended verify.
+            return redirect()->intended(route('home'));
+            // intended zorgt ervoor dat je na login naar de intended pg gaat, met als fallback home.
+            // Nodig voor verify route, die ingelogde gebruiker nodig heeft. Dus inlogt en vervolgens terug doorstuurt naar intended verify.
         }
         return back()->withErrors([
             'email' => 'Wij kunnen u niet aanmelden met de door u verstrekte gegevens.'

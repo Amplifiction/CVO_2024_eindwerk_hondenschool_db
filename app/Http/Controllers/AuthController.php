@@ -68,7 +68,7 @@ class AuthController extends Controller
 
         Auth::login($user);
         $request->session()
-            ->flash('message', 'Registratie succesvol! U werd automatisch ingelogd. Check uw e-mail voor een link om uw account te activeren. Zonder activatie kan u de meeste bewerkingen niet uitvoeren.');
+            ->flash('message', 'Registratie succesvol! U werd automatisch ingelogd. Check uw e-mail voor een link om uw account te activeren. Zonder activatie kan u de meeste bewerkingen niet uitvoeren. U moet ingelogd zijn in de browser die wordt geopend door de verificatielink!');
         //PHP Intelephense plugin: method 'flash' is zogezegd unidentified, maar werkt.
 
         event(new Registered($user));

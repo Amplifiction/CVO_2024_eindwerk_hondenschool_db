@@ -112,6 +112,7 @@ export default function IndexAllMs ({allMs, contactModalEvent}) {
                         />
                     </div>
                     <div className="xs-col-6 l-col-3">
+                        <div className="fs-90 flex-row just-center align-center m-xy-1">datumformaat jjjj-(m)m-dd</div>
                         <FilterInput
                             value={statusFilter}
                             onChange={(e) => setStatusFilter(e.target.value)}

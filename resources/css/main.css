@@ -427,6 +427,7 @@ select {
 
 .filter-input {
   border: 1px solid #485935;
+  color: #485935;
   margin: 4px 2px;
   padding: 5px;
 }

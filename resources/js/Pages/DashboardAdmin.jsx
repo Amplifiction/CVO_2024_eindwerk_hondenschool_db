@@ -2,8 +2,9 @@ import { usePage, Link } from "@inertiajs/react";
 import { useState } from "react"
 import IndexRequestedMs from "../Components/Memberships/IndexRequestedMs";
 import ModalContact from "../Components/ModalContact"
+import IndexAllMs from "../Components/Memberships/IndexAllMs";
 
-export default function DashboardAdmin ({requestedMs, statuses}) {
+export default function DashboardAdmin ({requestedMs, allMs, statuses}) {
     const { auth } = usePage().props
 
     const [showContactModal, setShowContactModal] = useState(false)
@@ -33,6 +34,10 @@ export default function DashboardAdmin ({requestedMs, statuses}) {
                 statuses={statuses}
                 contactModalEvent={handleShowContactModal}
             />
+            {/* <IndexAllMs
+                allMs={allMs}
+                contactModalEvent={handleShowContactModal}
+            /> */}
             {showContactModal &&
                 <ModalContact
                     user={contactModalUser}

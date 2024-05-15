@@ -65,7 +65,14 @@ class DashboardController extends Controller
             $rms->discipline=Discipline::where('id', $rms->discipline_id)->first();
         }
 
-        $statuses=Status::all();
+        $allMs = Membership::all();
+        foreach ($allMs as $ms) {
+            $ms->user=User::where('id', $ms->user_id)->first();
+            $ms->dog=Dog::where('id', $ms->dog_id)->first();
+            $ms->discipline=Discipline::where('id', $ms->discipline_id)->first();
+        }
+
+        $statuses = Status::all();
 
         return Inertia::render('DashboardAdmin', [
             'requestedMs' => $requestedMs,

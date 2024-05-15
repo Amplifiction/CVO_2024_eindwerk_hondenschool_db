@@ -33,10 +33,10 @@ export default function Home ({postal_codes, sexes}) {
                 <p>Je kan een eigen account aanmaken, of één van de volgende accounts gebruiken:</p>
                 <p>Eigen accounts zullen steeds de gebruikersrol hebben.</p>
                 <ul className="m-xy-2">
-                    <li><span className="fw-bold">bart-stevens@outlook.com</span> (gebruiker, incl honden en lidmaatschappen)</li>
-                    <li><span className="fw-bold">bart_stevens9@hotmail.com</span> (gebruiker, incl honden en lidmaatschappen)</li>
-                    <li><span className="fw-bold">bart.stevens9@gmail.com</span> (beheerder, incl honden en lidmaatschappen)</li>
-                    <li><span className="fw-bold">superadmin@test.be</span> (superbeheerder)</li>
+                    <li><span className="fw-bold">bart-stevens@outlook.com</span> (Jerom, gebruiker, incl honden en lidmaatschappen)</li>
+                    <li><span className="fw-bold">bart_stevens9@hotmail.com</span> (Josefien, gebruiker, incl honden en lidmaatschappen)</li>
+                    <li><span className="fw-bold">bart.stevens9@gmail.com</span> (Bart, beheerder, incl honden en lidmaatschappen)</li>
+                    <li><span className="fw-bold">superadmin@test.be</span> (Jean, superbeheerder)</li>
                 </ul>
                 <p>Wachtwoord van deze accounts is steeds 123456789.</p>
             </div>

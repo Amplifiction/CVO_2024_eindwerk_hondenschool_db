@@ -589,8 +589,19 @@ body {
   font-family: Helvetica, sans-serif;
   color: #3a482a;
   background-color: #CADBB7;
+  font-size: 85%;
 }
 
+@media (min-width: 768px) {
+  body {
+    font-size: 100%;
+  }
+}
+@media (min-width: 1200px) {
+  body {
+    font-size: 110%;
+  }
+}
 footer {
   background-color: #485935;
   color: #FBFBFB;

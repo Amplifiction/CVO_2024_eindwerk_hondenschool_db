@@ -12,6 +12,14 @@ body {
     font-family: vars.$font-stack;
     color: vars.$clr6a;
     background-color: vars.$clr10;
+    font-size: 85%;
+}
+@media (min-width:768px) { // = m (zie grid.scss)
+    body {font-size: 100%;}
+
+}
+@media (min-width:1200px) { // = xl
+    body {font-size: 110%;}
 }
 footer {
     background-color: vars.$clr6;

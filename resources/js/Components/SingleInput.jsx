@@ -28,7 +28,7 @@ export default function SingleInput ({
                 className={required? 'required' : 'nullable'}
             />
             {errors[field] &&
-                <div className="error">{errors[field]}</div>
+                <p className="error">{errors[field]}</p>
             }
         </div>
     )

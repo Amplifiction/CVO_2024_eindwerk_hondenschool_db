@@ -8,6 +8,7 @@
 .error {
     color: vars.$fcred;
     font-style: italic;
+    max-width: 100%; //helpt niet. max-width: fit-content evenmin.
 }
 .fc1 {
     color: vars.$fc1;

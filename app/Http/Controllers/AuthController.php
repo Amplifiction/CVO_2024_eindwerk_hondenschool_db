@@ -71,11 +71,12 @@ class AuthController extends Controller
         $request->session()
             ->flash('message',
             'Registratie succesvol! U werd automatisch ingelogd.
-            Check uw e-mail voor een link om uw account te activeren.
-            Je moet ingelogd zijn in de browser die wordt geopend door de verificatielink!
-            Onder "profiel bewerken" vind je een knop waarmee je deze verificatiemail opnieuw kan verzenden.
             In het kader van deze demoversie werden alle restricties mbt email verificatie opgeheven.
-            En ja, in een productie-app zal deze boodschap korter zijn ;)');
+            ');
+            // Check uw e-mail voor een link om uw account te activeren.
+            // Je moet ingelogd zijn in de browser die wordt geopend door de verificatielink!
+            // Onder "profiel bewerken" vind je een knop waarmee je deze verificatiemail opnieuw kan verzenden.
+            // En ja, in een productie-app zal deze boodschap korter zijn ;)
             //Zonder activatie kan u de meeste bewerkingen niet uitvoeren.
         //PHP Intelephense plugin: method 'flash' is zogezegd unidentified, maar werkt.
 

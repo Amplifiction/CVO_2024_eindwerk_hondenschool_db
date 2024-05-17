@@ -6,6 +6,7 @@ import { useState, useRef, useEffect } from "react"
 export default function EigenCombobox ({
     field,
     title,
+    subtitle='',
     placeholder='',
     array, // moet een name en id bevatten.
     data,
@@ -81,8 +82,9 @@ export default function EigenCombobox ({
         > {/* React ondersteunt geen onfocusout. */}
             <label
                 htmlFor={`${field}_input`}
-                className={`fw-bold ${required? 'fc-required' : 'fc-nullable'}`}
+                className={`${required? 'label-required' : 'label-nullable'}`}
             >{title}</label>
+            <p className="fs-90 fs-ita">{subtitle}</p>
             <div className="flex-row">
                 <input
                     id={`${field}_input`}
@@ -91,7 +93,7 @@ export default function EigenCombobox ({
                     value={inputState}
                     onChange={e => handleChange(e)}
                     onFocus={() => setShowDd(true)}
-                    className={`width-100pc mr-auto ${required? 'required' : 'nullable'}`}
+                    className={`width-100pc mr-auto ${required? 'input-required' : 'input-nullable'}`}
                 />
                 <button
                     className="btn-accent"

@@ -30,23 +30,32 @@
     select {
         margin: 1px 0px;
     }
-    .nullable {
-        background-color: vars.$clr7;
+    .label-nullable {
+        color: vars.$clr11;
+        font-weight: inherit;
     }
-    .required {
+    .label-required {
+        color: vars.$clr6;
+        font-weight: bold;
+    }
+    .input-nullable {
         background-color: vars.$clr6;
+    }
+    .input-required {
+        background-color: vars.$clr6a;
     }
     .filter-input {
         // background-color: vars.$clr10;
         border: 1px solid vars.$clr6;
         color: vars.$clr6;
-        margin: 4px 2px;
+        margin: 4px 2px 2px 0;
         padding: 5px;
+        width: 80%;
     }
     .filter-input::placeholder {
         font-style: normal;
         color: vars.$clr6;
-        opacity: 0.5;
+        //opacity: 0.5;
     }
 
 

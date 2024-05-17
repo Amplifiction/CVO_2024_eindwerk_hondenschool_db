@@ -1,12 +1,16 @@
-export default function FilterInput ({value, onChange, placeholder}) {
+export default function FilterInput ({
+    type,
+    value,
+    onChange,
+    placeholder}) {
 
     return (
         <input
-            type="text"
+            type={type}
             value={value}
             onChange={onChange}
             placeholder={placeholder}
-            className="filter-input"
+            className="filter-input height-40px"
         ></input>
     )
 }

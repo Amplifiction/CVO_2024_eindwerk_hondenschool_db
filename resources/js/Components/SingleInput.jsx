@@ -1,7 +1,8 @@
 export default function SingleInput ({
     field,
     title='',
-    type,
+    subtitle='',
+    type='text',
     data,
     errors,
     setData,
@@ -13,8 +14,9 @@ export default function SingleInput ({
         <div className="flex-col m-y-1">
             <label
                 htmlFor={field}
-                className={`fw-bold ${required? 'fc-required' : 'fc-nullable'}`}
+                className={`${required? 'label-required' : 'label-nullable'}`}
             >{title}</label>
+            <p className="fs-90 fs-ita">{subtitle}</p>
             <input
                 value={data[field]}
                 onChange={e => {
@@ -25,7 +27,7 @@ export default function SingleInput ({
                 name={field}
                 id={field}
                 placeholder={placeholder}
-                className={required? 'required' : 'nullable'}
+                className={required? 'input-required' : 'input-nullable'}
             />
             {errors[field] &&
                 <p className="error">{errors[field]}</p>

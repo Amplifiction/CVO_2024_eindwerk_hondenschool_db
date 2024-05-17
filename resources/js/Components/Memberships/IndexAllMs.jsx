@@ -55,7 +55,7 @@ export default function IndexAllMs ({allMs, contactModalEvent}) {
     return (
         <div className="m-y-3">
             <h2>Alle lidmaatschappen</h2>
-            <p className="m-y-1 fs-90">(Typ in een veld om te filteren. Datumformaat: jjjj-(m)m-dd.)</p>
+            <p className="m-y-1 fs-90">(Typ in een veld om te filteren.)</p>
             <div>
                 {/* <TableHeader>
                     <div className="xs-col-3">
@@ -72,6 +72,7 @@ export default function IndexAllMs ({allMs, contactModalEvent}) {
                     <div className="xs-col-3">Status</div>
                 </TableHeader> */}
                 <TableHeader>
+                    {/* TO DO: layout optimaliseren */}
                     <div className="xs-col-6 l-col-3">
                         <FilterInput
                             value={firstNameFilter}
@@ -103,12 +104,14 @@ export default function IndexAllMs ({allMs, contactModalEvent}) {
                             value={dateBeforeFilter}
                             onChange={(e) => setDateBeforeFilter(e.target.value)}
                             placeholder="Minimale startdatum"
+                            type="date"
                         />
                         <br/>
                         <FilterInput
                             value={dateAfterFilter}
                             onChange={(e) => setDateAfterFilter(e.target.value)}
                             placeholder="Maximale startdatum"
+                            type="date"
                         />
                     </div>
                     <div className="xs-col-6 l-col-3">

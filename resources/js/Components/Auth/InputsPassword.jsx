@@ -7,6 +7,7 @@ export default function PasswordInputs ({data, errors, setData, setError}) {
             <SingleInput
                 field='password'
                 title='Wachtwoord'
+                subtitle='minstens 8 tekens, 1 hoofdletter, 1 kleine letter, 1 cijfer'
                 type='password'
                 data={data}
                 errors={errors}

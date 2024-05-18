@@ -7,7 +7,7 @@ export default function AddDog ({breeds}) {
     const [activeTab, setActiveTab] = useState ('nieuw')
 
     return (
-        <div className="m-y-3 min-width-450p">
+        <div className="m-y-3 min-width-425px">
             <TabButton
                 onClick={() => setActiveTab('nieuw')}
                 active={activeTab === 'nieuw'}

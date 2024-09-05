@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Illuminate\Http\Request;
 use Inertia\Middleware;
+use Illuminate\Support\Facades\Config; //voor config\basePath.php
 
 class HandleInertiaRequests extends Middleware
 {
@@ -44,7 +45,7 @@ class HandleInertiaRequests extends Middleware
             ],
             'website' => [ 'https://deroedel.bart-stevens.be/'],
             'facebook' => [ 'https://www.facebook.com/hondenschoolderoedelhelchteren/'],
-            'basePath' => '', // '/hsdb'
+            'basePath' => Config::get('basePath.basePath'),
         ]);
     }
 }

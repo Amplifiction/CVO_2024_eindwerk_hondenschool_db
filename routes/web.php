@@ -11,9 +11,9 @@ use App\Http\Controllers\MembershipController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Config; //voor config\basePath.php
 
+Route::get('/', [DashboardController::class, 'home'])->name('home')->middleware('guest');
 Route::prefix(Config::get('basePath.basePath'))->group(function () {
 
-    Route::get('/', [DashboardController::class, 'home'])->name('home')->middleware('guest');
     Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard'); //->middleware('auth') //middleware vervangen door handmatige redirect. Zie Zie "eigen logboek.docx", 9/5/2024 voor details.
     Route::get('/dashboardadmin', [DashboardController::class, 'dashboardAdmin'])->name('dashboard-admin')->middleware('auth'); //, 'verified'
 

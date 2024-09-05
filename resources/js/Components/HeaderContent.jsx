@@ -1,7 +1,7 @@
 import { Link, usePage } from "@inertiajs/react"
 
 export default function HeaderContent ({}) {
-    const { auth } = usePage().props
+    const { auth, basePath } = usePage().props
 
     return (
         <div className="grid-row just-between">
@@ -9,7 +9,7 @@ export default function HeaderContent ({}) {
                 <Link
                     href="/dashboard"
                 >
-                    <img src="/images/logo-nobg-white.png" alt="logo"/>
+                    <img src={`${basePath}/images/logo-nobg-white.png`} alt="logo"/>
                 </Link>
             </div>
             {auth.user && <>

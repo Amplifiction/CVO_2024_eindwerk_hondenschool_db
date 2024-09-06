@@ -7,7 +7,7 @@ export default function HeaderContent ({}) {
         <div className="grid-row just-between">
             <div className="xs-col-6 max-height-100p">
                 <Link
-                    href="/dashboard"
+                    href={`${basePath}/dashboard`}
                 >
                     <img src={`${basePath}/images/logo-nobg-white.png`} alt="logo"/>
                 </Link>

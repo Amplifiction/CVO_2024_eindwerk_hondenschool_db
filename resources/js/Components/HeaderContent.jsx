@@ -9,7 +9,7 @@ export default function HeaderContent ({}) {
                 <Link
                     href={`${basePath}/dashboard`}
                 >
-                    <img src={`${basePath}/images/logo-nobg-white.png`} alt="logo"/>
+                    <img src="images/logo-nobg-white.png" alt="logo"/>
                 </Link>
             </div>
             {auth.user && <>

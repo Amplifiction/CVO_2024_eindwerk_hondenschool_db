@@ -17,10 +17,18 @@
     # Send Requests To Front Controller...
 
         # EIGEN PROBEERSELS
+        # (Door elkaar gebruikt. Doel: routes in Laravel in subdirectory aan de praat krijgen.)
         # RewriteBase /hsdb/
         # RewriteRule ^(.*)$ /hsdb/index.php [L]
         # RewriteRule ^index\.php$ - [L]
         # RewriteRule . /hsdb/index.php [L]
+
+        # TWEEDE SET PROBEERSELS
+        # Bron: https://wpwebinfotech.com/blog/how-to-install-laravel-in-subdirectory/
+        # RewriteBase /hsdb/
+        # RewriteCond %{REQUEST_FILENAME} !-f
+        # RewriteCond %{REQUEST_FILENAME} !-d
+        # RewriteRule ^(.+) /hsdb/public/$1 [L]
 
         # LARAVEL DEFAULTS
         RewriteCond %{REQUEST_FILENAME} !-d

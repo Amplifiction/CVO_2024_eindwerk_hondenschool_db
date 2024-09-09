@@ -1,4 +1,4 @@
-import { useForm } from "@inertiajs/react"
+import { useForm, usePage } from "@inertiajs/react"
 import InputsPassword from "../../Components/Auth/InputsPassword"
 import FormStandardButtons from "../../Components/FormStandardButtons"
 import Form from "../../Components/Form"
@@ -10,9 +10,11 @@ export default function EditPassword ({}) {
         password_confirmation: '',
     })
 
+    const { basePath } = usePage().props
+
     function handleSubmit(e) {
         e.preventDefault()
-        post('/editPassword')
+        post(`${basePath}/editPassword`)
     }
 
     return (

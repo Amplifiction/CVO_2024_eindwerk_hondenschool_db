@@ -6,7 +6,7 @@ import InputsUserNullA from "../../Components/Auth/InputsUserNullA"
 import InputsUserNullB from "../../Components/Auth/InputsUserNullB"
 
 export default function EditProfile ({postal_codes, sexes}) {
-    const { auth } = usePage().props
+    const { auth, basePath } = usePage().props
 
     const { data, setData, post, processing, errors, setError } = useForm({
         first_name: auth.user.first_name,
@@ -30,12 +30,12 @@ export default function EditProfile ({postal_codes, sexes}) {
 
     function handleSubmit(e) {
         e.preventDefault()
-        post('/editProfile')
+        post(`${basePath}/editProfile`)
     }
 
     function handleVeriClick(e) {
         e.preventDefault()
-        post('/email/verification-notification')
+        post(`${basePath}/email/verification-notification`)
     }
 
     return (

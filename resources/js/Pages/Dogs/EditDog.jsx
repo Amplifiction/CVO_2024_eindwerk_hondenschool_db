@@ -1,9 +1,12 @@
-import { useForm } from "@inertiajs/react"
+import { useForm, usePage } from "@inertiajs/react"
 import FormStandardButtons from "../../Components/FormStandardButtons"
 import InputsDog from "../../Components/Dogs/InputsDog"
 import Form from "../../Components/Form"
 
 export default function EditDog ({dog, breeds}) {
+
+    const { basePath } = usePage().props
+
     const { data, setData, put, processing, errors, setError } = useForm({
         breed_id: dog.breed_id,
         date_of_birth: dog.date_of_birth,
@@ -13,7 +16,7 @@ export default function EditDog ({dog, breeds}) {
 
     function handleSubmit(e) {
         e.preventDefault()
-        put(`/dogs/${dog.id}`)
+        put(`${basePath}/dogs/${dog.id}`)
     }
 
     return (

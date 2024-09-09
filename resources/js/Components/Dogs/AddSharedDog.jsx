@@ -1,4 +1,4 @@
-import { useForm } from "@inertiajs/react"
+import { useForm, usePage } from "@inertiajs/react"
 import Form from "../../Components/Form"
 import SingleInput from "../SingleInput"
 import FormStandardButtons from "../FormStandardButtons"
@@ -8,9 +8,11 @@ export default function AddSharedDog ({}) {
         uuid: '',
     })
 
+    const { basePath } = usePage().props
+
     const handleSubmit = (e) => {
         e.preventDefault()
-        post('/dogs/addshared')
+        post(`${basePath}/dogs/addshared`)
     }
 
     return (

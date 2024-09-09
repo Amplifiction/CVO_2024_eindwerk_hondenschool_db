@@ -1,4 +1,4 @@
-import { useForm } from "@inertiajs/react"
+import { useForm, usePage } from "@inertiajs/react"
 import FormStandardButtons from "../../Components/FormStandardButtons"
 import InputsDog from "../../Components/Dogs/InputsDog"
 import Form from "../../Components/Form"
@@ -11,9 +11,11 @@ export default function CreateDog ({breeds}) {
         sex: '',
     })
 
+    const { basePath } = usePage().props
+
     function handleSubmit(e) {
         e.preventDefault()
-        post('/dogs/store')
+        post(`${basePath}/dogs/store`)
     }
 
     return (

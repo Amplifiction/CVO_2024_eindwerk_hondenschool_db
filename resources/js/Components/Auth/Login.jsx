@@ -8,6 +8,7 @@ export default function Login ({}) {
         email: '',
         password: '',
     })
+
     const { basePath } = usePage().props
 
     function handleSubmit(e) {

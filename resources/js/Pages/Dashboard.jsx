@@ -7,7 +7,7 @@ import copy from "copy-to-clipboard";
 import ModalContact from "../Components/ModalContact"
 
 export default function Dashboard ({dogs, memberships}) {
-    const { flash, auth } = usePage().props
+    const { flash, auth, basePath } = usePage().props
 
     let role = '';
     switch(auth.user.role_id) {
@@ -30,7 +30,7 @@ export default function Dashboard ({dogs, memberships}) {
         setShowDogDeleteModal(true)
     }
     const handleDogDelete = (id) => {
-        router.delete(`/dogs/${id}`, {})
+        router.delete(`${basePath}/dogs/${id}`, {})
         setShowDogDeleteModal(false)
     }
 
@@ -41,7 +41,7 @@ export default function Dashboard ({dogs, memberships}) {
         setShowMsDeleteModal(true)
     }
     const handleMsDelete = (id) => {
-        router.delete(`/memberships/${id}`, {})
+        router.delete(`${basePath}/memberships/${id}`, {})
         setShowMsDeleteModal(false)
     }
 
@@ -68,7 +68,7 @@ export default function Dashboard ({dogs, memberships}) {
                     {auth.user.role_id > 1 &&
                         <div className="xs-col-12 m-col-6 flex-row just-end-m">
                             <Link
-                                href="/dashboardadmin"
+                                href={`${basePath}/dashboardadmin`}
                                 as="button"
                                 className="btn-accent m-y-1"
                             >Admin dashboard</Link>

@@ -9,6 +9,7 @@ export default function IndexRequestedMs ({requestedMs, statuses, contactModalEv
     return (
         <div className="m-y-3">
             <h2>Aangevraagde lidmaatschappen</h2>
+            <p className="m-y-1 fs-90">Enkel super-beheerders mogen hun eigen lidmaatschappen bewerken.</p>
             <div>
                 {requestedMs.length<1
                 ? <p>Geen aangevraagde lidmaatschappen.</p>

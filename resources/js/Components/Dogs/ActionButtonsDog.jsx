@@ -3,7 +3,7 @@ import { Link } from "@inertiajs/react"
 export default function ActionButtonsDog ({dog, dogDeleteEvent, shareEvent}) {
 
     // const handleDelete = (id) => {
-    //     router.delete(`/dogs/${id}`, {
+    //     router.delete(`/dogs/${id}`, { // basePath toe te voegen
     //         onBefore: () => confirm(`Weet u zeker dat u ${dog.name} wilt verwijderen?`)
     //     })
     // }

@@ -1,4 +1,4 @@
-import { useForm } from "@inertiajs/react"
+import { useForm, usePage } from "@inertiajs/react"
 import InputsPassword from "./InputsPassword"
 import InputsUserReq from "./InputsUserReq"
 import FormStandardButtons from "../FormStandardButtons"
@@ -24,11 +24,13 @@ export default function Register ({postal_codes, sexes}) {
         password_confirmation: '',
     })
 
+    const { basePath } = usePage().props
+
     const [showNullables, setShowNullables] = useState(false)
 
     function handleSubmit(e) {
         e.preventDefault()
-        post('/register')
+        post(`${basePath}/register`)
     }
 
     function handleToon(e) {

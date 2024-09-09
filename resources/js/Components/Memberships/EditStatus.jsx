@@ -1,12 +1,13 @@
-import { useForm } from "@inertiajs/react"
+import { useForm, usePage } from "@inertiajs/react"
 
 export default function EditStatus ({membership, statuses}) {
+    const { basePath } = usePage().props
 
     const { data, setData, put, processing, errors, setError } = useForm({
         status_id: membership.status_id,
     })
     const handleSubmit = (id) => {
-        put(`/memberships/${id}`)
+        put(`${basePath}/memberships/${id}`)
         console.log(id)
         console.log(data.status_id)
     }

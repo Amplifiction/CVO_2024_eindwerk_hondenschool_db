@@ -1,4 +1,4 @@
-import { useForm } from "@inertiajs/react"
+import { useForm, usePage } from "@inertiajs/react"
 import FormStandardButtons from "../../Components/FormStandardButtons"
 import InputsMembership from "../../Components/Memberships/InputsMembership"
 import Form from "../../Components/Form"
@@ -10,9 +10,11 @@ export default function CreateMembership ({dogs, disciplines, statuses}) {
         start_date: '',
     })
 
+    const { basePath } = usePage().props
+
     function handleSubmit(e) {
         e.preventDefault()
-        post('/memberships/store')
+        post(`${basePath}/memberships/store`)
     }
 
     return (

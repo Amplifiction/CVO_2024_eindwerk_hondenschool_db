@@ -1,8 +1,8 @@
 
 import { useForm } from "@inertiajs/react"
 import SingleInput from "../SingleInput"
-import FormStandardButtons from "../FormStandardButtons"
 import Form from "../Form"
+import { basePath } from '../basePath';
 
 export default function Login ({}) {
     const { data, setData, post, processing, errors, setError } = useForm({
@@ -12,7 +12,7 @@ export default function Login ({}) {
 
     function handleSubmit(e) {
         e.preventDefault()
-        post('/login')
+        post(basePath('/login'))
     }
 
     return (

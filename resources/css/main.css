@@ -686,6 +686,10 @@ img {
   max-width: 770px;
 }
 
+.min-width-330px {
+  min-width: 330px;
+}
+
 .min-width-425px {
   min-width: 425px;
 }

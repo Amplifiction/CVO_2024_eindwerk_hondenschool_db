@@ -3,7 +3,7 @@ import TableRow from "../TableRow";
 import TableHeader from "../TableHeader";
 
 export default function IndexMemberships ({memberships, msDeleteEvent}) {
-    const { website } = usePage().props
+    const { website, basePath } = usePage().props
 
     return (
         <div className="m-y-3">
@@ -13,7 +13,7 @@ export default function IndexMemberships ({memberships, msDeleteEvent}) {
                 </div>
                 <div className="xs-col-12 m-col-6 flex-row just-end-m">
                     <Link
-                        href="/memberships/create"
+                        href={`${basePath}/memberships/create`}
                         as="button"
                         className="btn-accent m-y-1"
                     ><i className="fa-regular fa-square-plus"></i> Lidmaatschap aanvragen</Link>

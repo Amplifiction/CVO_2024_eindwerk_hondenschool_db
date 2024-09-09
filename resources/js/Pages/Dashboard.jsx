@@ -78,12 +78,12 @@ export default function Dashboard ({dogs, memberships}) {
                 <div className="m-y-1 fc6">{`Welkom, ${auth.user.first_name}! ${role}`}</div>
                 <div>
                     <Link
-                        href="/editProfile"
+                        href={`${basePath}/editProfile`}
                         as="button"
                         className="btn-accent"
                     >Profiel bewerken</Link>
                     <Link
-                        href="/editPassword"
+                        href={`${basePath}/editPassword`}
                         as="button"
                         className="btn-accent"
                     >Wachtwoord wijzigen</Link>

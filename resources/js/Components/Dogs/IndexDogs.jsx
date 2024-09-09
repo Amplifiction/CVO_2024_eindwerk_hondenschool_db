@@ -1,9 +1,12 @@
-import { Link } from "@inertiajs/react";
+import { Link, usePage } from "@inertiajs/react";
 import ActionButtonsDog from "./ActionButtonsDog";
 import TableRow from "../TableRow";
 import TableHeader from "../TableHeader";
 
 export default function IndexDogs ({dogs, dogDeleteEvent, shareEvent, contactModalEvent}) {
+
+    const { basePath } = usePage().props
+
     return (
         <div className="m-y-3">
             <div className="grid-row">
@@ -12,7 +15,7 @@ export default function IndexDogs ({dogs, dogDeleteEvent, shareEvent, contactMod
                 </div>
                 <div className="xs-col-12 m-col-6 flex-row just-end-m">
                     <Link
-                        href="/dogs/add"
+                        href={`${basePath}/dogs/add`}
                         as="button"
                         className="btn-accent m-y-1"
                     ><i className="fa-regular fa-square-plus"></i> Hond toevoegen</Link>

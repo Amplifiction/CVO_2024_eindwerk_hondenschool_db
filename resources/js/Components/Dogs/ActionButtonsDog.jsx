@@ -1,6 +1,8 @@
-import { Link } from "@inertiajs/react"
+import { Link, usePage } from "@inertiajs/react"
 
 export default function ActionButtonsDog ({dog, dogDeleteEvent, shareEvent}) {
+
+    const { basePath } = usePage().props
 
     // const handleDelete = (id) => {
     //     router.delete(`/dogs/${id}`, { // basePath toe te voegen
@@ -11,7 +13,7 @@ export default function ActionButtonsDog ({dog, dogDeleteEvent, shareEvent}) {
     return (
         <div>
             <Link
-                href={`/dogs/${dog.id}`}
+                href={`${basePath}/dogs/${dog.id}`}
                 as="button"
                 className="btn-accent"
             ><i className="fa-solid fa-pen-to-square"></i></Link>

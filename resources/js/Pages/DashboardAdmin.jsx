@@ -5,7 +5,14 @@ import ModalContact from "../Components/ModalContact"
 import IndexAllMs from "../Components/Memberships/IndexAllMs";
 
 export default function DashboardAdmin ({requestedMs, allMs, statuses}) {
-    const { auth } = usePage().props
+    const { auth, basePath } = usePage().props
+
+    let role = '';
+    switch(auth.user.role_id) {
+        case 2: role='(beheerder)'; break;
+        case 3: role='(super-beheerder)'; break;
+        // default: role='';
+    }
 
     const [showContactModal, setShowContactModal] = useState(false)
     const [contactModalUser, setContactModalUser] = useState({})
@@ -22,13 +29,13 @@ export default function DashboardAdmin ({requestedMs, allMs, statuses}) {
                 </div>
                 <div className="xs-col-12 m-col-3 flex-row just-end-m">
                     <Link
-                        href="/dashboard"
+                        href={`${basePath}/dashboard`}
                         as="button"
                         className="btn-accent m-y-1"
                     >Persoonlijk dashboard</Link>
                 </div>
             </div>
-            <div className="m-y-1 fc6">{`Welkom, ${auth.user.first_name}!`}</div>
+            <div className="m-y-1 fc6">{`Welkom, ${auth.user.first_name}! ${role}`}</div>
             <IndexRequestedMs
                 requestedMs={requestedMs}
                 statuses={statuses}

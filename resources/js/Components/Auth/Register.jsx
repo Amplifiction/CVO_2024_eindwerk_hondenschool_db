@@ -64,7 +64,7 @@ export default function Register ({postal_codes, sexes}) {
                         <div className="flex-row just-center">
                             <button
                                 onClick={handleToon}
-                                    className="btn-accent m-y-1"
+                                    className="btn-accent m-y-05"
                             >Toon optionele velden</button>
                         </div>
                         {showNullables && <div className="xs-col-12">

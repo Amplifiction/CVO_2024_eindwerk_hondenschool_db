@@ -11,7 +11,7 @@ export default function SingleInput ({
     required=true,
 }) {
     return (
-        <div className="flex-col m-y-1">
+        <div className="flex-col m-y-05">
             <label
                 htmlFor={field}
                 className={`${required? 'label-required' : 'label-nullable'}`}

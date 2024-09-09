@@ -31,11 +31,11 @@ export default function DashboardAdmin ({requestedMs, allMs, statuses}) {
                     <Link
                         href={`${basePath}/dashboard`}
                         as="button"
-                        className="btn-accent m-y-1"
+                        className="btn-accent m-y-05"
                     >Persoonlijk dashboard</Link>
                 </div>
             </div>
-            <div className="m-y-1 fc6">{`Welkom, ${auth.user.first_name}! ${role}`}</div>
+            <div className="m-y-05 fc6">{`Welkom, ${auth.user.first_name}! ${role}`}</div>
             <IndexRequestedMs
                 requestedMs={requestedMs}
                 statuses={statuses}

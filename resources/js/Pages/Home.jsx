@@ -28,17 +28,37 @@ export default function Home ({postal_codes, sexes}) {
                 />
             }
             {/* TO DO production: alle referenties naar demoversie schrappen. */}
-            <div  className="bg6 m-y-3 padding-20px fc11">
-                <h3 className="m-y-1">Demoversie</h3>
+            <div className="bg6 m-y-3 padding-20px fc11 max-width-770p">
+                <h1 className="m-y-05 fc8 fs-shadow-fc12">Demoversie</h1>
+                <h2 className="m-tb fc12">Welkom</h2>
+                    <p>Met deze beperkte versie van Hondenschool Database kunnen <span className="fw-bold">gebruikers</span> onder meer:</p>
+                    <ul className="m-y-1 m-l-2">
+                        <li>zichzelf aanmelden en hun gegevens bewerken,</li>
+                        <li>hun honden aanmelden, beheren en delen met andere gebruikers,</li>
+                        <li>en zich met een (gedeelde)  hond inschrijven voor één of meerdere disciplines.</li>
+                    </ul>
+                    <p><span className="fw-bold">Beheerders</span> kunnen bovendien aanvragen goed- of afkeuren en een filterbaar overzicht van alle lidmaatschappen raadplegen.</p>
+                <h2 className="m-tb fc12">Inloggen</h2>
                 <p>Je kan een eigen account aanmaken, of één van de volgende accounts gebruiken:</p>
-                <p>Eigen accounts zullen steeds de gebruikersrol hebben.</p>
-                <ul className="m-xy-2">
+                <p>Zelf aangemaakte accounts zullen steeds de gebruikersrol hebben.</p>
+                <ul className="m-y-1 m-l-2">
                     <li><span className="fw-bold">bart-stevens@outlook.com</span> (Jerom, gebruiker, incl honden en lidmaatschappen)</li>
                     <li><span className="fw-bold">bart_stevens9@hotmail.com</span> (Josefien, gebruiker, incl honden en lidmaatschappen)</li>
                     <li><span className="fw-bold">bart.stevens9@gmail.com</span> (Bart, beheerder, incl honden en lidmaatschappen)</li>
                     <li><span className="fw-bold">superadmin@test.be</span> (Jean, superbeheerder)</li>
                 </ul>
                 <p>Wachtwoord van deze accounts is steeds 123456789.</p>
+                <h2 className="m-tb fc12">Under the hood</h2>
+                <p className="m-y-05 ff">
+                    Benieuwd naar de uitdagingen die deze database tackelt, de gebruikte technologie en andere weetjes? Lees erover in&nbsp;
+                    <a
+                        href= "https://www.canva.com/design/DAGFUjzk2HM/q9qb1Llloskm9wKOAh0H0Q/view?utm_content=DAGFUjzk2HM&utm_campaign=designshare&utm_medium=link&utm_source=editor"
+                        target="_blank"
+                    >deze korte presentatie</a>!
+                </p>
+                <p  className="m-y-05">
+                    In het kader van deze demoversie werden bepaalde restricties opgeheven, zoals die mbt email verificatie.
+                </p>
             </div>
         </div>
     )

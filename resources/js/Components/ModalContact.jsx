@@ -11,7 +11,7 @@ export default function ModalContact ({user, close}) {
                     className="btn-accent"
                 ><i className="fa-solid fa-xmark"></i></button>
             </div>
-            <h3 className="m-y-1">
+            <h3 className="m-y-05">
                 {user.first_name} {user.last_name}
             </h3>
             <div>

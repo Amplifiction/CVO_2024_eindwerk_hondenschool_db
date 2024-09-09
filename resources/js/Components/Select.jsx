@@ -10,7 +10,7 @@ export default function Select ({
     setError,
 }) {
     return(
-        <div className="flex-col m-y-1">
+        <div className="flex-col m-y-05">
             <label htmlFor={field_id}>{title}</label>
             <select
                 id={field_id}

@@ -299,7 +299,7 @@ p, h1, h2, h3, h4, h5, h6 {
   text-align: center;
   padding: 3px 5px;
   margin: 2px;
-  color: #FBFBFB;
+  color: #dfe2d2;
   background-color: rgb(100, 9, 9);
   transition: background-color 0.3s;
   border: none;
@@ -317,7 +317,7 @@ p, h1, h2, h3, h4, h5, h6 {
   text-align: center;
   padding: 3px 5px;
   margin: 2px;
-  color: #FBFBFB;
+  color: #dfe2d2;
   background-color: rgb(0, 128, 0);
   transition: background-color 0.3s;
   border: none;
@@ -335,7 +335,7 @@ p, h1, h2, h3, h4, h5, h6 {
   text-align: center;
   padding: 3px 5px;
   margin: 2px;
-  color: #FBFBFB;
+  color: #dfe2d2;
   background-color: rgb(5, 5, 128);
   transition: background-color 0.3s;
   border: none;
@@ -353,7 +353,7 @@ p, h1, h2, h3, h4, h5, h6 {
   text-align: center;
   padding: 3px 5px;
   margin: 2px;
-  color: #FBFBFB;
+  color: #dfe2d2;
   background-color: rgb(117, 117, 117);
   transition: background-color 0.3s;
   border: none;
@@ -426,7 +426,7 @@ select {
 }
 
 .label-nullable {
-  color: #FBFBFB;
+  color: #dfe2d2;
   font-weight: inherit;
 }
 
@@ -486,7 +486,7 @@ select {
 
 .table-header {
   border-bottom: 1px solid rgb(237, 237, 237);
-  background-color: #FBFBFB;
+  background-color: #dfe2d2;
   color: #485935;
 }
 
@@ -499,7 +499,7 @@ select {
 }
 
 h1 {
-  font-size: 200%;
+  font-size: 250%;
 }
 
 h2 {
@@ -511,15 +511,15 @@ h3 {
 }
 
 h4 {
-  font-size: 140%;
+  font-size: 145%;
 }
 
 h5 {
-  font-size: 120%;
+  font-size: 130%;
 }
 
 h6 {
-  font-size: 100%;
+  font-size: 115%;
 }
 
 .error {
@@ -561,11 +561,19 @@ h6 {
 }
 
 .fc11 {
+  color: #dfe2d2;
+}
+
+.fc12 {
   color: #FBFBFB;
 }
 
 .fc-accent {
   color: rgb(5, 5, 128);
+}
+
+.fc-green {
+  color: rgb(0, 128, 0);
 }
 
 .ff-code {
@@ -586,6 +594,10 @@ h6 {
 
 .fs-ita {
   font-style: italic;
+}
+
+.fs-shadow-fc12 {
+  text-shadow: 1px 1px 2px #FBFBFB;
 }
 
 .fw-bold {
@@ -615,7 +627,7 @@ body {
 }
 footer {
   background-color: #485935;
-  color: #FBFBFB;
+  color: #dfe2d2;
 }
 
 a {
@@ -670,8 +682,12 @@ img {
   max-width: 400px;
 }
 
+.max-width-770p {
+  max-width: 770px;
+}
+
 .min-width-425px {
-  min-width: 450px;
+  min-width: 425px;
 }
 
 .width-100pc {
@@ -754,9 +770,19 @@ img {
   margin-right: auto;
 }
 
-.m-y-1 {
+.m-tb {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.m-y-05 {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
+}
+
+.m-y-1 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .m-y-2 {
@@ -773,8 +799,8 @@ img {
   margin: 0.5rem;
 }
 
-.m-xy-2 {
-  margin: 2rem;
+.m-l-2 {
+  margin-left: 2rem;
 }
 
 .padding-8px {

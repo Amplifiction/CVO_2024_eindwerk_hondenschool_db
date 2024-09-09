@@ -77,7 +77,7 @@ export default function EigenCombobox ({
 
     return (
         <div
-            className="flex-col m-y-1"
+            className="flex-col m-y-05"
             onBlur={handleBlur}
         > {/* React ondersteunt geen onfocusout. */}
             <label

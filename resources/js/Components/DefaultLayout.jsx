@@ -33,7 +33,7 @@ export function DefaultLayout({children}) {
                 </header>
                 <section
                     className="container flex-col align-center">
-                        <div className="">
+                        <div>
                             {children}
                         </div>
                 </section>

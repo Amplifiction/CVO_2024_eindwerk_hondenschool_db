@@ -1,14 +1,33 @@
 @use 'variables' as vars;
 
-@for $i from 1 through 6 {
-    h#{$i} {
-        font-size: 220-$i*20%;
-    }
+// @for $i from 1 through 6 {
+//     h#{$i} {
+//         font-size: 220-$i*20%;
+//     }
+// }
+h1 {
+    font-size: 250%;
 }
+h2 {
+    font-size: 180%;
+}
+h3 {
+    font-size: 160%;
+}
+h4 {
+    font-size: 145%;
+}
+h5 {
+    font-size: 130%;
+}
+h6 {
+    font-size: 115%;
+}
+
 .error {
     color: vars.$fcred;
     font-style: italic;
-    max-width: 100%; //helpt niet. max-width: fit-content evenmin.
+    max-width: 100%; //helpt niet. 'max-width: fit-content' evenmin.
 }
 .fc1 {
     color: vars.$fc1;
@@ -37,8 +56,14 @@
 .fc11 {
     color: vars.$clr11;
 }
+.fc12 {
+    color: vars.$clr12;
+}
 .fc-accent {
     color: vars.$accent;
+}
+.fc-green {
+    color: vars.$green;
 }
 
 .ff-code {
@@ -55,6 +80,9 @@
 }
 .fs-ita {
     font-style: italic;
+}
+.fs-shadow-fc12 {
+    text-shadow: 1px 1px 2px vars.$clr12;
 }
 .fw-bold {
     font-weight: bold;

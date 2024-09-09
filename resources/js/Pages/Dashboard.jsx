@@ -56,7 +56,7 @@ export default function Dashboard ({dogs, memberships}) {
         <div>
             <div className="m-y-3">
                 {flash.message &&
-                    <div className="bg6 fc11 padding-20px m-y-1">
+                    <div className="bg6 fc12 padding-20px m-y-05">
                         <i className="fa-solid fa-circle-info fs-150 fc10"></i>
                         <p className="fs-ita">{flash.message}</p>
                     </div>
@@ -70,12 +70,12 @@ export default function Dashboard ({dogs, memberships}) {
                             <Link
                                 href={`${basePath}/dashboardadmin`}
                                 as="button"
-                                className="btn-accent m-y-1"
+                                className="btn-accent m-y-05"
                             >Admin dashboard</Link>
                         </div>
                     }
                 </div>
-                <div className="m-y-1 fc6">{`Welkom, ${auth.user.first_name}! ${role}`}</div>
+                <div className="m-y-05 fc6">{`Welkom, ${auth.user.first_name}! ${role}`}</div>
                 <div>
                     <Link
                         href={`${basePath}/editProfile`}
@@ -103,13 +103,13 @@ export default function Dashboard ({dogs, memberships}) {
                 <Modal
                     close={() => setShowDogDeleteModal(false)}
                 >
-                    <p className="m-y-1 fw-bold">
+                    <p className="m-y-05 fw-bold">
                         Weet u zeker dat u {deleteModalDog.name} wilt verwijderen?
                     </p>
-                    <p className="m-y-1">
+                    <p className="m-y-05">
                         Deze actie verwijdert ook alle lidmaatschappen die u met de hond heeft.
                     </p>
-                    <div className="flex-row just-center m-y-1">
+                    <div className="flex-row just-center m-y-05">
                         <button
                             onClick={() => handleDogDelete(deleteModalDog.id)}
                             className="btn-red"
@@ -131,8 +131,8 @@ export default function Dashboard ({dogs, memberships}) {
                             className="btn-accent"
                         ><i className="fa-solid fa-xmark"></i></button>
                     </div>
-                    <p className="m-y-1 fw-bold">Om {shareModalDog.name} te delen, deel je de volgende code:</p>
-                    <div className="grid-row m-y-1">
+                    <p className="m-y-05 fw-bold">Om {shareModalDog.name} te delen, deel je de volgende code:</p>
+                    <div className="grid-row m-y-05">
                         <input
                             type="text"
                             value={shareModalDog.uuid}
@@ -144,7 +144,7 @@ export default function Dashboard ({dogs, memberships}) {
                             className="btn-accent xs-col-2"
                         ><i className="fa-regular fa-copy"></i></button>
                     </div>
-                    <p className="m-y-1 fs-90">
+                    <p className="m-y-05 fs-90">
                         In te voeren door andere gebruikers onder <br/>
                         Dashboard &gt; 'Hond toevoegen' &gt; 'Gedeelde hond toevoegen'
                     </p>
@@ -154,7 +154,7 @@ export default function Dashboard ({dogs, memberships}) {
                 <Modal
                     close={() => setShowMsDeleteModal(false)}
                 >
-                    <p className="m-y-1 fw-bold">
+                    <p className="m-y-05 fw-bold">
                         Weet je zeker dat je het lidmaatschap met {deleteModalMs.dog_name} voor {deleteModalMs.disc_name} wil verwijderen?
                     </p>
                     <div className="flex-row just-center">

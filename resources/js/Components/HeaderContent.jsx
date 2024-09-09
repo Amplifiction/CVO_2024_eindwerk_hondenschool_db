@@ -1,13 +1,13 @@
 import { Link, usePage } from "@inertiajs/react"
 
 export default function HeaderContent ({}) {
-    const { auth, basePath } = usePage().props
+    const { auth} = usePage().props
 
     return (
         <div className="grid-row just-between">
             <div className="xs-col-6 max-height-100p">
                 <Link
-                    href={`${basePath}/dashboard`}
+                    href={`/dashboard`}
                 >
                     <img src="images/logo-nobg-white.png" alt="logo"/>
                 </Link>

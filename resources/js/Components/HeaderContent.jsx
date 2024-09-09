@@ -1,7 +1,7 @@
 import { Link, usePage } from "@inertiajs/react"
 
 export default function HeaderContent ({}) {
-    const { auth} = usePage().props
+    const { auth } = usePage().props
 
     return (
         <div className="grid-row just-between">

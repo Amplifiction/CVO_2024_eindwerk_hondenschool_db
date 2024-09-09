@@ -1,9 +1,7 @@
-import { Head, } from "@inertiajs/react";
+import { Head } from "@inertiajs/react";
 import '../../css/main.css'
 import HeaderContent from "../Components/HeaderContent"
 import FooterContent from "./FooterContent";
-import { usePage } from '@inertiajs/react';
-
 
 export function DefaultLayout({children}) {
     const backgrounds = ['bg-rect-1', 'bg-rect-2', 'bg-rect-3']

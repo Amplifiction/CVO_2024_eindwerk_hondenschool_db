@@ -44,6 +44,7 @@ class HandleInertiaRequests extends Middleware
             ],
             'website' => [ 'https://deroedel.bart-stevens.be/'],
             'facebook' => [ 'https://www.facebook.com/hondenschoolderoedelhelchteren/'],
+            'basePath' => '',
         ]);
     }
 }

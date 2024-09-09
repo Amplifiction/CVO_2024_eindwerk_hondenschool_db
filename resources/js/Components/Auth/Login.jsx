@@ -1,18 +1,18 @@
 
-import { useForm } from "@inertiajs/react"
+import { useForm, usePage } from "@inertiajs/react"
 import SingleInput from "../SingleInput"
 import Form from "../Form"
-import { basePath } from '../basePath';
 
 export default function Login ({}) {
     const { data, setData, post, processing, errors, setError } = useForm({
         email: '',
         password: '',
     })
+    const { basePath } = usePage().props
 
     function handleSubmit(e) {
         e.preventDefault()
-        post(basePath('/login'))
+        post(`${basePath}/login`)
     }
 
     return (

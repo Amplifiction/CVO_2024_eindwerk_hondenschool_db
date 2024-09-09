@@ -62,10 +62,11 @@ export default function Home ({postal_codes, sexes}) {
                 </p>
                 <div className="flex-row just-center">
                     <div className="flex-row just-between fc8 fs-300 min-width-330px">
-                        <i class="fa-brands fa-laravel"></i>
-                        <i class="fa-brands fa-react"></i>
-                        <i class="fa-brands fa-sass"></i>
-                        <i class="fa-solid fa-plus"></i>
+                        <i className="fa-brands fa-laravel"></i>
+                        <i className="fa-brands fa-react"></i>
+                        <i className="fa-solid fa-angles-right"></i> {/* bij gebrek aan officieel Inertia icon */}
+                        <i className="fa-brands fa-sass"></i>
+                        <i className="fa-solid fa-plus"></i>
                     </div>
                 </div>
             </div>
